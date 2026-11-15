@@ -1,0 +1,442 @@
+{
+  "format": 1,
+  "name": "Trim",
+  "author": "FIPinator 3000",
+  "description": "Elevator, rudder and aileron trim. S1-S3 pick which trim the knobs set (right knob fine, left knob faster).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0B0C0E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "elev": {
+      "sim": "ELEVATOR TRIM PCT",
+      "unit": "percent over 100",
+      "default": 0.15
+    },
+    "rud": {
+      "sim": "RUDDER TRIM PCT",
+      "unit": "percent over 100",
+      "default": -0.1
+    },
+    "ail": {
+      "sim": "AILERON TRIM PCT",
+      "unit": "percent over 100",
+      "default": 0.05
+    },
+    "elev_y": {
+      "expr": "clamp(-elev, -1, 1) * 80"
+    },
+    "rud_x": {
+      "expr": "clamp(rud, -1, 1) * 60"
+    },
+    "ail_x": {
+      "expr": "clamp(ail, -1, 1) * 60"
+    },
+    "knobMode": {
+      "default": 1
+    },
+    "sel1_4_hide": {
+      "expr": "choose(choose(abs(knobMode - 1) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "sel2_11_hide": {
+      "expr": "choose(choose(abs(knobMode - 2) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "sel3_18_hide": {
+      "expr": "choose(choose(abs(knobMode - 3) - 0.5, 0, 1) - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    },
+    "ptr": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0B0C0E"
+    },
+    {
+      "type": "text",
+      "text": "ELEV",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "RUDDER",
+      "x": 4,
+      "y": 65,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "AILERON",
+      "x": 4,
+      "y": 105,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel1_4_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 50,
+          "y": 8,
+          "width": 92,
+          "height": 224,
+          "radius": 4,
+          "stroke": "#7FD6F0",
+          "strokeWidth": 2.5
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "ELEVATOR",
+      "x": 96,
+      "y": 26,
+      "size": 13,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 92,
+      "y": 40,
+      "width": 8,
+      "height": 164,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 80,
+      "y": 121,
+      "width": 32,
+      "height": 2,
+      "radius": 3,
+      "fill": "#9AA0A6"
+    },
+    {
+      "type": "text",
+      "text": "UP",
+      "x": 120,
+      "y": 50,
+      "size": 12,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "DN",
+      "x": 120,
+      "y": 202,
+      "size": 12,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "group",
+      "moveY": {
+        "value": "elev_y",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "ptr",
+          "at": [
+            90
+          ],
+          "radius": 22,
+          "length": -14,
+          "width": 14,
+          "color": "#F5A623",
+          "shape": "triangle",
+          "center": [
+            66,
+            122
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel2_11_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 152,
+          "y": 16,
+          "width": 162,
+          "height": 92,
+          "radius": 4,
+          "stroke": "#7FD6F0",
+          "strokeWidth": 2.5
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "RUDDER",
+      "x": 233,
+      "y": 36,
+      "size": 13,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 170,
+      "y": 62,
+      "width": 126,
+      "height": 8,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 232,
+      "y": 52,
+      "width": 2,
+      "height": 28,
+      "radius": 3,
+      "fill": "#9AA0A6"
+    },
+    {
+      "type": "text",
+      "text": "L",
+      "x": 166,
+      "y": 96,
+      "size": 12,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "text": "R",
+      "x": 300,
+      "y": 96,
+      "size": 12,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "rud_x",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "ptr",
+          "at": [
+            180
+          ],
+          "radius": 22,
+          "length": -14,
+          "width": 14,
+          "color": "#F5A623",
+          "shape": "triangle",
+          "center": [
+            233,
+            36
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel3_18_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 152,
+          "y": 110,
+          "width": 162,
+          "height": 92,
+          "radius": 4,
+          "stroke": "#7FD6F0",
+          "strokeWidth": 2.5
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "AILERON",
+      "x": 233,
+      "y": 130,
+      "size": 13,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 170,
+      "y": 156,
+      "width": 126,
+      "height": 8,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 232,
+      "y": 146,
+      "width": 2,
+      "height": 28,
+      "radius": 3,
+      "fill": "#9AA0A6"
+    },
+    {
+      "type": "text",
+      "text": "L",
+      "x": 166,
+      "y": 190,
+      "size": 12,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "text": "R",
+      "x": 300,
+      "y": 190,
+      "size": 12,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ail_x",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "ptr",
+          "at": [
+            180
+          ],
+          "radius": 22,
+          "length": -14,
+          "width": 14,
+          "color": "#F5A623",
+          "shape": "triangle",
+          "center": [
+            233,
+            130
+          ]
+        }
+      ]
+    }
+  ],
+  "modes": [
+    {
+      "name": "ELEV",
+      "button": "button1",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "ELEV_TRIM_UP"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "ELEV_TRIM_DN"
+        },
+        "leftKnobClockwise": {
+          "event": "ELEV_TRIM_UP",
+          "repeat": 10
+        },
+        "leftKnobAnticlockwise": {
+          "event": "ELEV_TRIM_DN",
+          "repeat": 10
+        }
+      }
+    },
+    {
+      "name": "RUDDER",
+      "button": "button2",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "RUDDER_TRIM_RIGHT"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "RUDDER_TRIM_LEFT"
+        },
+        "leftKnobClockwise": {
+          "event": "RUDDER_TRIM_RIGHT",
+          "repeat": 10
+        },
+        "leftKnobAnticlockwise": {
+          "event": "RUDDER_TRIM_LEFT",
+          "repeat": 10
+        }
+      }
+    },
+    {
+      "name": "AILERON",
+      "button": "button3",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "AILERON_TRIM_RIGHT"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "AILERON_TRIM_LEFT"
+        },
+        "leftKnobClockwise": {
+          "event": "AILERON_TRIM_RIGHT",
+          "repeat": 10
+        },
+        "leftKnobAnticlockwise": {
+          "event": "AILERON_TRIM_LEFT",
+          "repeat": 10
+        }
+      }
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

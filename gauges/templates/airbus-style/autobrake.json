@@ -1,0 +1,262 @@
+{
+  "format": 1,
+  "name": "Autobrake (Airbus style)",
+  "author": "FIPinator 3000",
+  "description": "Airbus-style autobrake: LO, MED, MAX on S1-S3 (SET_AUTOBRAKE_CONTROL 1, 2, 3; to check per plane), the chosen one lit.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#16191D"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "ab": {
+      "sim": "AUTO BRAKE SWITCH CB",
+      "unit": "number",
+      "default": 2
+    },
+    "on1": {
+      "expr": "choose(abs(ab - 1) - 0.5, 0, 1)"
+    },
+    "on1_lamp5_hide": {
+      "expr": "choose(on1 - 0.5, 0, 400)"
+    },
+    "on2": {
+      "expr": "choose(abs(ab - 2) - 0.5, 0, 1)"
+    },
+    "on2_lamp9_hide": {
+      "expr": "choose(on2 - 0.5, 0, 400)"
+    },
+    "on3": {
+      "expr": "choose(abs(ab - 3) - 0.5, 0, 1)"
+    },
+    "on3_lamp13_hide": {
+      "expr": "choose(on3 - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#16191D"
+    },
+    {
+      "type": "text",
+      "text": "AUTO/BRK",
+      "x": 182,
+      "y": 150,
+      "size": 15,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "text": "LO",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 110,
+      "y": 6,
+      "width": 144,
+      "height": 32,
+      "radius": 3,
+      "fill": "#2B2F34",
+      "stroke": "#40454B",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "LO",
+      "x": 182,
+      "y": 31,
+      "size": 18,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "on1_lamp5_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 116,
+          "y": 9,
+          "width": 132,
+          "height": 6,
+          "radius": 3,
+          "fill": "#3BE36E"
+        },
+        {
+          "type": "text",
+          "text": "",
+          "x": 182,
+          "y": 18,
+          "size": 3.6,
+          "color": "#0B0C0E"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "MED",
+      "x": 4,
+      "y": 65,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 110,
+      "y": 46,
+      "width": 144,
+      "height": 32,
+      "radius": 3,
+      "fill": "#2B2F34",
+      "stroke": "#40454B",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "MED",
+      "x": 182,
+      "y": 71,
+      "size": 18,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "on2_lamp9_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 116,
+          "y": 49,
+          "width": 132,
+          "height": 6,
+          "radius": 3,
+          "fill": "#3BE36E"
+        },
+        {
+          "type": "text",
+          "text": "",
+          "x": 182,
+          "y": 58,
+          "size": 3.6,
+          "color": "#0B0C0E"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "MAX",
+      "x": 4,
+      "y": 105,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 110,
+      "y": 86,
+      "width": 144,
+      "height": 32,
+      "radius": 3,
+      "fill": "#2B2F34",
+      "stroke": "#40454B",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "MAX",
+      "x": 182,
+      "y": 111,
+      "size": 18,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "on3_lamp13_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 116,
+          "y": 89,
+          "width": 132,
+          "height": 6,
+          "radius": 3,
+          "fill": "#3BE36E"
+        },
+        {
+          "type": "text",
+          "text": "",
+          "x": 182,
+          "y": 98,
+          "size": 3.6,
+          "color": "#0B0C0E"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "Level numbers: check in your plane.",
+      "x": 182,
+      "y": 228,
+      "size": 11,
+      "color": "#5D636B",
+      "align": "center"
+    }
+  ],
+  "controls": {
+    "button1": {
+      "event": "SET_AUTOBRAKE_CONTROL",
+      "data": 1
+    },
+    "button2": {
+      "event": "SET_AUTOBRAKE_CONTROL",
+      "data": 2
+    },
+    "button3": {
+      "event": "SET_AUTOBRAKE_CONTROL",
+      "data": 3
+    }
+  },
+  "buttonLights": {
+    "button1": "on1",
+    "button2": "on2",
+    "button3": "on3"
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

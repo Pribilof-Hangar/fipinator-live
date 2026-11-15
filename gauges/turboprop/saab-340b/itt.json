@@ -1,0 +1,248 @@
+{
+  "format": 1,
+  "name": "Saab 340B ITT",
+  "author": "FIPinator 3000",
+  "description": "Saab 340B ITT: 2 engines, numbered needles; red line 965. Limits: UK CAA TCDS UK.TC.A.00163, EASA TCDS IM.E.010 (CT7-9B).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "e1": {
+      "sim": "TURB ENG ITT:1",
+      "unit": "celsius",
+      "default": 650
+    },
+    "e2": {
+      "sim": "TURB ENG ITT:2",
+      "unit": "celsius",
+      "default": 700
+    }
+  },
+  "scales": {
+    "itt": {
+      "min": 0,
+      "max": 1000,
+      "startAngle": -135,
+      "endAngle": 135
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "arc",
+      "scale": "itt",
+      "from": 400,
+      "to": 944,
+      "radius": 95.64,
+      "width": 6,
+      "color": "#3E9E4A"
+    },
+    {
+      "type": "arc",
+      "scale": "itt",
+      "from": 944,
+      "to": 965,
+      "radius": 95.64,
+      "width": 6,
+      "color": "#E0B13C"
+    },
+    {
+      "type": "ticks",
+      "scale": "itt",
+      "every": 20,
+      "from": 0,
+      "to": 1000,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "itt",
+      "every": 100,
+      "from": 0,
+      "to": 1000,
+      "radius": 92.96,
+      "length": 16,
+      "width": 2.8,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "itt",
+      "at": [
+        965
+      ],
+      "radius": 98.32,
+      "length": 20,
+      "width": 4,
+      "color": "#D3362B"
+    },
+    {
+      "type": "labels",
+      "scale": "itt",
+      "every": 200,
+      "from": 0,
+      "to": 1000,
+      "divideBy": 100,
+      "radius": 71.5,
+      "size": 21,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "ITT",
+      "x": 160,
+      "y": 178.99,
+      "size": 15,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "\u00B0C X 100",
+      "x": 160,
+      "y": 191.5,
+      "size": 9,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "rect",
+      "x": 118.55,
+      "y": 141.96,
+      "width": 40,
+      "height": 22,
+      "radius": 3,
+      "fill": "#0E0E0E",
+      "stroke": "#5A5A5A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "value": "e1",
+      "format": "0",
+      "x": 138.55,
+      "y": 159.96,
+      "size": 17,
+      "color": "#F0A030"
+    },
+    {
+      "type": "rect",
+      "x": 161.45,
+      "y": 141.96,
+      "width": 40,
+      "height": 22,
+      "radius": 3,
+      "fill": "#0E0E0E",
+      "stroke": "#5A5A5A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "value": "e2",
+      "format": "0",
+      "x": 181.45,
+      "y": 159.96,
+      "size": 17,
+      "color": "#F0A030"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "itt",
+      "value": "e1",
+      "length": 82.23,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "1"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "itt",
+      "value": "e2",
+      "length": 75.97,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "2"
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "fill": "#1A1A1A",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.64,
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,388 @@
+{
+  "format": 1,
+  "name": "Landing gear (Airbus style)",
+  "author": "FIPinator 3000",
+  "description": "Airbus ECAM-style gear: a triangle per leg (green down, red moving, dark up) and the lever position. S1 moves the gear.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0A0D12"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "nose": {
+      "sim": "GEAR CENTER POSITION",
+      "unit": "percent over 100",
+      "default": 1
+    },
+    "nose_down": {
+      "expr": "choose(nose - 0.99, 1, 0)"
+    },
+    "nose_moving": {
+      "expr": "choose(nose - 0.01, choose(0.99 - nose, 1, 0), 0)"
+    },
+    "nose_g_hide": {
+      "expr": "choose(nose_down - 0.5, 0, 400)"
+    },
+    "nose_r_hide": {
+      "expr": "choose(nose_moving - 0.5, 0, 400)"
+    },
+    "left": {
+      "sim": "GEAR LEFT POSITION",
+      "unit": "percent over 100",
+      "default": 1
+    },
+    "left_down": {
+      "expr": "choose(left - 0.99, 1, 0)"
+    },
+    "left_moving": {
+      "expr": "choose(left - 0.01, choose(0.99 - left, 1, 0), 0)"
+    },
+    "left_g_hide": {
+      "expr": "choose(left_down - 0.5, 0, 400)"
+    },
+    "left_r_hide": {
+      "expr": "choose(left_moving - 0.5, 0, 400)"
+    },
+    "right": {
+      "sim": "GEAR RIGHT POSITION",
+      "unit": "percent over 100",
+      "default": 0.5
+    },
+    "right_down": {
+      "expr": "choose(right - 0.99, 1, 0)"
+    },
+    "right_moving": {
+      "expr": "choose(right - 0.01, choose(0.99 - right, 1, 0), 0)"
+    },
+    "right_g_hide": {
+      "expr": "choose(right_down - 0.5, 0, 400)"
+    },
+    "right_r_hide": {
+      "expr": "choose(right_moving - 0.5, 0, 400)"
+    },
+    "lever": {
+      "sim": "GEAR HANDLE POSITION",
+      "unit": "percent over 100",
+      "default": 1
+    },
+    "lever_dn_hide": {
+      "expr": "choose(choose(lever - 0.5, 1, 0) - 0.5, 0, 400)"
+    },
+    "lever_up_hide": {
+      "expr": "choose(choose(lever - 0.5, 0, 1) - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    },
+    "tri": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0A0D12"
+    },
+    {
+      "type": "text",
+      "text": "GEAR",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "LDG GEAR",
+      "x": 175,
+      "y": 28,
+      "size": 15,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "ticks",
+      "scale": "tri",
+      "at": [
+        180
+      ],
+      "radius": 16,
+      "length": -30,
+      "width": 40,
+      "color": "#1E242B",
+      "shape": "triangle",
+      "center": [
+        175,
+        52
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "nose_g_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "tri",
+          "at": [
+            180
+          ],
+          "radius": 16,
+          "length": -30,
+          "width": 40,
+          "color": "#3BE36E",
+          "shape": "triangle",
+          "center": [
+            175,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "nose_r_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "tri",
+          "at": [
+            180
+          ],
+          "radius": 16,
+          "length": -30,
+          "width": 40,
+          "color": "#FF3B30",
+          "shape": "triangle",
+          "center": [
+            175,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "NOSE",
+      "x": 175,
+      "y": 118,
+      "size": 12,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "ticks",
+      "scale": "tri",
+      "at": [
+        180
+      ],
+      "radius": 16,
+      "length": -30,
+      "width": 40,
+      "color": "#1E242B",
+      "shape": "triangle",
+      "center": [
+        100,
+        110
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "left_g_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "tri",
+          "at": [
+            180
+          ],
+          "radius": 16,
+          "length": -30,
+          "width": 40,
+          "color": "#3BE36E",
+          "shape": "triangle",
+          "center": [
+            100,
+            110
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "left_r_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "tri",
+          "at": [
+            180
+          ],
+          "radius": 16,
+          "length": -30,
+          "width": 40,
+          "color": "#FF3B30",
+          "shape": "triangle",
+          "center": [
+            100,
+            110
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "LEFT",
+      "x": 100,
+      "y": 176,
+      "size": 12,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "ticks",
+      "scale": "tri",
+      "at": [
+        180
+      ],
+      "radius": 16,
+      "length": -30,
+      "width": 40,
+      "color": "#1E242B",
+      "shape": "triangle",
+      "center": [
+        250,
+        110
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "right_g_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "tri",
+          "at": [
+            180
+          ],
+          "radius": 16,
+          "length": -30,
+          "width": 40,
+          "color": "#3BE36E",
+          "shape": "triangle",
+          "center": [
+            250,
+            110
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "right_r_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "tri",
+          "at": [
+            180
+          ],
+          "radius": 16,
+          "length": -30,
+          "width": 40,
+          "color": "#FF3B30",
+          "shape": "triangle",
+          "center": [
+            250,
+            110
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "RIGHT",
+      "x": 250,
+      "y": 176,
+      "size": 12,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "lever_dn_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "LEVER DN",
+          "x": 175,
+          "y": 222,
+          "size": 18,
+          "color": "#3BE36E"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "lever_up_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "LEVER UP",
+          "x": 175,
+          "y": 222,
+          "size": 18,
+          "color": "#EDEDED"
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "button1": {
+      "event": "GEAR_TOGGLE"
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

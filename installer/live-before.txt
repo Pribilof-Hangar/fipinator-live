@@ -1,0 +1,18 @@
+FIPinator Live runs realistic gauges on Logitech (Saitek) Flight Instrument Panels while you fly
+Microsoft Flight Simulator 2024. It's free and open source (AGPL-3.0).
+
+What you need:
+- Windows 11
+- Microsoft Flight Simulator 2024
+- The Logitech Flight Instrument Panel driver (free from Logitech; this installer offers the link if
+  it's missing)
+
+That's all: FIPinator Live carries everything else it needs, including Microsoft's SimConnect.dll
+(the file that lets apps talk to the sim, from the MSFS 2024 SDK).
+
+Using SPAD.neXt for your FIPs? Only one program can drive the FIPs at a time: switch off SPAD.neXt's
+FIP support while you use FIPinator Live (FIPinator never changes SPAD's settings). Prefer to stay
+with SPAD.neXt? There's a free set of FIPinator gauges made for it, no FIPinator Live needed.
+
+Installs for your Windows user only (no administrator rights). Your panels and gauges are kept in
+Documents\FIPinator 3000, and uninstalling never deletes them.

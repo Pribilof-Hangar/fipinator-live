@@ -1,0 +1,731 @@
+{
+  "format": 1,
+  "name": "727 HSI",
+  "author": "FIPinator 3000",
+  "description": "HSI with DME MILES and COURSE windows above the dial, like older airliner HSIs.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#66766C"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "hdg": {
+      "sim": "PLANE HEADING DEGREES MAGNETIC",
+      "unit": "degrees",
+      "default": 300
+    },
+    "bug": {
+      "sim": "AUTOPILOT HEADING LOCK DIR",
+      "unit": "degrees",
+      "default": 280
+    },
+    "obs": {
+      "sim": "NAV OBS:1",
+      "unit": "degrees",
+      "default": 240
+    },
+    "cdi": {
+      "sim": "HSI CDI NEEDLE",
+      "unit": "number",
+      "default": 40
+    },
+    "gsi": {
+      "sim": "HSI GSI NEEDLE",
+      "unit": "number",
+      "default": -30
+    },
+    "has_nav": {
+      "sim": "NAV HAS NAV:1",
+      "unit": "bool",
+      "default": 1
+    },
+    "has_gs": {
+      "sim": "NAV HAS GLIDE SLOPE:1",
+      "unit": "bool",
+      "default": 1
+    },
+    "tofrom": {
+      "sim": "NAV TOFROM:1",
+      "unit": "number",
+      "default": 1
+    },
+    "gps_drives": {
+      "sim": "GPS DRIVES NAV1",
+      "unit": "bool",
+      "default": 0
+    },
+    "nav_flag_shift": {
+      "expr": "choose(has_nav \u002B gps_drives, 400, 0)"
+    },
+    "gs_hide": {
+      "expr": "choose(has_gs, 0, 400)"
+    },
+    "to_shift": {
+      "expr": "choose(0.5 - abs(tofrom - 1), 0, 400)"
+    },
+    "from_shift": {
+      "expr": "choose(0.5 - abs(tofrom - 2), 0, 400)"
+    },
+    "dme": {
+      "sim": "NAV DME:1",
+      "unit": "nautical miles",
+      "default": 12
+    }
+  },
+  "scales": {
+    "card": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": -360,
+      "wrap": true
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    },
+    "cdipx": {
+      "min": -127,
+      "max": 127,
+      "startAngle": -40.22,
+      "endAngle": 40.22
+    },
+    "gsipx": {
+      "min": -127,
+      "max": 127,
+      "startAngle": -52,
+      "endAngle": 52
+    },
+    "px": {
+      "min": -1000,
+      "max": 1000,
+      "startAngle": -1000,
+      "endAngle": 1000
+    }
+  },
+  "layers": [
+    {
+      "type": "group",
+      "offset": [
+        25.6,
+        31.2
+      ],
+      "zoom": 0.84,
+      "layers": [
+        {
+          "type": "rect",
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 240,
+          "fill": "#66766C"
+        },
+        {
+          "type": "rect",
+          "x": 42,
+          "y": 2,
+          "width": 236,
+          "height": 236,
+          "radius": 14,
+          "fill": "#17181A",
+          "stroke": "#050505",
+          "strokeWidth": 1.5
+        },
+        {
+          "type": "screw",
+          "x": 58,
+          "y": 18,
+          "kind": "slot"
+        },
+        {
+          "type": "screw",
+          "x": 262,
+          "y": 18,
+          "kind": "slot"
+        },
+        {
+          "type": "screw",
+          "x": 58,
+          "y": 222,
+          "kind": "slot"
+        },
+        {
+          "type": "screw",
+          "x": 262,
+          "y": 222,
+          "kind": "slot"
+        },
+        {
+          "type": "circle",
+          "r": 109,
+          "fillTop": "#050505",
+          "fillBottom": "#2A2B2D",
+          "stroke": "#000000",
+          "strokeWidth": 1
+        },
+        {
+          "type": "circle",
+          "r": 101,
+          "fillTop": "#141414",
+          "fillBottom": "#030303",
+          "stroke": "#000000",
+          "strokeWidth": 2
+        },
+        {
+          "type": "group",
+          "rotate": {
+            "value": "hdg",
+            "scale": "card"
+          },
+          "layers": [
+            {
+              "type": "ticks",
+              "scale": "dial",
+              "every": 5,
+              "from": 0,
+              "to": 355,
+              "radius": 92.96,
+              "length": 7,
+              "width": 1.4,
+              "color": "#F4F4F2"
+            },
+            {
+              "type": "ticks",
+              "scale": "dial",
+              "every": 10,
+              "from": 0,
+              "to": 350,
+              "radius": 92.96,
+              "length": 13,
+              "width": 2.4,
+              "color": "#F4F4F2"
+            },
+            {
+              "type": "labels",
+              "scale": "dial",
+              "every": 30,
+              "from": 0,
+              "to": 330,
+              "radius": 74.19,
+              "size": 18,
+              "color": "#F4F4F2",
+              "orient": "radial",
+              "texts": {
+                "0": "N",
+                "30": "3",
+                "60": "6",
+                "90": "E",
+                "120": "12",
+                "150": "15",
+                "180": "S",
+                "210": "21",
+                "240": "24",
+                "270": "W",
+                "300": "30",
+                "330": "33"
+              }
+            },
+            {
+              "type": "group",
+              "rotate": {
+                "value": "bug",
+                "scale": "dial"
+              },
+              "layers": [
+                {
+                  "type": "rect",
+                  "x": 152.85,
+                  "y": 20.79,
+                  "width": 14.3,
+                  "height": 8.04,
+                  "radius": 1,
+                  "fill": "#E8862A"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "rotate": {
+                "value": "obs",
+                "scale": "dial"
+              },
+              "layers": [
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    0
+                  ],
+                  "radius": 67.93,
+                  "length": -22,
+                  "width": 18,
+                  "shape": "triangle",
+                  "color": "#E8D23A"
+                },
+                {
+                  "type": "rect",
+                  "x": 157.77,
+                  "y": 50.28,
+                  "width": 4.47,
+                  "height": 35.75,
+                  "radius": 0,
+                  "fill": "#E8D23A"
+                },
+                {
+                  "type": "rect",
+                  "x": 157.77,
+                  "y": 153.96,
+                  "width": 4.47,
+                  "height": 48.27,
+                  "radius": 0,
+                  "fill": "#E8D23A"
+                },
+                {
+                  "type": "circle",
+                  "r": 2.6,
+                  "center": [
+                    124.25,
+                    120
+                  ],
+                  "fill": "#F4F4F2"
+                },
+                {
+                  "type": "circle",
+                  "r": 2.6,
+                  "center": [
+                    142.12,
+                    120
+                  ],
+                  "fill": "#F4F4F2"
+                },
+                {
+                  "type": "circle",
+                  "r": 2.6,
+                  "center": [
+                    177.88,
+                    120
+                  ],
+                  "fill": "#F4F4F2"
+                },
+                {
+                  "type": "circle",
+                  "r": 2.6,
+                  "center": [
+                    195.75,
+                    120
+                  ],
+                  "fill": "#F4F4F2"
+                },
+                {
+                  "type": "group",
+                  "moveX": {
+                    "value": "to_shift",
+                    "scale": "px"
+                  },
+                  "layers": [
+                    {
+                      "type": "ticks",
+                      "scale": "dial",
+                      "at": [
+                        0
+                      ],
+                      "radius": 17.88,
+                      "length": -12,
+                      "width": 12,
+                      "shape": "triangle",
+                      "color": "#F4F4F2"
+                    }
+                  ]
+                },
+                {
+                  "type": "group",
+                  "moveX": {
+                    "value": "from_shift",
+                    "scale": "px"
+                  },
+                  "layers": [
+                    {
+                      "type": "ticks",
+                      "scale": "dial",
+                      "at": [
+                        180
+                      ],
+                      "radius": 17.88,
+                      "length": -12,
+                      "width": 12,
+                      "shape": "triangle",
+                      "color": "#F4F4F2"
+                    }
+                  ]
+                },
+                {
+                  "type": "group",
+                  "moveX": {
+                    "value": "cdi",
+                    "scale": "cdipx"
+                  },
+                  "layers": [
+                    {
+                      "type": "rect",
+                      "x": 157.77,
+                      "y": 87.82,
+                      "width": 4.47,
+                      "height": 64.35,
+                      "radius": 0,
+                      "fill": "#E8D23A"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            0
+          ],
+          "radius": 100.11,
+          "length": 14,
+          "width": 12,
+          "shape": "triangle",
+          "color": "#F4F4F2"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            45,
+            90,
+            135,
+            180,
+            225,
+            270,
+            315
+          ],
+          "radius": 100.11,
+          "length": 8,
+          "width": 8,
+          "shape": "triangle",
+          "color": "#F4F4F2"
+        },
+        {
+          "type": "rect",
+          "x": 4,
+          "y": 54,
+          "width": 30,
+          "height": 132,
+          "radius": 4,
+          "fill": "#121212",
+          "stroke": "#5A5A5A",
+          "strokeWidth": 1.2
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            19,
+            68
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            19,
+            94
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            19,
+            146
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            19,
+            172
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "rect",
+          "x": 9,
+          "y": 118.75,
+          "width": 20,
+          "height": 2.5,
+          "fill": "#F2F2EE"
+        },
+        {
+          "type": "group",
+          "moveY": {
+            "value": "gsi",
+            "scale": "gsipx"
+          },
+          "layers": [
+            {
+              "type": "group",
+              "moveX": {
+                "value": "gs_hide",
+                "scale": "px"
+              },
+              "layers": [
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    270
+                  ],
+                  "radius": 150,
+                  "length": 18,
+                  "width": 16,
+                  "shape": "triangle",
+                  "color": "#E8D23A"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rect",
+          "x": 286,
+          "y": 54,
+          "width": 30,
+          "height": 132,
+          "radius": 4,
+          "fill": "#121212",
+          "stroke": "#5A5A5A",
+          "strokeWidth": 1.2
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            301,
+            68
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            301,
+            94
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            301,
+            146
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "circle",
+          "r": 3.4,
+          "center": [
+            301,
+            172
+          ],
+          "stroke": "#F2F2EE",
+          "strokeWidth": 1.6
+        },
+        {
+          "type": "rect",
+          "x": 291,
+          "y": 118.75,
+          "width": 20,
+          "height": 2.5,
+          "fill": "#F2F2EE"
+        },
+        {
+          "type": "group",
+          "moveY": {
+            "value": "gsi",
+            "scale": "gsipx"
+          },
+          "layers": [
+            {
+              "type": "group",
+              "moveX": {
+                "value": "gs_hide",
+                "scale": "px"
+              },
+              "layers": [
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    90
+                  ],
+                  "radius": 150,
+                  "length": 18,
+                  "width": 16,
+                  "shape": "triangle",
+                  "color": "#E8D23A"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "moveX": {
+            "value": "nav_flag_shift",
+            "scale": "px"
+          },
+          "layers": [
+            {
+              "type": "rect",
+              "x": 90.28,
+              "y": 64.58,
+              "width": 32.18,
+              "height": 13.41,
+              "radius": 2,
+              "fill": "#C8321E"
+            },
+            {
+              "type": "text",
+              "text": "NAV",
+              "x": 106.37,
+              "y": 74.86,
+              "size": 12,
+              "color": "#FFFFFF"
+            }
+          ]
+        },
+        {
+          "type": "rect",
+          "x": 157.32,
+          "y": 100.34,
+          "width": 5.36,
+          "height": 35.75,
+          "radius": 2,
+          "fill": "#E8862A"
+        },
+        {
+          "type": "rect",
+          "x": 138.55,
+          "y": 114.64,
+          "width": 42.9,
+          "height": 5.36,
+          "radius": 2,
+          "fill": "#E8862A"
+        },
+        {
+          "type": "rect",
+          "x": 151.06,
+          "y": 132.51,
+          "width": 17.88,
+          "height": 3.58,
+          "radius": 1.5,
+          "fill": "#E8862A"
+        },
+        {
+          "type": "glare",
+          "r": 100,
+          "opacity": 0.14
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 14,
+      "y": 4,
+      "width": 62,
+      "height": 28,
+      "radius": 3,
+      "fill": "#050505",
+      "stroke": "#6A6A6A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "value": "dme",
+      "format": "000",
+      "x": 45,
+      "y": 27,
+      "size": 24,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "text",
+      "text": "MILES",
+      "x": 45,
+      "y": 44,
+      "size": 11,
+      "color": "#E6E6E4"
+    },
+    {
+      "type": "rect",
+      "x": 244,
+      "y": 4,
+      "width": 62,
+      "height": 28,
+      "radius": 3,
+      "fill": "#050505",
+      "stroke": "#6A6A6A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "value": "obs",
+      "format": "000",
+      "x": 275,
+      "y": 27,
+      "size": 24,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "text",
+      "text": "COURSE",
+      "x": 275,
+      "y": 44,
+      "size": 11,
+      "color": "#E6E6E4"
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "VOR1_OBI_INC"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "VOR1_OBI_DEC"
+    },
+    "leftKnobClockwise": {
+      "event": "HEADING_BUG_INC"
+    },
+    "leftKnobAnticlockwise": {
+      "event": "HEADING_BUG_DEC"
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "name": "DC-6 RMI (ADF)",
+  "author": "FIPinator 3000",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "Radio magnetic indicator in DC-6 style: compass card turning with heading, single-line needle for ADF 1 and double-line needle for ADF 2. Needles rest at 3 o'clock when their ADF has no signal.",
+  "canvas": { "width": 320, "height": 240, "background": "#5A6064" },
+  "center": [160, 120],
+  "font": "../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "heading": { "sim": "PLANE HEADING DEGREES MAGNETIC", "unit": "degrees", "default": 292 },
+    "adf1_bearing": { "sim": "ADF RADIAL:1", "unit": "degrees", "default": 40 },
+    "adf1_signal": { "sim": "ADF SIGNAL:1", "unit": "number", "default": 1 },
+    "adf2_bearing": { "sim": "ADF RADIAL:2", "unit": "degrees", "default": 320 },
+    "adf2_signal": { "sim": "ADF SIGNAL:2", "unit": "number", "default": 1 },
+    "adf1_needle": { "expr": "choose(adf1_signal, adf1_bearing, 90)" },
+    "adf2_needle": { "expr": "choose(adf2_signal, adf2_bearing, 90)" }
+  },
+  "scales": {
+    "card": { "min": 0, "max": 360, "startAngle": 0, "endAngle": -360 },
+    "dial": { "min": 0, "max": 360, "startAngle": 0, "endAngle": 360, "wrap": true }
+  },
+  "layers": [
+    { "type": "rect", "x": 40, "y": 0, "width": 240, "height": 240, "radius": 18, "fill": "#6C7378", "stroke": "#41474A", "strokeWidth": 1.5 },
+    { "type": "screw", "x": 60, "y": 20, "kind": "slot" },
+    { "type": "screw", "x": 260, "y": 20, "kind": "slot" },
+    { "type": "screw", "x": 58, "y": 222, "kind": "slot" },
+    { "type": "screw", "x": 262, "y": 222, "kind": "slot" },
+
+    { "type": "circle", "r": 115, "fillTop": "#303030", "fillBottom": "#0A0A0A", "stroke": "#2A2A2A", "strokeWidth": 1.2 },
+    { "type": "circle", "r": 107, "fill": "#0B0B0B", "stroke": "#202020", "strokeWidth": 3 },
+
+    { "type": "group", "rotate": { "value": "heading", "scale": "card" }, "layers": [
+      { "type": "ticks", "scale": "dial", "every": 5, "from": 0, "to": 355, "radius": 97, "length": 6, "width": 1.3, "color": "#E8E5DC" },
+      { "type": "ticks", "scale": "dial", "every": 10, "from": 0, "to": 350, "radius": 97, "length": 11, "width": 2, "color": "#E8E5DC" },
+      { "type": "labels", "scale": "dial", "every": 30, "from": 0, "to": 330, "radius": 72, "size": 22, "color": "#E8E5DC", "orient": "radial",
+        "texts": { "0": "N", "30": "3", "60": "6", "90": "E", "120": "12", "150": "15", "180": "S", "210": "21", "240": "24", "270": "W", "300": "30", "330": "33" } }
+    ] },
+
+    { "type": "ticks", "scale": "dial", "every": 45, "from": 45, "to": 315, "radius": 106, "length": 8, "width": 9, "color": "#E0D3A8", "shape": "triangle" },
+    { "type": "ticks", "scale": "dial", "at": [0], "radius": 107, "length": 13, "width": 14, "color": "#E0D3A8", "shape": "triangle" },
+
+    { "type": "needle", "scale": "dial", "value": "adf2_needle", "style": "doubleArrow", "length": 88, "tail": 76, "width": 1.8, "color": "#E8E5DC", "shadow": true },
+    { "type": "needle", "scale": "dial", "value": "adf1_needle", "style": "arrow", "length": 92, "tail": 80, "width": 2, "color": "#F4F2EC", "shadow": true },
+    { "type": "hub", "r": 7, "fill": "#1A1A1A", "stroke": "#5A5A5A" },
+
+    { "type": "text", "text": "< ADF 1", "x": 48, "y": 236, "size": 10, "color": "#C9C4B8", "align": "left" },
+    { "type": "text", "text": "ADF 2 >>", "x": 272, "y": 236, "size": 10, "color": "#C9C4B8", "align": "right" },
+    { "type": "glare", "r": 106, "opacity": 0.16 }
+  ]
+}

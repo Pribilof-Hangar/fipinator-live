@@ -1,0 +1,342 @@
+{
+  "format": 1,
+  "name": "DC-6 Oil quantity 1-2",
+  "author": "FIPinator 3000 (from the owner's DC-6 Gauges designs)",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "PMDG DC-6 oil quantity 1-2, overhead middle panel. Scale and marks as in DC-6 Gauges (read off the PMDG cockpit); needles follow PMDG's own cockpit needle values.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8d908e"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "n1": {
+      "sim": "L:dc6_991_obj",
+      "unit": "number",
+      "default": 157.5
+    },
+    "n2": {
+      "sim": "L:dc6_992_obj",
+      "unit": "number",
+      "default": 192.5
+    }
+  },
+  "scales": {
+    "s0": {
+      "points": [
+        [
+          0,
+          -147.26,
+          99.86
+        ],
+        [
+          100,
+          -106.81,
+          100.28
+        ],
+        [
+          200,
+          -78.02,
+          101.2
+        ],
+        [
+          300,
+          -46.61,
+          100.45
+        ],
+        [
+          350,
+          -28.61,
+          100.24
+        ]
+      ]
+    },
+    "s1": {
+      "points": [
+        [
+          0,
+          147.26,
+          99.86
+        ],
+        [
+          100,
+          106.81,
+          100.28
+        ],
+        [
+          200,
+          78.02,
+          101.2
+        ],
+        [
+          300,
+          46.61,
+          100.45
+        ],
+        [
+          350,
+          28.61,
+          100.24
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3b3c3d",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1e1e1e",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994a4b4c",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        50,
+        150,
+        250
+      ],
+      "radius": 0,
+      "length": 8,
+      "width": 1.2,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        0,
+        100,
+        200,
+        300,
+        350
+      ],
+      "radius": 0,
+      "length": 16,
+      "width": 2.6,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        0,
+        100,
+        200,
+        300,
+        350
+      ],
+      "radius": -28,
+      "size": 20,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ],
+      "texts": {
+        "0": "E",
+        "100": "10",
+        "200": "20",
+        "300": "30",
+        "350": "F"
+      }
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        50,
+        150,
+        250
+      ],
+      "radius": 0,
+      "length": 8,
+      "width": 1.2,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        0,
+        100,
+        200,
+        300,
+        350
+      ],
+      "radius": 0,
+      "length": 16,
+      "width": 2.6,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s1",
+      "at": [
+        0,
+        100,
+        200,
+        300,
+        350
+      ],
+      "radius": -28,
+      "size": 20,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ],
+      "texts": {
+        "0": "E",
+        "100": "10",
+        "200": "20",
+        "300": "30",
+        "350": "F"
+      }
+    },
+    {
+      "type": "text",
+      "text": "OIL",
+      "x": 160,
+      "y": 144.68,
+      "size": 13,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "GALS.",
+      "x": 160,
+      "y": 160.68,
+      "size": 13,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "#1      #2",
+      "x": 160,
+      "y": 175.6,
+      "size": 10,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n1",
+      "center": [
+        160,
+        120
+      ],
+      "length": -4,
+      "width": 3.2,
+      "tail": 24,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s1",
+      "value": "n2",
+      "center": [
+        160,
+        120
+      ],
+      "length": -10,
+      "width": 3.2,
+      "tail": 24,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.6,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 101,
+      "opacity": 0.16
+    }
+  ]
+}

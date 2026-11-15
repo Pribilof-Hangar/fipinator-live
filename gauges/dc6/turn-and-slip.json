@@ -1,0 +1,281 @@
+{
+  "format": 1,
+  "name": "DC-6 Turn and slip",
+  "author": "FIPinator 3000",
+  "description": "Needle-type turn and slip: turn needle with standard-rate marks, white ball in a dark window.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#5A6064"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "turn": {
+      "sim": "TURN INDICATOR RATE",
+      "unit": "radians per second",
+      "default": 0.05236
+    },
+    "ball": {
+      "sim": "TURN COORDINATOR BALL",
+      "unit": "position",
+      "default": -30
+    }
+  },
+  "scales": {
+    "turn": {
+      "min": -0.10472,
+      "max": 0.10472,
+      "startAngle": -40,
+      "endAngle": 40
+    },
+    "ballpx": {
+      "min": -127,
+      "max": 127,
+      "startAngle": -28.41,
+      "endAngle": 28.41
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 40,
+      "y": 0,
+      "width": 240,
+      "height": 240,
+      "radius": 18,
+      "fill": "#6C7378",
+      "stroke": "#41474A",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "screw",
+      "x": 60,
+      "y": 20,
+      "kind": "boss"
+    },
+    {
+      "type": "screw",
+      "x": 260,
+      "y": 20,
+      "kind": "boss"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "circle",
+      "r": 115,
+      "fillTop": "#303030",
+      "fillBottom": "#0A0A0A",
+      "stroke": "#2A2A2A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "circle",
+      "r": 107,
+      "fill": "#0B0B0B",
+      "stroke": "#202020",
+      "strokeWidth": 3
+    },
+    {
+      "type": "ticks",
+      "scale": "turn",
+      "at": [
+        -0.05236,
+        0.05236
+      ],
+      "radius": 75.75,
+      "length": -12,
+      "width": 16,
+      "shape": "triangle",
+      "color": "#EDEAE2",
+      "center": [
+        160,
+        131.36
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "turn",
+      "at": [
+        -0.05236,
+        0.05236
+      ],
+      "radius": 75.75,
+      "length": 10,
+      "width": 15,
+      "color": "#EDEAE2",
+      "center": [
+        160,
+        131.36
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "turn",
+      "at": [
+        0
+      ],
+      "radius": 87.12,
+      "length": 14,
+      "width": 14,
+      "color": "#EDEAE2",
+      "center": [
+        160,
+        131.36
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "turn",
+      "from": -0.10472,
+      "to": 0.10472,
+      "radius": 45.45,
+      "width": 2,
+      "color": "#5A5A5A",
+      "center": [
+        160,
+        131.36
+      ]
+    },
+    {
+      "type": "text",
+      "text": "L",
+      "x": 103.19,
+      "y": 63.19,
+      "size": 18,
+      "color": "#EDEAE2"
+    },
+    {
+      "type": "text",
+      "text": "R",
+      "x": 216.81,
+      "y": 63.19,
+      "size": 18,
+      "color": "#EDEAE2"
+    },
+    {
+      "type": "text",
+      "text": "Y/D",
+      "x": 93.72,
+      "y": 114.32,
+      "size": 11,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "text",
+      "text": "GYRO",
+      "x": 226.28,
+      "y": 114.32,
+      "size": 11,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "text",
+      "text": "D.C. ELEC.",
+      "x": 160,
+      "y": 150.3,
+      "size": 9,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "text",
+      "text": "TURN AND SLIP",
+      "x": 160,
+      "y": 165.45,
+      "size": 14,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "rect",
+      "x": 120.23,
+      "y": 173.03,
+      "width": 79.54,
+      "height": 18.94,
+      "radius": 5,
+      "fill": "#141414",
+      "stroke": "#3A3A3A",
+      "strokeWidth": 1
+    },
+    {
+      "type": "rect",
+      "x": 148.64,
+      "y": 173.97,
+      "width": 2.08,
+      "height": 17.04,
+      "fill": "#EDEAE2"
+    },
+    {
+      "type": "rect",
+      "x": 169.47,
+      "y": 173.97,
+      "width": 2.08,
+      "height": 17.04,
+      "fill": "#EDEAE2"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ball",
+        "scale": "ballpx"
+      },
+      "layers": [
+        {
+          "type": "circle",
+          "r": 8.05,
+          "center": [
+            160,
+            182.5
+          ],
+          "fillTop": "#FFFFFF",
+          "fillBottom": "#BDBDB6",
+          "stroke": "#000000",
+          "strokeWidth": 0.8
+        }
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "turn",
+      "value": "turn",
+      "length": 71.96,
+      "tail": 0,
+      "width": 7,
+      "color": "#F2EFE6",
+      "shadow": true,
+      "center": [
+        160,
+        131.36
+      ]
+    },
+    {
+      "type": "hub",
+      "r": 9,
+      "fill": "#141414",
+      "stroke": "#4A4A4A",
+      "center": [
+        160,
+        131.36
+      ]
+    },
+    {
+      "type": "glare",
+      "r": 106,
+      "opacity": 0.18
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

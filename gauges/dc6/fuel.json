@@ -1,0 +1,310 @@
+{
+  "format": 1,
+  "name": "DC-6 Fuel",
+  "author": "FIPinator 3000",
+  "description": "Two-tank fuel gauge, 500 gallons per tank, red band near empty.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#5A6064"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "left": {
+      "sim": "FUEL LEFT QUANTITY",
+      "unit": "gallons",
+      "default": 350
+    },
+    "right": {
+      "sim": "FUEL RIGHT QUANTITY",
+      "unit": "gallons",
+      "default": 275
+    }
+  },
+  "scales": {
+    "left": {
+      "min": 0,
+      "max": 500,
+      "startAngle": 215,
+      "endAngle": 325
+    },
+    "right": {
+      "min": 0,
+      "max": 500,
+      "startAngle": 145,
+      "endAngle": 35
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 40,
+      "y": 0,
+      "width": 240,
+      "height": 240,
+      "radius": 18,
+      "fill": "#6C7378",
+      "stroke": "#41474A",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "screw",
+      "x": 60,
+      "y": 20,
+      "kind": "boss"
+    },
+    {
+      "type": "screw",
+      "x": 260,
+      "y": 20,
+      "kind": "boss"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "circle",
+      "r": 115,
+      "fillTop": "#303030",
+      "fillBottom": "#0A0A0A",
+      "stroke": "#2A2A2A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "circle",
+      "r": 107,
+      "fill": "#0B0B0B",
+      "stroke": "#202020",
+      "strokeWidth": 3
+    },
+    {
+      "type": "arc",
+      "scale": "left",
+      "from": 0,
+      "to": 60,
+      "radius": 75.75,
+      "width": 6,
+      "color": "#D3362B",
+      "center": [
+        135.38,
+        123.79
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "left",
+      "every": 62.5,
+      "from": 0,
+      "to": 500,
+      "radius": 79.54,
+      "length": 8,
+      "width": 1.8,
+      "color": "#EDEAE2",
+      "center": [
+        135.38,
+        123.79
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "left",
+      "every": 125,
+      "from": 0,
+      "to": 500,
+      "radius": 79.54,
+      "length": 15,
+      "width": 3,
+      "color": "#EDEAE2",
+      "center": [
+        135.38,
+        123.79
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "left",
+      "at": [
+        0,
+        250,
+        500
+      ],
+      "radius": 53.97,
+      "size": 19,
+      "color": "#EDEAE2",
+      "center": [
+        135.38,
+        123.79
+      ],
+      "texts": {
+        "0": "E",
+        "250": "1/2",
+        "500": "F"
+      }
+    },
+    {
+      "type": "needle",
+      "scale": "left",
+      "value": "left",
+      "length": 73.86,
+      "tail": 0,
+      "width": 4,
+      "color": "#F4F2EC",
+      "tailColor": "#161616",
+      "shadow": true,
+      "center": [
+        135.38,
+        123.79
+      ]
+    },
+    {
+      "type": "hub",
+      "r": 6,
+      "fill": "#141414",
+      "stroke": "#4A4A4A",
+      "center": [
+        135.38,
+        123.79
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "right",
+      "from": 0,
+      "to": 60,
+      "radius": 75.75,
+      "width": 6,
+      "color": "#D3362B",
+      "center": [
+        184.62,
+        123.79
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "right",
+      "every": 62.5,
+      "from": 0,
+      "to": 500,
+      "radius": 79.54,
+      "length": 8,
+      "width": 1.8,
+      "color": "#EDEAE2",
+      "center": [
+        184.62,
+        123.79
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "right",
+      "every": 125,
+      "from": 0,
+      "to": 500,
+      "radius": 79.54,
+      "length": 15,
+      "width": 3,
+      "color": "#EDEAE2",
+      "center": [
+        184.62,
+        123.79
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "right",
+      "at": [
+        0,
+        250,
+        500
+      ],
+      "radius": 53.97,
+      "size": 19,
+      "color": "#EDEAE2",
+      "center": [
+        184.62,
+        123.79
+      ],
+      "texts": {
+        "0": "E",
+        "250": "1/2",
+        "500": "F"
+      }
+    },
+    {
+      "type": "needle",
+      "scale": "right",
+      "value": "right",
+      "length": 73.86,
+      "tail": 0,
+      "width": 4,
+      "color": "#F4F2EC",
+      "tailColor": "#161616",
+      "shadow": true,
+      "center": [
+        184.62,
+        123.79
+      ]
+    },
+    {
+      "type": "hub",
+      "r": 6,
+      "fill": "#141414",
+      "stroke": "#4A4A4A",
+      "center": [
+        184.62,
+        123.79
+      ]
+    },
+    {
+      "type": "text",
+      "text": "FUEL",
+      "x": 160,
+      "y": 57.5,
+      "size": 17,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "text",
+      "text": "L",
+      "x": 135.38,
+      "y": 150.3,
+      "size": 15,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "text",
+      "text": "R",
+      "x": 184.62,
+      "y": 150.3,
+      "size": 15,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "text",
+      "text": "500 U.S. GAL EACH",
+      "x": 160,
+      "y": 191.96,
+      "size": 10,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "glare",
+      "r": 106,
+      "opacity": 0.18
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

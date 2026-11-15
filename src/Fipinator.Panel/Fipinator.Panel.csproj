@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Runs a whole panel: sim values in, gauges out to every FIP. Used by the app and the dev tool. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fipinator.Core\Fipinator.Core.csproj" />
+    <ProjectReference Include="..\Fipinator.Fip\Fipinator.Fip.csproj" />
+    <ProjectReference Include="..\Fipinator.Sim\Fipinator.Sim.csproj" />
+  </ItemGroup>
+
+  <!-- The "NO SIM DATA" banner font (BarlowCondensed-Medium.ttf) is expected next to the program;
+       each program that uses this library copies it there itself. -->
+
+</Project>

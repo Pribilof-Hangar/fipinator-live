@@ -1,0 +1,252 @@
+{
+  "format": 1,
+  "name": "Classic single Heading",
+  "author": "FIPinator 3000",
+  "description": "Directional gyro: compass card under a fixed lubber line and airplane, heading bug. Right knob: align with the compass. Left knob: heading bug.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "hdg": {
+      "sim": "HEADING INDICATOR",
+      "unit": "degrees",
+      "default": 40
+    },
+    "bug": {
+      "sim": "AUTOPILOT HEADING LOCK DIR",
+      "unit": "degrees",
+      "default": 70
+    }
+  },
+  "scales": {
+    "card": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": -360,
+      "wrap": true
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "hdg",
+        "scale": "card"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "every": 5,
+          "from": 0,
+          "to": 355,
+          "radius": 92.96,
+          "length": 7,
+          "width": 1.4,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "every": 10,
+          "from": 0,
+          "to": 350,
+          "radius": 92.96,
+          "length": 14,
+          "width": 2.6,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "labels",
+          "scale": "dial",
+          "every": 30,
+          "from": 0,
+          "to": 330,
+          "radius": 69.72,
+          "size": 22,
+          "color": "#EFE6CF",
+          "orient": "radial",
+          "texts": {
+            "0": "N",
+            "30": "3",
+            "60": "6",
+            "90": "E",
+            "120": "12",
+            "150": "15",
+            "180": "S",
+            "210": "21",
+            "240": "24",
+            "270": "W",
+            "300": "30",
+            "330": "33"
+          }
+        },
+        {
+          "type": "group",
+          "rotate": {
+            "value": "bug",
+            "scale": "dial"
+          },
+          "layers": [
+            {
+              "type": "rect",
+              "x": 152.85,
+              "y": 20.79,
+              "width": 14.3,
+              "height": 8.04,
+              "radius": 1,
+              "fill": "#E8862A"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "dial",
+      "at": [
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "radius": 100.11,
+      "length": 8,
+      "width": 9,
+      "shape": "triangle",
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "dial",
+      "at": [
+        0
+      ],
+      "radius": 100.11,
+      "length": 13,
+      "width": 14,
+      "shape": "triangle",
+      "color": "#E8862A"
+    },
+    {
+      "type": "rect",
+      "x": 157.32,
+      "y": 91.4,
+      "width": 5.36,
+      "height": 53.63,
+      "radius": 2,
+      "fill": "#E8862A",
+      "stroke": "#3A1E00",
+      "strokeWidth": 0.8
+    },
+    {
+      "type": "rect",
+      "x": 127.82,
+      "y": 112.85,
+      "width": 64.35,
+      "height": 6.26,
+      "radius": 2,
+      "fill": "#E8862A",
+      "stroke": "#3A1E00",
+      "strokeWidth": 0.8
+    },
+    {
+      "type": "rect",
+      "x": 148.38,
+      "y": 137.88,
+      "width": 23.24,
+      "height": 4.47,
+      "radius": 2,
+      "fill": "#E8862A",
+      "stroke": "#3A1E00",
+      "strokeWidth": 0.8
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "GYRO_DRIFT_INC"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "GYRO_DRIFT_DEC"
+    },
+    "leftKnobClockwise": {
+      "event": "HEADING_BUG_INC"
+    },
+    "leftKnobAnticlockwise": {
+      "event": "HEADING_BUG_DEC"
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

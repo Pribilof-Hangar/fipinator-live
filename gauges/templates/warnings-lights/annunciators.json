@@ -1,0 +1,566 @@
+{
+  "format": 1,
+  "name": "Warning lights",
+  "author": "FIPinator 3000",
+  "description": "Master warning and caution, parking brake, low fuel, oil pressure, vacuum, volts, low height and autopilot lights. S1/S2 acknowledge master warning/caution, S3 sets the parking brake; their button lights follow.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0B0C0E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "warn": {
+      "sim": "MASTER WARNING ACTIVE",
+      "unit": "bool",
+      "default": 0
+    },
+    "warn_lamp6_hide": {
+      "expr": "choose(warn - 0.5, 0, 400)"
+    },
+    "caut": {
+      "sim": "MASTER CAUTION ACTIVE",
+      "unit": "bool",
+      "default": 1
+    },
+    "caut_lamp9_hide": {
+      "expr": "choose(caut - 0.5, 0, 400)"
+    },
+    "park": {
+      "sim": "BRAKE PARKING POSITION",
+      "unit": "bool",
+      "default": 1
+    },
+    "park_lamp12_hide": {
+      "expr": "choose(park - 0.5, 0, 400)"
+    },
+    "fuel": {
+      "sim": "WARNING FUEL",
+      "unit": "bool",
+      "default": 0
+    },
+    "fuel_lamp15_hide": {
+      "expr": "choose(fuel - 0.5, 0, 400)"
+    },
+    "oil": {
+      "sim": "WARNING OIL PRESSURE",
+      "unit": "bool",
+      "default": 0
+    },
+    "oil_lamp18_hide": {
+      "expr": "choose(oil - 0.5, 0, 400)"
+    },
+    "vac": {
+      "sim": "WARNING VACUUM",
+      "unit": "bool",
+      "default": 0
+    },
+    "vac_lamp21_hide": {
+      "expr": "choose(vac - 0.5, 0, 400)"
+    },
+    "volt": {
+      "sim": "WARNING VOLTAGE",
+      "unit": "bool",
+      "default": 0
+    },
+    "volt_lamp24_hide": {
+      "expr": "choose(volt - 0.5, 0, 400)"
+    },
+    "hgt": {
+      "sim": "WARNING LOW HEIGHT",
+      "unit": "bool",
+      "default": 0
+    },
+    "hgt_lamp27_hide": {
+      "expr": "choose(hgt - 0.5, 0, 400)"
+    },
+    "ap": {
+      "sim": "AUTOPILOT MASTER",
+      "unit": "bool",
+      "default": 1
+    },
+    "ap_lamp30_hide": {
+      "expr": "choose(ap - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0B0C0E"
+    },
+    {
+      "type": "text",
+      "text": "WARN",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "CAUT",
+      "x": 4,
+      "y": 65,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "PARK",
+      "x": 4,
+      "y": 105,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 54,
+      "y": 14,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "MASTER WARN",
+      "x": 95,
+      "y": 52,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "warn_lamp6_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 57,
+          "y": 17,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#FF3B30"
+        },
+        {
+          "type": "text",
+          "text": "MASTER WARN",
+          "x": 95,
+          "y": 52,
+          "size": 13.3,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 142,
+      "y": 14,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "MASTER CAUT",
+      "x": 183,
+      "y": 52,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "caut_lamp9_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 145,
+          "y": 17,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#F5A623"
+        },
+        {
+          "type": "text",
+          "text": "MASTER CAUT",
+          "x": 183,
+          "y": 52,
+          "size": 13.3,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 230,
+      "y": 14,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "PARK BRAKE",
+      "x": 271,
+      "y": 52,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "park_lamp12_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 233,
+          "y": 17,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#F5A623"
+        },
+        {
+          "type": "text",
+          "text": "PARK BRAKE",
+          "x": 271,
+          "y": 52,
+          "size": 14.6,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 54,
+      "y": 88,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "LOW FUEL",
+      "x": 95,
+      "y": 126,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "fuel_lamp15_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 57,
+          "y": 91,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#F5A623"
+        },
+        {
+          "type": "text",
+          "text": "LOW FUEL",
+          "x": 95,
+          "y": 126,
+          "size": 18,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 142,
+      "y": 88,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "OIL PRESS",
+      "x": 183,
+      "y": 126,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "oil_lamp18_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 145,
+          "y": 91,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#FF3B30"
+        },
+        {
+          "type": "text",
+          "text": "OIL PRESS",
+          "x": 183,
+          "y": 126,
+          "size": 16.2,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 230,
+      "y": 88,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "LOW VACUUM",
+      "x": 271,
+      "y": 126,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "vac_lamp21_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 233,
+          "y": 91,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#F5A623"
+        },
+        {
+          "type": "text",
+          "text": "LOW VACUUM",
+          "x": 271,
+          "y": 126,
+          "size": 14.6,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 54,
+      "y": 162,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "LOW VOLTS",
+      "x": 95,
+      "y": 200,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "volt_lamp24_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 57,
+          "y": 165,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#F5A623"
+        },
+        {
+          "type": "text",
+          "text": "LOW VOLTS",
+          "x": 95,
+          "y": 200,
+          "size": 16.2,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 142,
+      "y": 162,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "LOW HEIGHT",
+      "x": 183,
+      "y": 200,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "hgt_lamp27_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 145,
+          "y": 165,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#F5A623"
+        },
+        {
+          "type": "text",
+          "text": "LOW HEIGHT",
+          "x": 183,
+          "y": 200,
+          "size": 14.6,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 230,
+      "y": 162,
+      "width": 82,
+      "height": 64,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "AUTOPILOT",
+      "x": 271,
+      "y": 200,
+      "size": 13,
+      "color": "#5D636B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ap_lamp30_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 233,
+          "y": 165,
+          "width": 76,
+          "height": 58,
+          "radius": 3,
+          "fill": "#3BE07A"
+        },
+        {
+          "type": "text",
+          "text": "AUTOPILOT",
+          "x": 271,
+          "y": 200,
+          "size": 16.2,
+          "color": "#101010"
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "button1": {
+      "event": "MASTER_WARNING_ACKNOWLEDGE"
+    },
+    "button2": {
+      "event": "MASTER_CAUTION_ACKNOWLEDGE"
+    },
+    "button3": {
+      "event": "PARKING_BRAKES"
+    }
+  },
+  "buttonLights": {
+    "button1": "warn",
+    "button2": "caut",
+    "button3": "park"
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

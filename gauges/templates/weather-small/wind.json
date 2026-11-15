@@ -1,0 +1,229 @@
+{
+  "format": 1,
+  "name": "Wind and temperature",
+  "author": "FIPinator 3000",
+  "description": "Wind arrow relative to the nose (pointing where the wind blows to), wind direction (from, true) and speed, outside air temperature and ground speed.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0B0C0E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "wdir": {
+      "sim": "AMBIENT WIND DIRECTION",
+      "unit": "degrees",
+      "default": 240
+    },
+    "wspd": {
+      "sim": "AMBIENT WIND VELOCITY",
+      "unit": "knots",
+      "default": 18
+    },
+    "hdg": {
+      "sim": "PLANE HEADING DEGREES TRUE",
+      "unit": "degrees",
+      "default": 300
+    },
+    "oat": {
+      "sim": "AMBIENT TEMPERATURE",
+      "unit": "celsius",
+      "default": -12
+    },
+    "gs": {
+      "sim": "GROUND VELOCITY",
+      "unit": "knots",
+      "default": 214
+    },
+    "rel": {
+      "expr": "wrap360(wdir \u002B 180 - hdg)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0B0C0E"
+    },
+    {
+      "type": "circle",
+      "center": [
+        100,
+        120
+      ],
+      "r": 92,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 2
+    },
+    {
+      "type": "ticks",
+      "scale": "dial",
+      "every": 30,
+      "from": 0,
+      "to": 330,
+      "radius": 90,
+      "length": 9,
+      "width": 2,
+      "color": "#9AA0A6",
+      "center": [
+        100,
+        120
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 97,
+      "y": 92,
+      "width": 6,
+      "height": 56,
+      "radius": 3,
+      "fill": "#E8E8E6"
+    },
+    {
+      "type": "rect",
+      "x": 72,
+      "y": 108,
+      "width": 56,
+      "height": 6,
+      "radius": 3,
+      "fill": "#E8E8E6"
+    },
+    {
+      "type": "rect",
+      "x": 88,
+      "y": 140,
+      "width": 24,
+      "height": 4,
+      "radius": 3,
+      "fill": "#E8E8E6"
+    },
+    {
+      "type": "group",
+      "center": [
+        100,
+        120
+      ],
+      "rotate": {
+        "value": "rel",
+        "scale": "dial"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 97,
+          "y": 44,
+          "width": 6,
+          "height": 46,
+          "fill": "#7FD6F0"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            0
+          ],
+          "radius": 86,
+          "length": 22,
+          "width": 20,
+          "color": "#7FD6F0",
+          "shape": "triangle",
+          "center": [
+            100,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "WIND",
+      "x": 252,
+      "y": 30,
+      "size": 13,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "wdir",
+      "format": "000\u00B0",
+      "x": 252,
+      "y": 62,
+      "size": 28,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "wspd",
+      "format": "0 KT",
+      "x": 252,
+      "y": 94,
+      "size": 28,
+      "color": "#7FD6F0",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "text": "OAT",
+      "x": 252,
+      "y": 132,
+      "size": 13,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "oat",
+      "format": "0 \u00B0C;-0 \u00B0C",
+      "x": 252,
+      "y": 160,
+      "size": 24,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "text": "GROUND SPEED",
+      "x": 252,
+      "y": 192,
+      "size": 13,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "gs",
+      "format": "0 KT",
+      "x": 252,
+      "y": 222,
+      "size": 24,
+      "color": "#E8E8E6",
+      "align": "center"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

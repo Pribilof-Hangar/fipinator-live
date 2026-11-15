@@ -1,0 +1,316 @@
+{
+  "format": 1,
+  "name": "Jet Fuel",
+  "author": "FIPinator 3000",
+  "description": "Jet fuel, glass style: tank 1, centre and tank 2 in pounds with how-full sweeps, and the total.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#000000"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "wpg": {
+      "sim": "FUEL WEIGHT PER GALLON",
+      "unit": "pounds",
+      "default": 6.7
+    },
+    "l_gal": {
+      "sim": "FUEL TANK LEFT MAIN QUANTITY",
+      "unit": "gallons",
+      "default": 1270
+    },
+    "l_cap": {
+      "sim": "FUEL TANK LEFT MAIN CAPACITY",
+      "unit": "gallons",
+      "default": 1288
+    },
+    "l_lb": {
+      "expr": "l_gal * wpg"
+    },
+    "l_full": {
+      "expr": "clamp(l_gal / max(l_cap, 1), 0, 1)"
+    },
+    "r_gal": {
+      "sim": "FUEL TANK RIGHT MAIN QUANTITY",
+      "unit": "gallons",
+      "default": 1265
+    },
+    "r_cap": {
+      "sim": "FUEL TANK RIGHT MAIN CAPACITY",
+      "unit": "gallons",
+      "default": 1288
+    },
+    "r_lb": {
+      "expr": "r_gal * wpg"
+    },
+    "r_full": {
+      "expr": "clamp(r_gal / max(r_cap, 1), 0, 1)"
+    },
+    "c_gal": {
+      "sim": "FUEL TANK CENTER QUANTITY",
+      "unit": "gallons",
+      "default": 800
+    },
+    "c_cap": {
+      "sim": "FUEL TANK CENTER CAPACITY",
+      "unit": "gallons",
+      "default": 4290
+    },
+    "c_lb": {
+      "expr": "c_gal * wpg"
+    },
+    "c_full": {
+      "expr": "clamp(c_gal / max(c_cap, 1), 0, 1)"
+    },
+    "total": {
+      "expr": "(l_gal \u002B c_gal \u002B r_gal) * wpg"
+    }
+  },
+  "scales": {
+    "f": {
+      "min": 0,
+      "max": 1,
+      "startAngle": -135,
+      "endAngle": 135
+    }
+  },
+  "layers": [
+    {
+      "type": "arc",
+      "scale": "f",
+      "from": 0,
+      "to": 1,
+      "radius": 56,
+      "width": 2.5,
+      "color": "#F2F2F2",
+      "center": [
+        72,
+        140
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "f",
+      "from": 0,
+      "toValue": "l_full",
+      "radius": 50,
+      "width": 8,
+      "color": "#9A9A9A",
+      "center": [
+        72,
+        140
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "f",
+      "at": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "radius": 56,
+      "length": 6,
+      "width": 2,
+      "color": "#F2F2F2",
+      "center": [
+        72,
+        140
+      ]
+    },
+    {
+      "type": "text",
+      "value": "l_lb",
+      "format": "0",
+      "x": 72,
+      "y": 148,
+      "size": 25.8,
+      "color": "#F2F2F2"
+    },
+    {
+      "type": "text",
+      "text": "1",
+      "x": 72,
+      "y": 118.72,
+      "size": 13,
+      "color": "#7FD6F0"
+    },
+    {
+      "type": "arc",
+      "scale": "f",
+      "from": 0,
+      "to": 1,
+      "radius": 56,
+      "width": 2.5,
+      "color": "#F2F2F2",
+      "center": [
+        248,
+        140
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "f",
+      "from": 0,
+      "toValue": "r_full",
+      "radius": 50,
+      "width": 8,
+      "color": "#9A9A9A",
+      "center": [
+        248,
+        140
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "f",
+      "at": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "radius": 56,
+      "length": 6,
+      "width": 2,
+      "color": "#F2F2F2",
+      "center": [
+        248,
+        140
+      ]
+    },
+    {
+      "type": "text",
+      "value": "r_lb",
+      "format": "0",
+      "x": 248,
+      "y": 148,
+      "size": 25.8,
+      "color": "#F2F2F2"
+    },
+    {
+      "type": "text",
+      "text": "2",
+      "x": 248,
+      "y": 118.72,
+      "size": 13,
+      "color": "#7FD6F0"
+    },
+    {
+      "type": "arc",
+      "scale": "f",
+      "from": 0,
+      "to": 1,
+      "radius": 40,
+      "width": 2.5,
+      "color": "#F2F2F2",
+      "center": [
+        160,
+        62
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "f",
+      "from": 0,
+      "toValue": "c_full",
+      "radius": 34,
+      "width": 8,
+      "color": "#9A9A9A",
+      "center": [
+        160,
+        62
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "f",
+      "at": [
+        0,
+        0.25,
+        0.5,
+        0.75,
+        1
+      ],
+      "radius": 40,
+      "length": 6,
+      "width": 2,
+      "color": "#F2F2F2",
+      "center": [
+        160,
+        62
+      ]
+    },
+    {
+      "type": "text",
+      "value": "c_lb",
+      "format": "0",
+      "x": 160,
+      "y": 70,
+      "size": 18.4,
+      "color": "#F2F2F2"
+    },
+    {
+      "type": "text",
+      "text": "CTR",
+      "x": 160,
+      "y": 46.8,
+      "size": 13,
+      "color": "#7FD6F0"
+    },
+    {
+      "type": "text",
+      "text": "FUEL",
+      "x": 160,
+      "y": 136,
+      "size": 15,
+      "color": "#7FD6F0"
+    },
+    {
+      "type": "text",
+      "text": "LB",
+      "x": 160,
+      "y": 152,
+      "size": 13,
+      "color": "#7FD6F0"
+    },
+    {
+      "type": "text",
+      "text": "TOTAL",
+      "x": 112,
+      "y": 224,
+      "size": 14,
+      "color": "#7FD6F0",
+      "align": "right"
+    },
+    {
+      "type": "rect",
+      "x": 120,
+      "y": 202,
+      "width": 96,
+      "height": 30,
+      "fill": "#000000",
+      "stroke": "#F2F2F2",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "text",
+      "value": "total",
+      "format": "0",
+      "x": 210,
+      "y": 226,
+      "size": 24,
+      "color": "#F2F2F2",
+      "align": "right"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

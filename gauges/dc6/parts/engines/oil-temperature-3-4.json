@@ -1,0 +1,563 @@
+{
+  "format": 1,
+  "name": "DC-6 Oil temperature 3-4",
+  "author": "FIPinator 3000 (from the owner's DC-6 Gauges designs)",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "PMDG DC-6 oil temperature 3-4, main panel. Scale and marks as in DC-6 Gauges (read off the PMDG cockpit); needles follow PMDG's own cockpit needle values.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8d908e"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "n1": {
+      "sim": "L:dc6_345_obj",
+      "unit": "number",
+      "default": 54
+    },
+    "n2": {
+      "sim": "L:dc6_346_obj",
+      "unit": "number",
+      "default": 66
+    }
+  },
+  "scales": {
+    "s0": {
+      "points": [
+        [
+          0,
+          139.09,
+          79.4
+        ],
+        [
+          20,
+          121.09,
+          79.4
+        ],
+        [
+          40,
+          105.64,
+          77.88
+        ],
+        [
+          60,
+          90,
+          78
+        ],
+        [
+          80,
+          74.36,
+          77.88
+        ],
+        [
+          100,
+          58.54,
+          78.55
+        ],
+        [
+          120,
+          40.91,
+          79.4
+        ]
+      ]
+    },
+    "s1": {
+      "points": [
+        [
+          0,
+          -139.09,
+          79.4
+        ],
+        [
+          20,
+          -121.09,
+          79.4
+        ],
+        [
+          40,
+          -105.64,
+          77.88
+        ],
+        [
+          60,
+          -90,
+          78
+        ],
+        [
+          80,
+          -74.36,
+          77.88
+        ],
+        [
+          100,
+          -58.54,
+          78.55
+        ],
+        [
+          120,
+          -40.91,
+          79.4
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3b3c3d",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1e1e1e",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994a4b4c",
+      "strokeWidth": 1
+    },
+    {
+      "type": "rect",
+      "x": 98,
+      "y": 30,
+      "width": 124,
+      "height": 190,
+      "radius": 12,
+      "fill": "#151615",
+      "stroke": "#0a0a0a"
+    },
+    {
+      "type": "arc",
+      "scale": "s0",
+      "from": 60,
+      "to": 75,
+      "radius": -5,
+      "width": 5,
+      "color": "#3f9a52",
+      "center": [
+        81,
+        122
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s0",
+      "from": 93,
+      "to": 106,
+      "radius": -5,
+      "width": 5,
+      "color": "#d99a1e",
+      "center": [
+        81,
+        122
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s0",
+      "from": 0,
+      "to": 120,
+      "radius": 0,
+      "width": 1.4,
+      "color": "#efe6cf",
+      "center": [
+        81,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        5,
+        10,
+        15,
+        25,
+        30,
+        35,
+        45,
+        50,
+        55,
+        65,
+        70,
+        75,
+        85,
+        90,
+        95,
+        105,
+        110,
+        115
+      ],
+      "radius": 0,
+      "length": 4,
+      "width": 1.2,
+      "color": "#efe6cf",
+      "center": [
+        81,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "radius": 0,
+      "length": 10,
+      "width": 2.6,
+      "color": "#efe6cf",
+      "center": [
+        81,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        40
+      ],
+      "radius": 1,
+      "length": 13,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        81,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        108
+      ],
+      "radius": 1,
+      "length": 13,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        81,
+        122
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "radius": -19,
+      "size": 9,
+      "color": "#efe6cf",
+      "center": [
+        81,
+        122
+      ],
+      "texts": {
+        "0": "0",
+        "20": "20",
+        "40": "40",
+        "60": "60",
+        "80": "80",
+        "100": "100",
+        "120": "120"
+      }
+    },
+    {
+      "type": "arc",
+      "scale": "s1",
+      "from": 60,
+      "to": 75,
+      "radius": -5,
+      "width": 5,
+      "color": "#3f9a52",
+      "center": [
+        239,
+        122
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s1",
+      "from": 93,
+      "to": 106,
+      "radius": -5,
+      "width": 5,
+      "color": "#d99a1e",
+      "center": [
+        239,
+        122
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s1",
+      "from": 0,
+      "to": 120,
+      "radius": 0,
+      "width": 1.4,
+      "color": "#efe6cf",
+      "center": [
+        239,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        5,
+        10,
+        15,
+        25,
+        30,
+        35,
+        45,
+        50,
+        55,
+        65,
+        70,
+        75,
+        85,
+        90,
+        95,
+        105,
+        110,
+        115
+      ],
+      "radius": 0,
+      "length": 4,
+      "width": 1.2,
+      "color": "#efe6cf",
+      "center": [
+        239,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "radius": 0,
+      "length": 10,
+      "width": 2.6,
+      "color": "#efe6cf",
+      "center": [
+        239,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        40
+      ],
+      "radius": 1,
+      "length": 13,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        239,
+        122
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        108
+      ],
+      "radius": 1,
+      "length": 13,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        239,
+        122
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s1",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100,
+        120
+      ],
+      "radius": -19,
+      "size": 9,
+      "color": "#efe6cf",
+      "center": [
+        239,
+        122
+      ],
+      "texts": {
+        "0": "0",
+        "20": "20",
+        "40": "40",
+        "60": "60",
+        "80": "80",
+        "100": "100",
+        "120": "120"
+      }
+    },
+    {
+      "type": "text",
+      "text": "°C",
+      "x": 160,
+      "y": 189.24,
+      "size": 9,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "OIL TEMP.",
+      "x": 160,
+      "y": 209.6,
+      "size": 10,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n1",
+      "center": [
+        81,
+        122
+      ],
+      "length": 4,
+      "width": 2,
+      "tail": 26,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s1",
+      "value": "n2",
+      "center": [
+        239,
+        122
+      ],
+      "length": 4,
+      "width": 2,
+      "tail": 26,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 4.5,
+      "center": [
+        81,
+        122
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 1.6,
+      "center": [
+        81,
+        122
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "circle",
+      "r": 4.5,
+      "center": [
+        239,
+        122
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 1.6,
+      "center": [
+        239,
+        122
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 101,
+      "opacity": 0.16
+    }
+  ]
+}

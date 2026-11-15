@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "name": "DC-6 Attitude",
+  "author": "FIPinator 3000",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "Gyro horizon in DC-6 style: dark face, horizon bar that turns with bank and moves with pitch (3 px per degree), pitch lines every 5 degrees, gull-wing miniature airplane that the knobs move up and down (attitude bars), and a bank scale with pointer at the top. Pitch and bank directions still need checking in the sim.",
+  "canvas": { "width": 320, "height": 240, "background": "#5A6064" },
+  "center": [160, 120],
+  "font": "../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "pitch": { "sim": "ATTITUDE INDICATOR PITCH DEGREES", "unit": "degrees", "default": -5 },
+    "bank": { "sim": "ATTITUDE INDICATOR BANK DEGREES", "unit": "degrees", "default": 15 },
+    "bars": { "sim": "ATTITUDE BARS POSITION", "unit": "percent", "default": 0 }
+  },
+  "scales": {
+    "bank": { "min": -180, "max": 180, "startAngle": -180, "endAngle": 180 },
+    "pitch": { "min": -90, "max": 90, "startAngle": 270, "endAngle": -270 },
+    "dial": { "min": 0, "max": 360, "startAngle": 0, "endAngle": 360, "wrap": true },
+    "barspx": { "min": -100, "max": 100, "startAngle": 20, "endAngle": -20 }
+  },
+  "controls": {
+    "rightKnobClockwise": { "event": "ATTITUDE_BARS_POSITION_UP" },
+    "rightKnobAnticlockwise": { "event": "ATTITUDE_BARS_POSITION_DOWN" },
+    "leftKnobClockwise": { "event": "ATTITUDE_BARS_POSITION_UP", "repeat": 5 },
+    "leftKnobAnticlockwise": { "event": "ATTITUDE_BARS_POSITION_DOWN", "repeat": 5 }
+  },
+  "layers": [
+    { "type": "rect", "x": 40, "y": 0, "width": 240, "height": 240, "radius": 18, "fill": "#6C7378", "stroke": "#41474A", "strokeWidth": 1.5 },
+    { "type": "screw", "x": 60, "y": 20, "kind": "slot" },
+    { "type": "screw", "x": 260, "y": 20, "kind": "slot" },
+    { "type": "screw", "x": 58, "y": 222, "kind": "slot" },
+    { "type": "screw", "x": 262, "y": 222, "kind": "slot" },
+
+    { "type": "circle", "r": 115, "fillTop": "#303030", "fillBottom": "#0A0A0A", "stroke": "#2A2A2A", "strokeWidth": 1.2 },
+    { "type": "circle", "r": 107, "fill": "#1A1A1A", "stroke": "#202020", "strokeWidth": 3 },
+
+    { "type": "group", "clip": 88, "layers": [
+      { "type": "group", "rotate": { "value": "bank", "scale": "bank" }, "layers": [
+        { "type": "group", "moveY": { "value": "pitch", "scale": "pitch" }, "layers": [
+          { "type": "rect", "x": -140, "y": -300, "width": 600, "height": 420, "fill": "#1C2530" },
+          { "type": "rect", "x": -140, "y": 120, "width": 600, "height": 420, "fill": "#211B16" },
+          { "type": "rect", "x": 50, "y": 118, "width": 220, "height": 4, "radius": 1, "fill": "#E8E5DC" },
+          { "type": "rect", "x": 145, "y": 104, "width": 30, "height": 2, "fill": "#C9C4B8" },
+          { "type": "rect", "x": 135, "y": 89, "width": 50, "height": 2, "fill": "#C9C4B8" },
+          { "type": "rect", "x": 145, "y": 74, "width": 30, "height": 2, "fill": "#C9C4B8" },
+          { "type": "rect", "x": 135, "y": 59, "width": 50, "height": 2, "fill": "#C9C4B8" },
+          { "type": "rect", "x": 145, "y": 134, "width": 30, "height": 2, "fill": "#C9C4B8" },
+          { "type": "rect", "x": 135, "y": 149, "width": 50, "height": 2, "fill": "#C9C4B8" },
+          { "type": "rect", "x": 145, "y": 164, "width": 30, "height": 2, "fill": "#C9C4B8" },
+          { "type": "rect", "x": 135, "y": 179, "width": 50, "height": 2, "fill": "#C9C4B8" }
+        ] },
+        { "type": "ticks", "scale": "dial", "at": [0], "radius": 86, "length": 12, "width": 10, "color": "#E8E5DC", "shape": "triangle" }
+      ] }
+    ] },
+
+    { "type": "circle", "r": 98, "stroke": "#2C2C2C", "strokeWidth": 20 },
+    { "type": "ticks", "scale": "dial", "at": [350, 340, 10, 20], "radius": 104, "length": 8, "width": 2.5, "color": "#E8E5DC" },
+    { "type": "ticks", "scale": "dial", "at": [330, 30, 300, 60], "radius": 104, "length": 14, "width": 4, "color": "#E8E5DC" },
+    { "type": "ticks", "scale": "dial", "at": [270, 90], "radius": 106, "length": 18, "width": 4, "color": "#E8E5DC" },
+    { "type": "ticks", "scale": "dial", "at": [0], "radius": 107, "length": 16, "width": 14, "color": "#E8E5DC", "shape": "triangle" },
+
+    { "type": "group", "moveY": { "value": "bars", "scale": "barspx" }, "layers": [
+      { "type": "rect", "x": 102, "y": 116, "width": 38, "height": 4, "radius": 2, "fill": "#D9C27A" },
+      { "type": "rect", "x": 180, "y": 116, "width": 38, "height": 4, "radius": 2, "fill": "#D9C27A" },
+      { "type": "rect", "x": 137, "y": 118, "width": 4, "height": 12, "radius": 2, "fill": "#D9C27A" },
+      { "type": "rect", "x": 179, "y": 118, "width": 4, "height": 12, "radius": 2, "fill": "#D9C27A" },
+      { "type": "rect", "x": 139, "y": 127, "width": 42, "height": 4, "radius": 2, "fill": "#D9C27A" },
+      { "type": "rect", "x": 158, "y": 120, "width": 4, "height": 34, "radius": 2, "fill": "#D9C27A" },
+      { "type": "circle", "center": [160, 120], "r": 4.5, "fill": "#D9C27A" }
+    ] },
+
+    { "type": "rect", "x": 118, "y": 206, "width": 84, "height": 30, "radius": 8, "fill": "#2A2E30", "stroke": "#41474A", "strokeWidth": 1 },
+    { "type": "circle", "center": [160, 224], "r": 13, "fill": "#1A1A1A", "stroke": "#4A4A4A", "strokeWidth": 2 },
+    { "type": "glare", "r": 106, "opacity": 0.16 }
+  ]
+}

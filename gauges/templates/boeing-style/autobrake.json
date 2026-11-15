@@ -1,0 +1,320 @@
+{
+  "format": 1,
+  "name": "Autobrake (Boeing style)",
+  "author": "FIPinator 3000",
+  "description": "Boeing-style (737) autobrake selector (RTO, OFF, 1, 2, 3, MAX from AUTO BRAKE SWITCH CB 0-5; to check per plane). Knobs turn the selector.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0B0C0E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "ab": {
+      "sim": "AUTO BRAKE SWITCH CB",
+      "unit": "number",
+      "default": 3
+    },
+    "ab_0_hide": {
+      "expr": "choose(choose(abs(ab - 0) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "ab_1_hide": {
+      "expr": "choose(choose(abs(ab - 1) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "ab_2_hide": {
+      "expr": "choose(choose(abs(ab - 2) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "ab_3_hide": {
+      "expr": "choose(choose(abs(ab - 3) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "ab_4_hide": {
+      "expr": "choose(choose(abs(ab - 4) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "ab_5_hide": {
+      "expr": "choose(choose(abs(ab - 5) - 0.5, 0, 1) - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0B0C0E"
+    },
+    {
+      "type": "text",
+      "text": "AUTO BRAKE",
+      "x": 160,
+      "y": 30,
+      "size": 16,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 16,
+      "y": 70,
+      "width": 44,
+      "height": 80,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ab_0_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 18,
+          "y": 72,
+          "width": 40,
+          "height": 76,
+          "radius": 3,
+          "fill": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "RTO",
+      "x": 38,
+      "y": 118,
+      "size": 15,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 65,
+      "y": 70,
+      "width": 44,
+      "height": 80,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ab_1_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 67,
+          "y": 72,
+          "width": 40,
+          "height": 76,
+          "radius": 3,
+          "fill": "#9AA0A6"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "OFF",
+      "x": 87,
+      "y": 118,
+      "size": 15,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 114,
+      "y": 70,
+      "width": 44,
+      "height": 80,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ab_2_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 116,
+          "y": 72,
+          "width": 40,
+          "height": 76,
+          "radius": 3,
+          "fill": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "1",
+      "x": 136,
+      "y": 118,
+      "size": 22,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 163,
+      "y": 70,
+      "width": 44,
+      "height": 80,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ab_3_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 165,
+          "y": 72,
+          "width": 40,
+          "height": 76,
+          "radius": 3,
+          "fill": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "2",
+      "x": 185,
+      "y": 118,
+      "size": 22,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 212,
+      "y": 70,
+      "width": 44,
+      "height": 80,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ab_4_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 214,
+          "y": 72,
+          "width": 40,
+          "height": 76,
+          "radius": 3,
+          "fill": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "3",
+      "x": 234,
+      "y": 118,
+      "size": 22,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 261,
+      "y": 70,
+      "width": 44,
+      "height": 80,
+      "radius": 3,
+      "fill": "#17191C",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ab_5_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 263,
+          "y": 72,
+          "width": 40,
+          "height": 76,
+          "radius": 3,
+          "fill": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "MAX",
+      "x": 283,
+      "y": 118,
+      "size": 15,
+      "color": "#E8E8E6",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "text": "Knobs turn the selector. Position numbers: check in your plane.",
+      "x": 160,
+      "y": 200,
+      "size": 11,
+      "color": "#5D636B",
+      "align": "center"
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "INCREASE_AUTOBRAKE_CONTROL"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "DECREASE_AUTOBRAKE_CONTROL"
+    },
+    "leftKnobClockwise": {
+      "event": "INCREASE_AUTOBRAKE_CONTROL"
+    },
+    "leftKnobAnticlockwise": {
+      "event": "DECREASE_AUTOBRAKE_CONTROL"
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,237 @@
+{
+  "format": 1,
+  "name": "DC-6 Pitot scoop heater ammeter",
+  "author": "FIPinator 3000 (from the owner's DC-6 Gauges designs)",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "PMDG DC-6 pitot scoop heater ammeter, overhead middle panel. Scale and marks as in DC-6 Gauges (read off the PMDG cockpit); needles follow PMDG's own cockpit needle values.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8d908e"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "n1": {
+      "sim": "L:dc6_097_obj",
+      "unit": "number",
+      "default": 135
+    }
+  },
+  "scales": {
+    "s0": {
+      "points": [
+        [
+          0,
+          -46.45,
+          111.76
+        ],
+        [
+          100,
+          -15.66,
+          111.13
+        ],
+        [
+          200,
+          15.66,
+          111.13
+        ],
+        [
+          300,
+          45,
+          111.72
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3b3c3d",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1e1e1e",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994a4b4c",
+      "strokeWidth": 1
+    },
+    {
+      "type": "arc",
+      "scale": "s0",
+      "from": 0,
+      "to": 300,
+      "radius": 0,
+      "width": 1.4,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        171
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        20,
+        40,
+        60,
+        80,
+        120,
+        140,
+        160,
+        180,
+        220,
+        240,
+        260,
+        280
+      ],
+      "radius": 0,
+      "length": 8,
+      "width": 1.2,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        171
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        0,
+        100,
+        200,
+        300
+      ],
+      "radius": 0,
+      "length": 16,
+      "width": 2.6,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        171
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        0,
+        100,
+        200,
+        300
+      ],
+      "radius": 14,
+      "size": 15,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        171
+      ],
+      "texts": {
+        "0": "0",
+        "100": "10",
+        "200": "20",
+        "300": "30"
+      }
+    },
+    {
+      "type": "text",
+      "text": "AMP",
+      "x": 160,
+      "y": 123.4,
+      "size": 15,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "DC",
+      "x": 160,
+      "y": 137.6,
+      "size": 10,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n1",
+      "center": [
+        160,
+        171
+      ],
+      "length": -4,
+      "width": 3.2,
+      "tail": 0,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "center": [
+        160,
+        171
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.6,
+      "center": [
+        160,
+        171
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 101,
+      "opacity": 0.16
+    }
+  ]
+}

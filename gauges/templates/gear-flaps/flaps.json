@@ -1,0 +1,189 @@
+{
+  "format": 1,
+  "name": "Flaps (generic)",
+  "author": "FIPinator 3000",
+  "description": "Flap position indicator, 0 to 40 degrees, marks at 10, 20, 30, 40.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "flaps": {
+      "sim": "TRAILING EDGE FLAPS LEFT ANGLE",
+      "unit": "degrees",
+      "default": 10
+    }
+  },
+  "scales": {
+    "flaps": {
+      "min": 0,
+      "max": 40,
+      "startAngle": -70,
+      "endAngle": 150
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "flaps",
+      "every": 5,
+      "from": 0,
+      "to": 40,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.8,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "flaps",
+      "every": 10,
+      "from": 0,
+      "to": 40,
+      "radius": 92.96,
+      "length": 15,
+      "width": 3,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "flaps",
+      "at": [
+        10,
+        20,
+        30,
+        40
+      ],
+      "radius": 84.02,
+      "length": -9,
+      "width": 10,
+      "shape": "triangle",
+      "color": "#E0B13C"
+    },
+    {
+      "type": "labels",
+      "scale": "flaps",
+      "at": [
+        0,
+        10,
+        20,
+        30,
+        40
+      ],
+      "radius": 64.35,
+      "size": 20,
+      "color": "#EFE6CF",
+      "texts": {
+        "0": "UP"
+      }
+    },
+    {
+      "type": "text",
+      "text": "FLAPS",
+      "x": 160,
+      "y": 157.54,
+      "size": 16,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "DEGREES",
+      "x": 160,
+      "y": 171.84,
+      "size": 10,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "needle",
+      "scale": "flaps",
+      "value": "flaps",
+      "length": 85.81,
+      "tail": 22,
+      "width": 5,
+      "color": "#F4F2EC",
+      "tailColor": "#161616",
+      "shadow": true
+    },
+    {
+      "type": "hub",
+      "r": 10,
+      "fill": "#141414",
+      "stroke": "#4A4A4A"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "FLAPS_INCR"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "FLAPS_DECR"
+    },
+    "leftKnobClockwise": {
+      "event": "FLAPS_INCR"
+    },
+    "leftKnobAnticlockwise": {
+      "event": "FLAPS_DECR"
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,349 @@
+{
+  "format": 1,
+  "name": "Boeing 737 MAX N1 (modern)",
+  "author": "FIPinator 3000",
+  "description": "Boeing 737 MAX N1, glass-cockpit style: a dial per engine with a filled sweep and a digital box; red line 104.3. Limits: EASA TCDS E.115 (CFM LEAP-1B).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#000000"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "e1": {
+      "sim": "TURB ENG CORRECTED N1:1",
+      "unit": "percent",
+      "default": 85
+    },
+    "e1_ok": {
+      "expr": "choose(e1 - 104.3, 400, 0)"
+    },
+    "e1_hot": {
+      "expr": "choose(e1 - 104.3, 0, 400)"
+    },
+    "e2": {
+      "sim": "TURB ENG CORRECTED N1:2",
+      "unit": "percent",
+      "default": 88.4
+    },
+    "e2_ok": {
+      "expr": "choose(e2 - 104.3, 400, 0)"
+    },
+    "e2_hot": {
+      "expr": "choose(e2 - 104.3, 0, 400)"
+    }
+  },
+  "scales": {
+    "s": {
+      "min": 0,
+      "max": 110,
+      "startAngle": -100,
+      "endAngle": 110
+    },
+    "px": {
+      "min": 0,
+      "max": 400,
+      "startAngle": 0,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "arc",
+      "scale": "s",
+      "from": 0,
+      "toValue": "e1",
+      "radius": 34,
+      "width": 68,
+      "color": "#5E5E5E",
+      "center": [
+        80,
+        152
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s",
+      "from": 0,
+      "to": 104.3,
+      "radius": 68,
+      "width": 2.5,
+      "color": "#F2F2F2",
+      "center": [
+        80,
+        152
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "at": [
+        104.3
+      ],
+      "radius": 75,
+      "length": 16,
+      "width": 3,
+      "color": "#FF3B30",
+      "center": [
+        80,
+        152
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "radius": 68,
+      "length": 7,
+      "width": 2,
+      "color": "#F2F2F2",
+      "center": [
+        80,
+        152
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "divideBy": 10,
+      "radius": 51,
+      "size": 14.8,
+      "color": "#F2F2F2",
+      "center": [
+        80,
+        152
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "s",
+      "value": "e1",
+      "length": 68,
+      "width": 2.6,
+      "tail": 0,
+      "color": "#F2F2F2",
+      "center": [
+        80,
+        152
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 82,
+      "y": 60.8,
+      "width": 64.6,
+      "height": 27.2,
+      "fill": "#000000",
+      "stroke": "#F2F2F2",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "e1_ok",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "e1",
+          "format": "0.0",
+          "x": 142.6,
+          "y": 82.56,
+          "size": 21.8,
+          "color": "#F2F2F2",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "e1_hot",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "e1",
+          "format": "0.0",
+          "x": 142.6,
+          "y": 82.56,
+          "size": 21.8,
+          "color": "#FF3B30",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s",
+      "from": 0,
+      "toValue": "e2",
+      "radius": 34,
+      "width": 68,
+      "color": "#5E5E5E",
+      "center": [
+        240,
+        152
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s",
+      "from": 0,
+      "to": 104.3,
+      "radius": 68,
+      "width": 2.5,
+      "color": "#F2F2F2",
+      "center": [
+        240,
+        152
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "at": [
+        104.3
+      ],
+      "radius": 75,
+      "length": 16,
+      "width": 3,
+      "color": "#FF3B30",
+      "center": [
+        240,
+        152
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "radius": 68,
+      "length": 7,
+      "width": 2,
+      "color": "#F2F2F2",
+      "center": [
+        240,
+        152
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s",
+      "at": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        100
+      ],
+      "divideBy": 10,
+      "radius": 51,
+      "size": 14.8,
+      "color": "#F2F2F2",
+      "center": [
+        240,
+        152
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "s",
+      "value": "e2",
+      "length": 68,
+      "width": 2.6,
+      "tail": 0,
+      "color": "#F2F2F2",
+      "center": [
+        240,
+        152
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 242,
+      "y": 60.8,
+      "width": 64.6,
+      "height": 27.2,
+      "fill": "#000000",
+      "stroke": "#F2F2F2",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "e2_ok",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "e2",
+          "format": "0.0",
+          "x": 302.6,
+          "y": 82.56,
+          "size": 21.8,
+          "color": "#F2F2F2",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "e2_hot",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "e2",
+          "format": "0.0",
+          "x": 302.6,
+          "y": 82.56,
+          "size": 21.8,
+          "color": "#FF3B30",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "N1",
+      "x": 160,
+      "y": 224,
+      "size": 22,
+      "color": "#7FD6F0"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

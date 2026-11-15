@@ -1,0 +1,256 @@
+{
+  "format": 1,
+  "name": "Classic single Airspeed",
+  "author": "FIPinator 3000",
+  "description": "Classic airspeed indicator built from the aircraft\u0027s speeds: green 40-111 kt, yellow 111-149, red line 149, white 35-85.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "ias": {
+      "sim": "AIRSPEED INDICATED",
+      "unit": "knots",
+      "default": 89
+    }
+  },
+  "scales": {
+    "kt": {
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          160,
+          336
+        ]
+      ]
+    },
+    "mph": {
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          23.0156,
+          24
+        ],
+        [
+          184.1248,
+          336
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "group",
+      "offset": [
+        16.99,
+        12.74
+      ],
+      "zoom": 0.8938,
+      "layers": [
+        {
+          "type": "arc",
+          "scale": "kt",
+          "from": 40,
+          "to": 111,
+          "radius": 108,
+          "width": 6,
+          "color": "#3E9E4A"
+        },
+        {
+          "type": "arc",
+          "scale": "kt",
+          "from": 111,
+          "to": 149,
+          "radius": 108,
+          "width": 6,
+          "color": "#E0B13C"
+        },
+        {
+          "type": "arc",
+          "scale": "kt",
+          "from": 35,
+          "to": 85,
+          "radius": 96,
+          "width": 4,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "ticks",
+          "scale": "kt",
+          "every": 5,
+          "from": 20,
+          "to": 160,
+          "radius": 111,
+          "length": 7,
+          "width": 1.5,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "ticks",
+          "scale": "kt",
+          "every": 10,
+          "from": 20,
+          "to": 160,
+          "radius": 111,
+          "length": 13,
+          "width": 2.6,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "labels",
+          "scale": "kt",
+          "every": 20,
+          "from": 20,
+          "to": 160,
+          "radius": 88,
+          "size": 18,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "ticks",
+          "scale": "kt",
+          "at": [
+            149
+          ],
+          "radius": 111,
+          "length": 18,
+          "width": 4.5,
+          "color": "#D3362B"
+        },
+        {
+          "type": "ticks",
+          "scale": "mph",
+          "every": 10,
+          "from": 30,
+          "to": 180,
+          "radius": 70,
+          "length": 7,
+          "width": 2,
+          "color": "#5B9BE0"
+        },
+        {
+          "type": "labels",
+          "scale": "mph",
+          "every": 50,
+          "from": 50,
+          "to": 180,
+          "radius": 54,
+          "size": 13,
+          "color": "#5B9BE0"
+        },
+        {
+          "type": "text",
+          "text": "KNOTS",
+          "x": 160,
+          "y": 27,
+          "size": 11,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "text",
+          "text": "AIRSPEED",
+          "x": 160,
+          "y": 92,
+          "size": 12,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "text",
+          "text": "MPH",
+          "x": 160,
+          "y": 168,
+          "size": 10,
+          "color": "#5B9BE0"
+        },
+        {
+          "type": "needle",
+          "scale": "kt",
+          "value": "ias",
+          "length": 106,
+          "tail": 24,
+          "width": 4,
+          "color": "#EFE6CF",
+          "tailColor": "#161616",
+          "shadow": true
+        },
+        {
+          "type": "hub",
+          "r": 9,
+          "fill": "#141414",
+          "stroke": "#4A4A4A"
+        }
+      ]
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

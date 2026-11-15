@@ -1,0 +1,402 @@
+{
+  "format": 1,
+  "name": "DC-6 Manifold pressure 1-2",
+  "author": "FIPinator 3000 (from the owner's DC-6 Gauges designs)",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "PMDG DC-6 manifold pressure 1-2, main panel. Scale and marks as in DC-6 Gauges (read off the PMDG cockpit); needles follow PMDG's own cockpit needle values.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8d908e"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "n1": {
+      "sim": "L:dc6_325_obj",
+      "unit": "number",
+      "default": 325
+    },
+    "n2": {
+      "sim": "L:dc6_326_obj",
+      "unit": "number",
+      "default": 375
+    }
+  },
+  "scales": {
+    "s0": {
+      "points": [
+        [
+          100,
+          -105.26,
+          79.81
+        ],
+        [
+          200,
+          -52,
+          81.22
+        ],
+        [
+          300,
+          0,
+          81
+        ],
+        [
+          400,
+          51.56,
+          80.43
+        ],
+        [
+          500,
+          105.95,
+          80.08
+        ],
+        [
+          600,
+          158.86,
+          80.41
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3b3c3d",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#253b32",
+      "fillBottom": "#08100d",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994a4b4c",
+      "strokeWidth": 1
+    },
+    {
+      "type": "arc",
+      "scale": "s0",
+      "from": 200,
+      "to": 400,
+      "radius": 17,
+      "width": 2,
+      "color": "#3f9a52",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "s0",
+      "from": 490,
+      "to": 600,
+      "radius": 17,
+      "width": 4,
+      "color": "#d9a21e",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        110,
+        120,
+        130,
+        140,
+        160,
+        170,
+        180,
+        190,
+        210,
+        220,
+        230,
+        240,
+        260,
+        270,
+        280,
+        290,
+        310,
+        320,
+        330,
+        340,
+        360,
+        370,
+        380,
+        390,
+        410,
+        420,
+        430,
+        440,
+        460,
+        470,
+        480,
+        490,
+        510,
+        520,
+        530,
+        540,
+        560,
+        570,
+        580,
+        590
+      ],
+      "radius": 8,
+      "length": 8,
+      "width": 1.2,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500,
+        550,
+        600
+      ],
+      "radius": 16,
+      "length": 16,
+      "width": 2.6,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        530
+      ],
+      "radius": 20,
+      "length": 22,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        600
+      ],
+      "radius": 20,
+      "length": 22,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        100,
+        200,
+        300,
+        400,
+        500,
+        600
+      ],
+      "radius": -14,
+      "size": 20,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ],
+      "texts": {
+        "100": "10",
+        "200": "20",
+        "300": "30",
+        "400": "40",
+        "500": "50",
+        "600": "60"
+      }
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        150,
+        250,
+        350,
+        450,
+        550
+      ],
+      "radius": -11.2,
+      "size": 12,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ],
+      "texts": {
+        "150": "15",
+        "250": "25",
+        "350": "35",
+        "450": "45",
+        "550": "55"
+      }
+    },
+    {
+      "type": "text",
+      "text": "MANIFOLD",
+      "x": 160,
+      "y": 88.32,
+      "size": 12,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "PRESSURE",
+      "x": 160,
+      "y": 102.32,
+      "size": 12,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "INCHES MERCURY",
+      "x": 160,
+      "y": 152.52,
+      "size": 7,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "ABSOLUTE",
+      "x": 160,
+      "y": 161.52,
+      "size": 7,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "KOLLSMAN",
+      "x": 160,
+      "y": 173.7,
+      "size": 7.5,
+      "color": "#d9efe6cf",
+      "italic": false
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n1",
+      "center": [
+        160,
+        120
+      ],
+      "length": 12,
+      "width": 3.2,
+      "tail": 24,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false,
+      "tag": "1"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n2",
+      "center": [
+        160,
+        120
+      ],
+      "length": 6,
+      "width": 3.2,
+      "tail": 24,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false,
+      "tag": "2"
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.6,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 101,
+      "opacity": 0.16
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "format": 1,
+  "name": "Classic twin Attitude",
+  "author": "FIPinator 3000",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "Standard-style attitude indicator: blue sky and brown ground; outer ring with bank marks (10, 20, 30, 45, 60 degrees) that turns with bank under a fixed yellow pointer; inner ball that also moves with pitch (3 px per degree), with a numbered pitch ladder; yellow miniature airplane that the knobs move up and down (attitude bars).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "pitch": {
+      "sim": "ATTITUDE INDICATOR PITCH DEGREES",
+      "unit": "degrees",
+      "default": -5
+    },
+    "bank": {
+      "sim": "ATTITUDE INDICATOR BANK DEGREES",
+      "unit": "degrees",
+      "default": 15
+    },
+    "bars": {
+      "sim": "ATTITUDE BARS POSITION",
+      "unit": "percent",
+      "default": 0
+    }
+  },
+  "scales": {
+    "bank": {
+      "min": -180,
+      "max": 180,
+      "startAngle": -180,
+      "endAngle": 180
+    },
+    "pitch": {
+      "min": -90,
+      "max": 90,
+      "startAngle": 270,
+      "endAngle": -270
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    },
+    "barspx": {
+      "min": -100,
+      "max": 100,
+      "startAngle": 20,
+      "endAngle": -20
+    }
+  },
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "ATTITUDE_BARS_POSITION_UP"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "ATTITUDE_BARS_POSITION_DOWN"
+    },
+    "leftKnobClockwise": {
+      "event": "ATTITUDE_BARS_POSITION_UP",
+      "repeat": 5
+    },
+    "leftKnobAnticlockwise": {
+      "event": "ATTITUDE_BARS_POSITION_DOWN",
+      "repeat": 5
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "group",
+      "offset": [
+        7.55,
+        5.66
+      ],
+      "zoom": 0.9528,
+      "layers": [
+        {
+          "type": "group",
+          "clip": 104,
+          "layers": [
+            {
+              "type": "group",
+              "rotate": {
+                "value": "bank",
+                "scale": "bank"
+              },
+              "layers": [
+                {
+                  "type": "rect",
+                  "x": -100,
+                  "y": -200,
+                  "width": 520,
+                  "height": 320,
+                  "fill": "#1F7BC4"
+                },
+                {
+                  "type": "rect",
+                  "x": -100,
+                  "y": 120,
+                  "width": 520,
+                  "height": 320,
+                  "fill": "#6A4A2C"
+                },
+                {
+                  "type": "rect",
+                  "x": -100,
+                  "y": 118,
+                  "width": 520,
+                  "height": 4,
+                  "fill": "#EFE6CF"
+                },
+                {
+                  "type": "group",
+                  "clip": 78,
+                  "layers": [
+                    {
+                      "type": "group",
+                      "moveY": {
+                        "value": "pitch",
+                        "scale": "pitch"
+                      },
+                      "layers": [
+                        {
+                          "type": "rect",
+                          "x": -200,
+                          "y": -300,
+                          "width": 720,
+                          "height": 420,
+                          "fill": "#2C8DD6"
+                        },
+                        {
+                          "type": "rect",
+                          "x": -200,
+                          "y": 120,
+                          "width": 720,
+                          "height": 420,
+                          "fill": "#7A5631"
+                        },
+                        {
+                          "type": "rect",
+                          "x": -200,
+                          "y": 118,
+                          "width": 720,
+                          "height": 4,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 150,
+                          "y": 104,
+                          "width": 20,
+                          "height": 2.5,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 140,
+                          "y": 89,
+                          "width": 40,
+                          "height": 3,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 150,
+                          "y": 74,
+                          "width": 20,
+                          "height": 2.5,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 136,
+                          "y": 59,
+                          "width": 48,
+                          "height": 3,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "text",
+                          "text": "10",
+                          "x": 128,
+                          "y": 95,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "right"
+                        },
+                        {
+                          "type": "text",
+                          "text": "10",
+                          "x": 192,
+                          "y": 95,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "left"
+                        },
+                        {
+                          "type": "text",
+                          "text": "20",
+                          "x": 124,
+                          "y": 65,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "right"
+                        },
+                        {
+                          "type": "text",
+                          "text": "20",
+                          "x": 196,
+                          "y": 65,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "left"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 150,
+                          "y": 134,
+                          "width": 20,
+                          "height": 2.5,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 140,
+                          "y": 149,
+                          "width": 40,
+                          "height": 3,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 150,
+                          "y": 164,
+                          "width": 20,
+                          "height": 2.5,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "rect",
+                          "x": 136,
+                          "y": 179,
+                          "width": 48,
+                          "height": 3,
+                          "fill": "#EFE6CF"
+                        },
+                        {
+                          "type": "text",
+                          "text": "10",
+                          "x": 128,
+                          "y": 155,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "right"
+                        },
+                        {
+                          "type": "text",
+                          "text": "10",
+                          "x": 192,
+                          "y": 155,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "left"
+                        },
+                        {
+                          "type": "text",
+                          "text": "20",
+                          "x": 124,
+                          "y": 185,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "right"
+                        },
+                        {
+                          "type": "text",
+                          "text": "20",
+                          "x": 196,
+                          "y": 185,
+                          "size": 13,
+                          "color": "#EFE6CF",
+                          "align": "left"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "circle",
+                  "r": 78,
+                  "stroke": "#0E3E66",
+                  "strokeWidth": 1.5
+                },
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    350,
+                    340,
+                    10,
+                    20
+                  ],
+                  "radius": 102,
+                  "length": 12,
+                  "width": 3,
+                  "color": "#EFE6CF"
+                },
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    330,
+                    30
+                  ],
+                  "radius": 102,
+                  "length": 20,
+                  "width": 4.5,
+                  "color": "#EFE6CF"
+                },
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    315,
+                    45
+                  ],
+                  "radius": 96,
+                  "length": 0.5,
+                  "width": 5,
+                  "color": "#EFE6CF"
+                },
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    300,
+                    60
+                  ],
+                  "radius": 102,
+                  "length": 20,
+                  "width": 4.5,
+                  "color": "#EFE6CF"
+                },
+                {
+                  "type": "ticks",
+                  "scale": "dial",
+                  "at": [
+                    0
+                  ],
+                  "radius": 102,
+                  "length": 18,
+                  "width": 16,
+                  "color": "#EFE6CF",
+                  "shape": "triangle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            0
+          ],
+          "radius": 64,
+          "length": -18,
+          "width": 18,
+          "color": "#FFE01A",
+          "shape": "triangle"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            0
+          ],
+          "radius": 66,
+          "length": -11,
+          "width": 9,
+          "color": "#1F7BC4",
+          "shape": "triangle"
+        },
+        {
+          "type": "group",
+          "moveY": {
+            "value": "bars",
+            "scale": "barspx"
+          },
+          "layers": [
+            {
+              "type": "rect",
+              "x": 98,
+              "y": 117,
+              "width": 44,
+              "height": 6,
+              "radius": 3,
+              "fill": "#FFE01A",
+              "stroke": "#5A4A00",
+              "strokeWidth": 1
+            },
+            {
+              "type": "rect",
+              "x": 178,
+              "y": 117,
+              "width": 44,
+              "height": 6,
+              "radius": 3,
+              "fill": "#FFE01A",
+              "stroke": "#5A4A00",
+              "strokeWidth": 1
+            },
+            {
+              "type": "rect",
+              "x": 137,
+              "y": 117,
+              "width": 6,
+              "height": 20,
+              "radius": 3,
+              "fill": "#FFE01A"
+            },
+            {
+              "type": "rect",
+              "x": 177,
+              "y": 117,
+              "width": 6,
+              "height": 20,
+              "radius": 3,
+              "fill": "#FFE01A"
+            },
+            {
+              "type": "rect",
+              "x": 137,
+              "y": 131,
+              "width": 46,
+              "height": 6,
+              "radius": 3,
+              "fill": "#FFE01A"
+            },
+            {
+              "type": "circle",
+              "center": [
+                160,
+                120
+              ],
+              "r": 5.5,
+              "fill": "#FFE01A",
+              "stroke": "#5A4A00",
+              "strokeWidth": 1
+            }
+          ]
+        },
+        {
+          "type": "rect",
+          "x": 120,
+          "y": 208,
+          "width": 80,
+          "height": 30,
+          "radius": 10,
+          "fill": "#262626",
+          "stroke": "#3E3E3E",
+          "strokeWidth": 1
+        },
+        {
+          "type": "circle",
+          "center": [
+            160,
+            224
+          ],
+          "r": 13,
+          "fill": "#151515",
+          "stroke": "#444444",
+          "strokeWidth": 2
+        }
+      ]
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ]
+}

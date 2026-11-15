@@ -1,0 +1,285 @@
+{
+  "format": 1,
+  "name": "DC-6 BMEP 1",
+  "author": "FIPinator 3000 (from the owner's DC-6 Gauges designs)",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "PMDG DC-6 bmep 1, main panel. Scale and marks as in DC-6 Gauges (read off the PMDG cockpit); needles follow PMDG's own cockpit needle values.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8d908e"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "n1": {
+      "sim": "L:dc6_317_obj",
+      "unit": "number",
+      "default": 150
+    }
+  },
+  "scales": {
+    "s0": {
+      "points": [
+        [
+          60,
+          -157.99,
+          101.39
+        ],
+        [
+          100,
+          -88.32,
+          102.04
+        ],
+        [
+          150,
+          -10.11,
+          102.59
+        ],
+        [
+          200,
+          78.8,
+          102.96
+        ],
+        [
+          260,
+          157.99,
+          101.39
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3b3c3d",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1e1e1e",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994a4b4c",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        65,
+        75,
+        85,
+        95,
+        105,
+        115,
+        125,
+        135,
+        145,
+        155,
+        165,
+        175,
+        185,
+        195,
+        205,
+        215,
+        225,
+        235,
+        245,
+        255
+      ],
+      "radius": 0,
+      "length": 8,
+      "width": 1.2,
+      "color": "#e3eef0",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        70,
+        80,
+        90,
+        110,
+        120,
+        130,
+        140,
+        160,
+        170,
+        180,
+        190,
+        210,
+        220,
+        230,
+        240,
+        250
+      ],
+      "radius": 0,
+      "length": 11,
+      "width": 1.8,
+      "color": "#e3eef0",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        60,
+        100,
+        150,
+        200,
+        260
+      ],
+      "radius": 0,
+      "length": 16,
+      "width": 2.6,
+      "color": "#e3eef0",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        240
+      ],
+      "radius": -2,
+      "length": 16,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        60,
+        100,
+        150,
+        200,
+        260
+      ],
+      "radius": -28,
+      "size": 20,
+      "color": "#e3eef0",
+      "center": [
+        160,
+        120
+      ],
+      "texts": {
+        "60": "60",
+        "100": "100",
+        "150": "150",
+        "200": "200",
+        "260": "260"
+      }
+    },
+    {
+      "type": "text",
+      "text": "B M E P",
+      "x": 160,
+      "y": 77.4,
+      "size": 15,
+      "color": "#e3eef0"
+    },
+    {
+      "type": "text",
+      "text": "LBS. SQ. IN.",
+      "x": 160,
+      "y": 88.7,
+      "size": 7.5,
+      "color": "#e3eef0"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n1",
+      "center": [
+        160,
+        120
+      ],
+      "length": -4,
+      "width": 3.2,
+      "tail": 24,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.6,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 101,
+      "opacity": 0.16
+    }
+  ]
+}

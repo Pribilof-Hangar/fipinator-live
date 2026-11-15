@@ -1,0 +1,383 @@
+{
+  "format": 1,
+  "name": "Titan Manifold pressure",
+  "author": "FIPinator 3000",
+  "description": "Cessna 404 Titan manifold pressure, L and R needles, green arc, red line, the max-MP-by-altitude card. The look of the Titan\u0027s panel.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#3D4145"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "mp1": {
+      "sim": "RECIP ENG MANIFOLD PRESSURE:1",
+      "unit": "inHg",
+      "default": 24
+    },
+    "mp2": {
+      "sim": "RECIP ENG MANIFOLD PRESSURE:2",
+      "unit": "inHg",
+      "default": 24.96
+    }
+  },
+  "scales": {
+    "mp": {
+      "points": [
+        [
+          8,
+          -62
+        ],
+        [
+          10,
+          -45
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          20,
+          47
+        ],
+        [
+          25,
+          81
+        ],
+        [
+          30,
+          124
+        ],
+        [
+          35,
+          155
+        ],
+        [
+          40,
+          194
+        ],
+        [
+          41,
+          202
+        ]
+      ]
+    },
+    "fixed": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#3D4145"
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 117,
+      "fillTop": "#26282A",
+      "fillBottom": "#0C0C0D",
+      "stroke": "#08090A",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 108,
+      "fill": "#0D0D0D"
+    },
+    {
+      "type": "screw",
+      "x": 36,
+      "y": 16,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 284,
+      "y": 16,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 36,
+      "y": 224,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 284,
+      "y": 224,
+      "kind": "steel"
+    },
+    {
+      "type": "arc",
+      "scale": "mp",
+      "from": 17,
+      "to": 35.5,
+      "radius": 100,
+      "width": 6,
+      "color": "#3F9A52",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "mp",
+      "at": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41
+      ],
+      "radius": 103,
+      "length": 8,
+      "width": 1.6,
+      "color": "#EDE9DF",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "mp",
+      "at": [
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "radius": 103,
+      "length": 15,
+      "width": 3.2,
+      "color": "#EDE9DF",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "mp",
+      "at": [
+        39.6
+      ],
+      "radius": 104,
+      "length": 16,
+      "width": 3.5,
+      "color": "#D0302A",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "mp",
+      "at": [
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40
+      ],
+      "texts": {
+        "10": "10",
+        "15": "15",
+        "20": "20",
+        "25": "25",
+        "30": "30",
+        "35": "35",
+        "40": "40"
+      },
+      "radius": 76,
+      "size": 22,
+      "color": "#EDE9DF",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "fixed",
+      "from": 52,
+      "to": 189,
+      "radius": 52,
+      "width": 18,
+      "color": "#6FA6DA",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "fixed",
+      "at": [
+        189,
+        169,
+        150,
+        130,
+        110,
+        90,
+        71,
+        52
+      ],
+      "texts": {
+        "189": "16",
+        "169": "18",
+        "150": "20",
+        "130": "22",
+        "110": "24",
+        "90": "26",
+        "71": "28",
+        "52": "30"
+      },
+      "radius": 52,
+      "size": 10,
+      "color": "#0D1A28",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "text",
+      "text": "SL",
+      "x": 150,
+      "y": 214,
+      "size": 9,
+      "color": "#EDE9DF"
+    },
+    {
+      "type": "text",
+      "text": "MANIFOLD",
+      "x": 103,
+      "y": 106,
+      "size": 15,
+      "color": "#EDE9DF"
+    },
+    {
+      "type": "text",
+      "text": "IN HG",
+      "x": 103,
+      "y": 124,
+      "size": 15,
+      "color": "#EDE9DF"
+    },
+    {
+      "type": "text",
+      "text": "MAX MP",
+      "x": 98,
+      "y": 176,
+      "size": 9,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "FT X 1000",
+      "x": 98,
+      "y": 188,
+      "size": 8,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "needle",
+      "scale": "mp",
+      "value": "mp1",
+      "length": 96,
+      "width": 6,
+      "tail": 16,
+      "color": "#ECECE8",
+      "tailColor": "#1A1A1A",
+      "shadow": true,
+      "tag": "L",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "mp",
+      "value": "mp2",
+      "length": 96,
+      "width": 6,
+      "tail": 16,
+      "color": "#ECECE8",
+      "tailColor": "#1A1A1A",
+      "shadow": true,
+      "tag": "R",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 9,
+      "fill": "#141414"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

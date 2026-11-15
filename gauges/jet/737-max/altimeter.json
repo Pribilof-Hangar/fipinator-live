@@ -1,0 +1,258 @@
+{
+  "format": 1,
+  "name": "Jet Altimeter",
+  "author": "FIPinator 3000",
+  "description": "Jet altimeter: pointer turns once per 1,000 ft, counter window shows the altitude, baro in inHg and hPa. Knobs set the baro.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#1A1B1D"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "alt": {
+      "sim": "INDICATED ALTITUDE",
+      "unit": "feet",
+      "default": 10740
+    },
+    "inhg": {
+      "sim": "KOHLSMAN SETTING HG",
+      "unit": "inHg",
+      "default": 29.92
+    },
+    "hpa": {
+      "sim": "KOHLSMAN SETTING MB:1",
+      "unit": "millibars",
+      "default": 1013
+    },
+    "hundreds": {
+      "expr": "(alt % 1000 \u002B 1000) % 1000"
+    },
+    "counter": {
+      "expr": "alt - alt % 20"
+    }
+  },
+  "scales": {
+    "k": {
+      "min": 0,
+      "max": 1000,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#60000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#2E2F31",
+      "fillBottom": "#030303",
+      "stroke": "#3A3B3D",
+      "strokeWidth": 1
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#141414",
+      "fillBottom": "#030303",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#80505254",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "k",
+      "every": 20,
+      "from": 0,
+      "to": 980,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "ticks",
+      "scale": "k",
+      "every": 100,
+      "from": 0,
+      "to": 900,
+      "radius": 92.96,
+      "length": 17,
+      "width": 3,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "labels",
+      "scale": "k",
+      "every": 100,
+      "from": 0,
+      "to": 900,
+      "divideBy": 100,
+      "radius": 67.93,
+      "size": 26,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "rect",
+      "x": 118.88,
+      "y": 84.25,
+      "width": 82.2,
+      "height": 26.8,
+      "radius": 3,
+      "fill": "#050505",
+      "stroke": "#6A6A6A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "value": "counter",
+      "format": "#,0",
+      "x": 195.08,
+      "y": 106.23,
+      "size": 23,
+      "color": "#F4F4F2",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "text": "FEET",
+      "x": 190.39,
+      "y": 118.21,
+      "size": 10,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "rect",
+      "x": 115.32,
+      "y": 132.24,
+      "width": 41.1,
+      "height": 20,
+      "radius": 2,
+      "fill": "#050505",
+      "stroke": "#6A6A6A",
+      "strokeWidth": 1
+    },
+    {
+      "type": "text",
+      "value": "inhg",
+      "format": "0.00",
+      "x": 135.87,
+      "y": 148.24,
+      "size": 15,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "text",
+      "text": "IN HG",
+      "x": 135.87,
+      "y": 159.33,
+      "size": 9,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "rect",
+      "x": 163.58,
+      "y": 132.24,
+      "width": 41.1,
+      "height": 20,
+      "radius": 2,
+      "fill": "#050505",
+      "stroke": "#6A6A6A",
+      "strokeWidth": 1
+    },
+    {
+      "type": "text",
+      "value": "hpa",
+      "format": "0",
+      "x": 184.13,
+      "y": 148.24,
+      "size": 15,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "text",
+      "text": "HPA",
+      "x": 184.13,
+      "y": 159.33,
+      "size": 9,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "needle",
+      "scale": "k",
+      "value": "hundreds",
+      "length": 87.59,
+      "tail": 12.87,
+      "width": 4.2,
+      "color": "#F4F2EC",
+      "tailColor": "#161616",
+      "shadow": true
+    },
+    {
+      "type": "hub",
+      "r": 8,
+      "fill": "#141414",
+      "stroke": "#4A4A4A"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.12
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "KOHLSMAN_INC"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "KOHLSMAN_DEC"
+    },
+    "leftKnobClockwise": {
+      "event": "KOHLSMAN_INC",
+      "repeat": 10
+    },
+    "leftKnobAnticlockwise": {
+      "event": "KOHLSMAN_DEC",
+      "repeat": 10
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

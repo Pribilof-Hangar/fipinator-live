@@ -1,0 +1,178 @@
+{
+  "format": 1,
+  "name": "Suction",
+  "author": "FIPinator 3000",
+  "description": "Suction (SUCTION PRESSURE).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "v": {
+      "sim": "SUCTION PRESSURE",
+      "unit": "inHg",
+      "default": 5
+    }
+  },
+  "scales": {
+    "s": {
+      "min": 0,
+      "max": 10,
+      "startAngle": -135,
+      "endAngle": 135
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "arc",
+      "scale": "s",
+      "from": 4.5,
+      "to": 5.5,
+      "radius": 95.64,
+      "width": 6,
+      "color": "#3E9E4A"
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "every": 0.5,
+      "from": 0,
+      "to": 10,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "at": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "radius": 92.96,
+      "length": 16,
+      "width": 2.8,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "labels",
+      "scale": "s",
+      "at": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10
+      ],
+      "radius": 69.72,
+      "size": 22,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "SUCTION",
+      "x": 160,
+      "y": 155.75,
+      "size": 16,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "IN HG",
+      "x": 160,
+      "y": 170.05,
+      "size": 11,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s",
+      "value": "v",
+      "length": 82.23,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "fill": "#1A1A1A",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.64,
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

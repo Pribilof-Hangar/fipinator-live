@@ -1,0 +1,386 @@
+{
+  "format": 1,
+  "name": "Titan EGT",
+  "author": "FIPinator 3000",
+  "description": "Cessna 404 Titan EGT: two edgewise scales, 0-5 divisions, L and R pointers (taken as EGT \u00B0F / 100; 240 \u00B0F read about 2.4 in the cockpit, to confirm).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#3D4145"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "egt1_f": {
+      "sim": "ENG EXHAUST GAS TEMPERATURE:1",
+      "unit": "fahrenheit",
+      "default": 300
+    },
+    "egt2_f": {
+      "sim": "ENG EXHAUST GAS TEMPERATURE:2",
+      "unit": "fahrenheit",
+      "default": 280
+    },
+    "egt1": {
+      "expr": "clamp(egt1_f / 100, 0, 5)"
+    },
+    "egt2": {
+      "expr": "clamp(egt2_f / 100, 0, 5)"
+    }
+  },
+  "scales": {
+    "egtL": {
+      "min": 0,
+      "max": 5,
+      "startAngle": 134,
+      "endAngle": 46
+    },
+    "egtR": {
+      "min": 0,
+      "max": 5,
+      "startAngle": -134,
+      "endAngle": -46
+    },
+    "zero": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#3D4145"
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 117,
+      "fillTop": "#26282A",
+      "fillBottom": "#0C0C0D",
+      "stroke": "#08090A",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 108,
+      "fill": "#0D0D0D"
+    },
+    {
+      "type": "screw",
+      "x": 36,
+      "y": 16,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 284,
+      "y": 16,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 36,
+      "y": 224,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 284,
+      "y": 224,
+      "kind": "steel"
+    },
+    {
+      "type": "arc",
+      "scale": "egtL",
+      "from": 0,
+      "to": 5,
+      "radius": 82,
+      "width": 2.4,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "egtL",
+      "at": [
+        0,
+        0.5,
+        1,
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5
+      ],
+      "radius": 82,
+      "length": 6,
+      "width": 1.6,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "egtL",
+      "at": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "radius": 82,
+      "length": 11,
+      "width": 2.6,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "egtL",
+      "at": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "texts": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5"
+      },
+      "radius": 66,
+      "size": 15,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "egt1",
+        "scale": "egtL"
+      },
+      "center": [
+        66,
+        120
+      ],
+      "layers": [
+        {
+          "type": "rect",
+          "x": 63.5,
+          "y": 47,
+          "width": 5,
+          "height": 24,
+          "fill": "#ECECE8"
+        },
+        {
+          "type": "ticks",
+          "scale": "zero",
+          "at": [
+            0
+          ],
+          "radius": 81,
+          "length": 10,
+          "width": 9,
+          "color": "#ECECE8",
+          "shape": "triangle",
+          "center": [
+            66,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "egtR",
+      "from": 0,
+      "to": 5,
+      "radius": 82,
+      "width": 2.4,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "egtR",
+      "at": [
+        0,
+        0.5,
+        1,
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5
+      ],
+      "radius": 88,
+      "length": 6,
+      "width": 1.6,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "egtR",
+      "at": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "radius": 93,
+      "length": 11,
+      "width": 2.6,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "egtR",
+      "at": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "texts": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5"
+      },
+      "radius": 66,
+      "size": 15,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "egt2",
+        "scale": "egtR"
+      },
+      "center": [
+        254,
+        120
+      ],
+      "layers": [
+        {
+          "type": "rect",
+          "x": 251.5,
+          "y": 47,
+          "width": 5,
+          "height": 24,
+          "fill": "#ECECE8"
+        },
+        {
+          "type": "ticks",
+          "scale": "zero",
+          "at": [
+            0
+          ],
+          "radius": 81,
+          "length": 10,
+          "width": 9,
+          "color": "#ECECE8",
+          "shape": "triangle",
+          "center": [
+            254,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "EGT",
+      "x": 160,
+      "y": 34,
+      "size": 18,
+      "color": "#EDE9DF"
+    },
+    {
+      "type": "text",
+      "text": "L",
+      "x": 58,
+      "y": 126,
+      "size": 18,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "R",
+      "x": 262,
+      "y": 126,
+      "size": 18,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "25\u00B0F/DIV",
+      "x": 160,
+      "y": 210,
+      "size": 11,
+      "color": "#6FA6DA"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

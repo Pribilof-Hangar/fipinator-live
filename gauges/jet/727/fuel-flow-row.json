@@ -1,0 +1,513 @@
+{
+  "format": 1,
+  "name": "727 Fuel flow (3 in a row)",
+  "author": "FIPinator 3000",
+  "description": "Boeing 727 Fuel flow: engines 1, 2 and 3 side by side, as on the 727\u0027s panel.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#3E4246"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "fuelflow1_raw": {
+      "sim": "ENG FUEL FLOW PPH:1",
+      "unit": "pounds per hour",
+      "default": 3000
+    },
+    "fuelflow1": {
+      "expr": "fuelflow1_raw / 1000"
+    },
+    "fuelflow2_raw": {
+      "sim": "ENG FUEL FLOW PPH:2",
+      "unit": "pounds per hour",
+      "default": 3120
+    },
+    "fuelflow2": {
+      "expr": "fuelflow2_raw / 1000"
+    },
+    "fuelflow3_raw": {
+      "sim": "ENG FUEL FLOW PPH:3",
+      "unit": "pounds per hour",
+      "default": 3240
+    },
+    "fuelflow3": {
+      "expr": "fuelflow3_raw / 1000"
+    }
+  },
+  "scales": {
+    "s": {
+      "points": [
+        [
+          0,
+          -55
+        ],
+        [
+          0.5,
+          -32
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          47
+        ],
+        [
+          3,
+          93
+        ],
+        [
+          4,
+          147
+        ],
+        [
+          5,
+          200
+        ],
+        [
+          6,
+          244
+        ],
+        [
+          8,
+          261
+        ],
+        [
+          10,
+          277
+        ],
+        [
+          12,
+          296
+        ]
+      ]
+    },
+    "sub": {
+      "min": 0,
+      "max": 10,
+      "startAngle": 0,
+      "endAngle": 360
+    },
+    "fixed": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#3E4246"
+    },
+    {
+      "type": "screw",
+      "x": 12,
+      "y": 12,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 308,
+      "y": 12,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 12,
+      "y": 228,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 308,
+      "y": 228,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "center": [
+        55,
+        112
+      ],
+      "r": 54,
+      "fillTop": "#2C2D2F",
+      "fillBottom": "#121314",
+      "stroke": "#0A0A0A",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "circle",
+      "center": [
+        55,
+        112
+      ],
+      "r": 50,
+      "fillTop": "#A4561A",
+      "fillBottom": "#5A2A0C"
+    },
+    {
+      "type": "circle",
+      "center": [
+        55,
+        112
+      ],
+      "r": 38,
+      "fillTop": "#4E260C",
+      "fillBottom": "#241005"
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "every": 0.5,
+      "from": 0,
+      "to": 12,
+      "radius": 49,
+      "length": 3.5,
+      "width": 1,
+      "color": "#C9B48E",
+      "center": [
+        55,
+        112
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "every": 1,
+      "from": 0,
+      "to": 12,
+      "radius": 49,
+      "length": 6.5,
+      "width": 1.6,
+      "color": "#F2E3C4",
+      "center": [
+        55,
+        112
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s",
+      "at": [
+        0.5,
+        3,
+        5,
+        8,
+        12
+      ],
+      "texts": {
+        "0.5": "0.5",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "8": "8",
+        "10": "10",
+        "12": "12"
+      },
+      "radius": 35,
+      "size": 13,
+      "color": "#F2E3C4",
+      "center": [
+        55,
+        112
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "s",
+      "value": "fuelflow1",
+      "length": 48,
+      "width": 3,
+      "tail": 0,
+      "color": "#F4EEE0",
+      "shadow": false,
+      "center": [
+        55,
+        112
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        55,
+        112
+      ],
+      "r": 6.5,
+      "fill": "#0E0E0E"
+    },
+    {
+      "type": "text",
+      "text": "1",
+      "x": 55,
+      "y": 186,
+      "size": 16,
+      "color": "#F2E3C4"
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        112
+      ],
+      "r": 54,
+      "fillTop": "#2C2D2F",
+      "fillBottom": "#121314",
+      "stroke": "#0A0A0A",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        112
+      ],
+      "r": 50,
+      "fillTop": "#A4561A",
+      "fillBottom": "#5A2A0C"
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        112
+      ],
+      "r": 38,
+      "fillTop": "#4E260C",
+      "fillBottom": "#241005"
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "every": 0.5,
+      "from": 0,
+      "to": 12,
+      "radius": 49,
+      "length": 3.5,
+      "width": 1,
+      "color": "#C9B48E",
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "every": 1,
+      "from": 0,
+      "to": 12,
+      "radius": 49,
+      "length": 6.5,
+      "width": 1.6,
+      "color": "#F2E3C4",
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s",
+      "at": [
+        0.5,
+        3,
+        5,
+        8,
+        12
+      ],
+      "texts": {
+        "0.5": "0.5",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "8": "8",
+        "10": "10",
+        "12": "12"
+      },
+      "radius": 35,
+      "size": 13,
+      "color": "#F2E3C4",
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "s",
+      "value": "fuelflow2",
+      "length": 48,
+      "width": 3,
+      "tail": 0,
+      "color": "#F4EEE0",
+      "shadow": false,
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        112
+      ],
+      "r": 6.5,
+      "fill": "#0E0E0E"
+    },
+    {
+      "type": "text",
+      "text": "2",
+      "x": 160,
+      "y": 186,
+      "size": 16,
+      "color": "#F2E3C4"
+    },
+    {
+      "type": "circle",
+      "center": [
+        265,
+        112
+      ],
+      "r": 54,
+      "fillTop": "#2C2D2F",
+      "fillBottom": "#121314",
+      "stroke": "#0A0A0A",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "circle",
+      "center": [
+        265,
+        112
+      ],
+      "r": 50,
+      "fillTop": "#A4561A",
+      "fillBottom": "#5A2A0C"
+    },
+    {
+      "type": "circle",
+      "center": [
+        265,
+        112
+      ],
+      "r": 38,
+      "fillTop": "#4E260C",
+      "fillBottom": "#241005"
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "every": 0.5,
+      "from": 0,
+      "to": 12,
+      "radius": 49,
+      "length": 3.5,
+      "width": 1,
+      "color": "#C9B48E",
+      "center": [
+        265,
+        112
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s",
+      "every": 1,
+      "from": 0,
+      "to": 12,
+      "radius": 49,
+      "length": 6.5,
+      "width": 1.6,
+      "color": "#F2E3C4",
+      "center": [
+        265,
+        112
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s",
+      "at": [
+        0.5,
+        3,
+        5,
+        8,
+        12
+      ],
+      "texts": {
+        "0.5": "0.5",
+        "2": "2",
+        "3": "3",
+        "4": "4",
+        "5": "5",
+        "6": "6",
+        "8": "8",
+        "10": "10",
+        "12": "12"
+      },
+      "radius": 35,
+      "size": 13,
+      "color": "#F2E3C4",
+      "center": [
+        265,
+        112
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "s",
+      "value": "fuelflow3",
+      "length": 48,
+      "width": 3,
+      "tail": 0,
+      "color": "#F4EEE0",
+      "shadow": false,
+      "center": [
+        265,
+        112
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        265,
+        112
+      ],
+      "r": 6.5,
+      "fill": "#0E0E0E"
+    },
+    {
+      "type": "text",
+      "text": "3",
+      "x": 265,
+      "y": 186,
+      "size": 16,
+      "color": "#F2E3C4"
+    },
+    {
+      "type": "text",
+      "text": "Fuel flow",
+      "x": 160,
+      "y": 222,
+      "size": 18,
+      "color": "#F2E3C4"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

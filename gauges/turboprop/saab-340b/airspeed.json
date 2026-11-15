@@ -1,0 +1,337 @@
+{
+  "format": 1,
+  "name": "Saab 340B Airspeed",
+  "author": "FIPinator 3000",
+  "description": "Airspeed 40-350 kt (low speeds spread out) with a striped maximum-speed needle that follows the sim\u0027s AIRSPEED BARBER POLE.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "ias": {
+      "sim": "AIRSPEED INDICATED",
+      "unit": "knots",
+      "default": 165
+    },
+    "vmo": {
+      "sim": "AIRSPEED BARBER POLE",
+      "unit": "knots",
+      "default": 250
+    }
+  },
+  "scales": {
+    "kt": {
+      "points": [
+        [
+          0,
+          8
+        ],
+        [
+          40,
+          15
+        ],
+        [
+          60,
+          50
+        ],
+        [
+          80,
+          85
+        ],
+        [
+          100,
+          112
+        ],
+        [
+          120,
+          138
+        ],
+        [
+          140,
+          162
+        ],
+        [
+          160,
+          185
+        ],
+        [
+          180,
+          205
+        ],
+        [
+          200,
+          222
+        ],
+        [
+          250,
+          260
+        ],
+        [
+          300,
+          295
+        ],
+        [
+          350,
+          330
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 5,
+      "from": 40,
+      "to": 200,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 10,
+      "from": 200,
+      "to": 350,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 20,
+      "from": 40,
+      "to": 200,
+      "radius": 92.96,
+      "length": 16,
+      "width": 2.8,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 50,
+      "from": 250,
+      "to": 350,
+      "radius": 92.96,
+      "length": 16,
+      "width": 2.8,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "labels",
+      "scale": "kt",
+      "at": [
+        40,
+        60,
+        80,
+        100,
+        120,
+        140,
+        160,
+        180,
+        200,
+        250,
+        300,
+        350
+      ],
+      "radius": 69.72,
+      "size": 20,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "KNOTS",
+      "x": 160,
+      "y": 96.76,
+      "size": 12,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "vmo",
+        "scale": "kt"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 32.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 39.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 46.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 53.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 60.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 67.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 74.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 81.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 88.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 95.41,
+          "width": 6,
+          "height": 3.14,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 32.41,
+          "width": 6,
+          "height": 66.14,
+          "stroke": "#000000",
+          "strokeWidth": 0.8
+        }
+      ]
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "kt",
+      "value": "ias",
+      "length": 85.81,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "fill": "#1A1A1A",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.64,
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,47 @@
+{
+  "format": 1,
+  "name": "DC-6 Airspeed",
+  "author": "FIPinator 3000",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "Two-turn airspeed indicator in DC-6 style: 40-240 kt on the first turn (outer numbers), 240-400 kt on the second (inner numbers). Scale angles and colored ranges read from the sim's cockpit by eye; check against the PMDG DC-6.",
+  "canvas": { "width": 320, "height": 240, "background": "#5A6064" },
+  "center": [160, 120],
+  "font": "../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "ias": { "sim": "AIRSPEED INDICATED", "unit": "knots", "default": 190 }
+  },
+  "scales": {
+    "speed": { "points": [[0, 0], [40, 32], [80, 100], [100, 136], [120, 172], [140, 210], [160, 240], [200, 302], [240, 360], [280, 415], [320, 468], [360, 518], [400, 565]] }
+  },
+  "layers": [
+    { "type": "rect", "x": 40, "y": 0, "width": 240, "height": 240, "radius": 18, "fill": "#6C7378", "stroke": "#41474A", "strokeWidth": 1.5 },
+    { "type": "screw", "x": 60, "y": 20, "kind": "boss" },
+    { "type": "screw", "x": 260, "y": 20, "kind": "boss" },
+    { "type": "screw", "x": 58, "y": 222, "kind": "slot" },
+    { "type": "screw", "x": 262, "y": 222, "kind": "slot" },
+
+    { "type": "circle", "r": 115, "fillTop": "#303030", "fillBottom": "#0A0A0A", "stroke": "#2A2A2A", "strokeWidth": 1.2 },
+    { "type": "circle", "r": 107, "fill": "#0B0B0B", "stroke": "#202020", "strokeWidth": 3 },
+
+    { "type": "arc", "scale": "speed", "from": 80, "to": 140, "radius": 99, "width": 6, "color": "#E8E5DC" },
+    { "type": "arc", "scale": "speed", "from": 140, "to": 240, "radius": 102, "width": 5, "color": "#3E9E4A" },
+
+    { "type": "ticks", "scale": "speed", "every": 10, "from": 40, "to": 240, "radius": 104, "length": 8, "width": 1.8, "color": "#F1EEE6" },
+    { "type": "ticks", "scale": "speed", "every": 20, "from": 40, "to": 240, "radius": 104, "length": 14, "width": 3, "color": "#F1EEE6" },
+    { "type": "labels", "scale": "speed", "at": [40, 80, 100, 120, 140, 160, 200], "radius": 80, "size": 20, "color": "#F1EEE6" },
+
+    { "type": "arc", "scale": "speed", "from": 240, "to": 265, "radius": 62, "width": 3, "color": "#3E9E4A" },
+    { "type": "arc", "scale": "speed", "from": 265, "to": 300, "radius": 62, "width": 3, "color": "#E0B13C" },
+    { "type": "ticks", "scale": "speed", "at": [300], "radius": 68, "length": 12, "width": 3.5, "color": "#D3362B" },
+    { "type": "ticks", "scale": "speed", "every": 10, "from": 240, "to": 400, "radius": 62, "length": 0.5, "width": 3, "color": "#E8E5DC" },
+    { "type": "ticks", "scale": "speed", "every": 40, "from": 240, "to": 400, "radius": 62, "length": 0.5, "width": 6, "color": "#E8E5DC" },
+    { "type": "labels", "scale": "speed", "at": [240, 280, 320, 360, 400], "radius": 47, "size": 14, "color": "#E8E5DC" },
+
+    { "type": "text", "text": "AIR SPEED", "x": 116, "y": 117, "size": 11, "color": "#C9C4B8" },
+    { "type": "text", "text": "KNOTS", "x": 116, "y": 129, "size": 9, "color": "#C9C4B8" },
+
+    { "type": "needle", "scale": "speed", "value": "ias", "length": 98, "tail": 22, "width": 4.5, "color": "#F4F2EC", "tailColor": "#161616", "shadow": true },
+    { "type": "hub", "r": 10, "fill": "#1A1A1A", "stroke": "#5A5A5A" },
+    { "type": "glare", "r": 106, "opacity": 0.18 }
+  ]
+}

@@ -1,0 +1,420 @@
+{
+  "format": 1,
+  "name": "FCU (Airbus style)",
+  "author": "FIPinator 3000",
+  "description": "Airbus FCU-style autopilot display: speed, heading, altitude and vertical speed in orange digits. S1-S4 pick which one the knobs set (left knob faster); S6 AP1 on/off with its light.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#16191D"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "spd": {
+      "sim": "AUTOPILOT AIRSPEED HOLD VAR",
+      "unit": "knots",
+      "default": 250
+    },
+    "hdg": {
+      "sim": "AUTOPILOT HEADING LOCK DIR",
+      "unit": "degrees",
+      "default": 270
+    },
+    "alt": {
+      "sim": "AUTOPILOT ALTITUDE LOCK VAR",
+      "unit": "feet",
+      "default": 12000
+    },
+    "vs": {
+      "sim": "AUTOPILOT VERTICAL HOLD VAR",
+      "unit": "feet per minute",
+      "default": -800
+    },
+    "ap": {
+      "sim": "AUTOPILOT MASTER",
+      "unit": "bool",
+      "default": 1
+    },
+    "knobMode": {
+      "default": 1
+    },
+    "sel1_8_hide": {
+      "expr": "choose(choose(abs(knobMode - 1) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "sel2_11_hide": {
+      "expr": "choose(choose(abs(knobMode - 2) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "sel3_14_hide": {
+      "expr": "choose(choose(abs(knobMode - 3) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "sel4_17_hide": {
+      "expr": "choose(choose(abs(knobMode - 4) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "ap_lamp21_hide": {
+      "expr": "choose(ap - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#16191D"
+    },
+    {
+      "type": "text",
+      "text": "SPD",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "HDG",
+      "x": 4,
+      "y": 65,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "ALT",
+      "x": 4,
+      "y": 105,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "V/S",
+      "x": 4,
+      "y": 145,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 50,
+      "y": 34,
+      "width": 266,
+      "height": 92,
+      "radius": 3,
+      "fill": "#050505",
+      "stroke": "#2B2F34",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "SPD",
+      "x": 86,
+      "y": 54,
+      "size": 13,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "spd",
+      "format": "000",
+      "x": 86,
+      "y": 104,
+      "size": 32,
+      "color": "#FFA62B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel1_8_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 60,
+          "y": 112,
+          "width": 52,
+          "height": 6,
+          "radius": 2,
+          "fill": "#7FD6F0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "HDG",
+      "x": 150,
+      "y": 54,
+      "size": 13,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "hdg",
+      "format": "000",
+      "x": 150,
+      "y": 104,
+      "size": 32,
+      "color": "#FFA62B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel2_11_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 124,
+          "y": 112,
+          "width": 52,
+          "height": 6,
+          "radius": 2,
+          "fill": "#7FD6F0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "ALT",
+      "x": 222,
+      "y": 54,
+      "size": 13,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "alt",
+      "format": "00000",
+      "x": 222,
+      "y": 104,
+      "size": 26,
+      "color": "#FFA62B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel3_14_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 190,
+          "y": 112,
+          "width": 64,
+          "height": 6,
+          "radius": 2,
+          "fill": "#7FD6F0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "V/S",
+      "x": 288,
+      "y": 54,
+      "size": 13,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "vs",
+      "format": "\u002B0000;-0000;0000",
+      "x": 288,
+      "y": 104,
+      "size": 26,
+      "color": "#FFA62B",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel4_17_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 256,
+          "y": 112,
+          "width": 64,
+          "height": 6,
+          "radius": 2,
+          "fill": "#7FD6F0"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "AP1",
+      "x": 4,
+      "y": 225,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 130,
+      "y": 196,
+      "width": 110,
+      "height": 36,
+      "radius": 3,
+      "fill": "#2B2F34",
+      "stroke": "#40454B",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "text": "AP 1",
+      "x": 185,
+      "y": 222,
+      "size": 18,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "ap_lamp21_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 136,
+          "y": 200,
+          "width": 98,
+          "height": 6,
+          "radius": 3,
+          "fill": "#3BE36E"
+        },
+        {
+          "type": "text",
+          "text": "",
+          "x": 185,
+          "y": 209,
+          "size": 3.6,
+          "color": "#0B0C0E"
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "button6": {
+      "event": "AP_MASTER"
+    }
+  },
+  "modes": [
+    {
+      "name": "SPD",
+      "button": "button1",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "AP_SPD_VAR_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "AP_SPD_VAR_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "AP_SPD_VAR_INC",
+          "repeat": 10
+        },
+        "leftKnobAnticlockwise": {
+          "event": "AP_SPD_VAR_DEC",
+          "repeat": 10
+        }
+      }
+    },
+    {
+      "name": "HDG",
+      "button": "button2",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "HEADING_BUG_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "HEADING_BUG_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "HEADING_BUG_INC",
+          "repeat": 10
+        },
+        "leftKnobAnticlockwise": {
+          "event": "HEADING_BUG_DEC",
+          "repeat": 10
+        }
+      }
+    },
+    {
+      "name": "ALT",
+      "button": "button3",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "AP_ALT_VAR_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "AP_ALT_VAR_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "AP_ALT_VAR_INC",
+          "repeat": 10
+        },
+        "leftKnobAnticlockwise": {
+          "event": "AP_ALT_VAR_DEC",
+          "repeat": 10
+        }
+      }
+    },
+    {
+      "name": "V/S",
+      "button": "button4",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "AP_VS_VAR_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "AP_VS_VAR_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "AP_VS_VAR_INC",
+          "repeat": 5
+        },
+        "leftKnobAnticlockwise": {
+          "event": "AP_VS_VAR_DEC",
+          "repeat": 5
+        }
+      }
+    }
+  ],
+  "buttonLights": {
+    "button6": "ap"
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

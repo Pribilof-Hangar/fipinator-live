@@ -1,0 +1,516 @@
+{
+  "format": 1,
+  "name": "DC-6 Water pressure 1-2",
+  "author": "FIPinator 3000 (from the owner's DC-6 Gauges designs)",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "PMDG DC-6 water pressure 1-2, main panel. Scale and marks as in DC-6 Gauges (read off the PMDG cockpit); needles follow PMDG's own cockpit needle values.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8d908e"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "n1": {
+      "sim": "L:dc6_351_obj",
+      "unit": "number",
+      "default": 18
+    },
+    "n2": {
+      "sim": "L:dc6_352_obj",
+      "unit": "number",
+      "default": 22
+    }
+  },
+  "scales": {
+    "s0": {
+      "points": [
+        [
+          0,
+          150.35,
+          74.79
+        ],
+        [
+          10,
+          111.1,
+          61.1
+        ],
+        [
+          20,
+          82.28,
+          59.54
+        ],
+        [
+          30,
+          50.3,
+          68.88
+        ],
+        [
+          40,
+          27.82,
+          81.41
+        ]
+      ]
+    },
+    "s1": {
+      "points": [
+        [
+          0,
+          -150.35,
+          74.79
+        ],
+        [
+          10,
+          -111.1,
+          61.1
+        ],
+        [
+          20,
+          -82.28,
+          59.54
+        ],
+        [
+          30,
+          -50.3,
+          68.88
+        ],
+        [
+          40,
+          -27.82,
+          81.41
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3b3c3d",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1e1e1e",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994a4b4c",
+      "strokeWidth": 1
+    },
+    {
+      "type": "arc",
+      "scale": "s0",
+      "from": 0,
+      "to": 40,
+      "radius": 0,
+      "width": 1.4,
+      "color": "#d29245",
+      "center": [
+        99,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        34,
+        36,
+        37,
+        38,
+        39
+      ],
+      "radius": 0,
+      "length": 4,
+      "width": 1.2,
+      "color": "#d29245",
+      "center": [
+        99,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        5,
+        15,
+        25,
+        35
+      ],
+      "radius": 0,
+      "length": 7,
+      "width": 1.8,
+      "color": "#d29245",
+      "center": [
+        99,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        0,
+        10,
+        20,
+        30,
+        40
+      ],
+      "radius": 0,
+      "length": 10,
+      "width": 2.6,
+      "color": "#d29245",
+      "center": [
+        99,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        18
+      ],
+      "radius": 1,
+      "length": 13,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        99,
+        121
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "radius": -19,
+      "size": 11,
+      "color": "#d29245",
+      "center": [
+        99,
+        121
+      ],
+      "texts": {
+        "0": "0",
+        "10": "10",
+        "20": "20",
+        "30": "30"
+      }
+    },
+    {
+      "type": "arc",
+      "scale": "s1",
+      "from": 0,
+      "to": 40,
+      "radius": 0,
+      "width": 1.4,
+      "color": "#d29245",
+      "center": [
+        221,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        26,
+        27,
+        28,
+        29,
+        31,
+        32,
+        33,
+        34,
+        36,
+        37,
+        38,
+        39
+      ],
+      "radius": 0,
+      "length": 4,
+      "width": 1.2,
+      "color": "#d29245",
+      "center": [
+        221,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        5,
+        15,
+        25,
+        35
+      ],
+      "radius": 0,
+      "length": 7,
+      "width": 1.8,
+      "color": "#d29245",
+      "center": [
+        221,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        0,
+        10,
+        20,
+        30,
+        40
+      ],
+      "radius": 0,
+      "length": 10,
+      "width": 2.6,
+      "color": "#d29245",
+      "center": [
+        221,
+        121
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s1",
+      "at": [
+        18
+      ],
+      "radius": 1,
+      "length": 13,
+      "width": 3,
+      "color": "#d0302a",
+      "center": [
+        221,
+        121
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s1",
+      "at": [
+        0,
+        10,
+        20,
+        30
+      ],
+      "radius": -19,
+      "size": 11,
+      "color": "#d29245",
+      "center": [
+        221,
+        121
+      ],
+      "texts": {
+        "0": "0",
+        "10": "10",
+        "20": "20",
+        "30": "30"
+      }
+    },
+    {
+      "type": "text",
+      "text": "WATER",
+      "x": 160,
+      "y": 198.96,
+      "size": 11,
+      "color": "#d29245"
+    },
+    {
+      "type": "text",
+      "text": "PRESS.",
+      "x": 160,
+      "y": 210.96,
+      "size": 11,
+      "color": "#d29245"
+    },
+    {
+      "type": "text",
+      "text": "LBS. PER SQ. IN.",
+      "x": 160,
+      "y": 218.98,
+      "size": 5.5,
+      "color": "#d29245"
+    },
+    {
+      "type": "text",
+      "text": "PIONEER",
+      "x": 160,
+      "y": 30.52,
+      "size": 7,
+      "color": "#d9d29245",
+      "italic": false
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n1",
+      "center": [
+        99,
+        121
+      ],
+      "length": 4,
+      "width": 2,
+      "tail": 26,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s1",
+      "value": "n2",
+      "center": [
+        221,
+        121
+      ],
+      "length": 4,
+      "width": 2,
+      "tail": 26,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 4.5,
+      "center": [
+        99,
+        121
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 1.6,
+      "center": [
+        99,
+        121
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "circle",
+      "r": 4.5,
+      "center": [
+        221,
+        121
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 1.6,
+      "center": [
+        221,
+        121
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 101,
+      "opacity": 0.16
+    }
+  ]
+}

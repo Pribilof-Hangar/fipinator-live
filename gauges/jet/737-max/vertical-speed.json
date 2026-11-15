@@ -1,0 +1,267 @@
+{
+  "format": 1,
+  "name": "Jet Vertical speed",
+  "author": "FIPinator 3000",
+  "description": "Jet vertical speed: zero at 9 o\u0027clock, up to 6,000 fpm each way, the first 1,000 fpm spread out.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#1A1B1D"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "vs": {
+      "sim": "VERTICAL SPEED",
+      "unit": "feet per minute",
+      "default": 1800
+    }
+  },
+  "scales": {
+    "vs": {
+      "points": [
+        [
+          -6000,
+          -210
+        ],
+        [
+          -4000,
+          -188
+        ],
+        [
+          -2000,
+          -160
+        ],
+        [
+          -1000,
+          -132
+        ],
+        [
+          -500,
+          -112
+        ],
+        [
+          0,
+          -90
+        ],
+        [
+          500,
+          -68
+        ],
+        [
+          1000,
+          -48
+        ],
+        [
+          2000,
+          -20
+        ],
+        [
+          4000,
+          8
+        ],
+        [
+          6000,
+          30
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#60000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#2E2F31",
+      "fillBottom": "#030303",
+      "stroke": "#3A3B3D",
+      "strokeWidth": 1
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#141414",
+      "fillBottom": "#030303",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#80505254",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "vs",
+      "at": [
+        -900,
+        -800,
+        -700,
+        -600,
+        -400,
+        -300,
+        -200,
+        -100,
+        100,
+        200,
+        300,
+        400,
+        600,
+        700,
+        800,
+        900,
+        -1500,
+        1500,
+        -3000,
+        3000,
+        -5000,
+        5000
+      ],
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "ticks",
+      "scale": "vs",
+      "at": [
+        -6000,
+        -4000,
+        -2000,
+        -1000,
+        -500,
+        0,
+        500,
+        1000,
+        2000,
+        4000,
+        6000
+      ],
+      "radius": 92.96,
+      "length": 17,
+      "width": 3,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "labels",
+      "scale": "vs",
+      "at": [
+        -6000,
+        -4000,
+        -2000,
+        -1000,
+        -500,
+        0,
+        500,
+        1000,
+        2000,
+        4000,
+        6000
+      ],
+      "radius": 69.72,
+      "size": 22,
+      "color": "#F4F4F2",
+      "texts": {
+        "-6000": "6",
+        "-4000": "4",
+        "-2000": "2",
+        "-1000": "1",
+        "-500": ".5",
+        "0": "0",
+        "500": ".5",
+        "1000": "1",
+        "2000": "2",
+        "4000": "4",
+        "6000": "6"
+      }
+    },
+    {
+      "type": "text",
+      "text": "UP",
+      "x": 133.19,
+      "y": 98.55,
+      "size": 13,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "text",
+      "text": "DN",
+      "x": 133.19,
+      "y": 145.03,
+      "size": 13,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "text",
+      "text": "VERTICAL SPEED",
+      "x": 199.33,
+      "y": 146.81,
+      "size": 11,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "text",
+      "text": "1000 FT PER MIN",
+      "x": 199.33,
+      "y": 159.33,
+      "size": 9,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "needle",
+      "scale": "vs",
+      "value": "vs",
+      "length": 85.81,
+      "tail": 12.87,
+      "width": 4.2,
+      "color": "#F4F2EC",
+      "tailColor": "#161616",
+      "shadow": true
+    },
+    {
+      "type": "hub",
+      "r": 8,
+      "fill": "#141414",
+      "stroke": "#4A4A4A"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.12
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

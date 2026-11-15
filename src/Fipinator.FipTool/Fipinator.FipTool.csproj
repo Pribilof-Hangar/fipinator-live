@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>fipinator-fip</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fipinator.Core\Fipinator.Core.csproj" />
+    <ProjectReference Include="..\Fipinator.Fip\Fipinator.Fip.csproj" />
+    <ProjectReference Include="..\Fipinator.Sim\Fipinator.Sim.csproj" />
+    <ProjectReference Include="..\Fipinator.Panel\Fipinator.Panel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\assets\fonts\BarlowCondensed-Medium.ttf" Link="BarlowCondensed-Medium.ttf" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

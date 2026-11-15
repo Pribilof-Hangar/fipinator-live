@@ -1,0 +1,243 @@
+{
+  "format": 1,
+  "name": "Speedbrake (Airbus style)",
+  "author": "FIPinator 3000",
+  "description": "Airbus-style speedbrake lever position (RET to FULL) and GND SPLRS ARMED light. S1 arms or disarms the ground spoilers.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0A0D12"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "sb": {
+      "sim": "SPOILERS HANDLE POSITION",
+      "unit": "percent over 100",
+      "default": 0.5
+    },
+    "armed": {
+      "sim": "SPOILERS ARMED",
+      "unit": "bool",
+      "default": 0
+    },
+    "sb_y": {
+      "expr": "clamp(sb, 0, 1) * 150"
+    },
+    "armed_lamp12_hide": {
+      "expr": "choose(armed - 0.5, 0, 400)"
+    },
+    "not_armed_hide": {
+      "expr": "choose(choose(armed - 0.5, 0, 1) - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    },
+    "ptr": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0A0D12"
+    },
+    {
+      "type": "text",
+      "text": "ARM",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "SPEED BRAKE",
+      "x": 200,
+      "y": 26,
+      "size": 15,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 150,
+      "y": 44,
+      "width": 20,
+      "height": 170,
+      "radius": 3,
+      "fill": "#1E242B",
+      "stroke": "#40454B",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 172,
+      "y": 51,
+      "width": 14,
+      "height": 2,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "text",
+      "text": "RET",
+      "x": 192,
+      "y": 57,
+      "size": 13,
+      "color": "#EDEDED",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 172,
+      "y": 126,
+      "width": 14,
+      "height": 2,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "text",
+      "text": "1/2",
+      "x": 192,
+      "y": 132,
+      "size": 13,
+      "color": "#EDEDED",
+      "align": "left"
+    },
+    {
+      "type": "rect",
+      "x": 172,
+      "y": 201,
+      "width": 14,
+      "height": 2,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "text",
+      "text": "FULL",
+      "x": 192,
+      "y": 207,
+      "size": 13,
+      "color": "#EDEDED",
+      "align": "left"
+    },
+    {
+      "type": "group",
+      "moveY": {
+        "value": "sb_y",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "ptr",
+          "at": [
+            90
+          ],
+          "radius": 22,
+          "length": -14,
+          "width": 14,
+          "color": "#F5A623",
+          "shape": "triangle",
+          "center": [
+            130,
+            52
+          ]
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 226,
+      "y": 92,
+      "width": 90,
+      "height": 50,
+      "radius": 3,
+      "fill": "#1E242B",
+      "stroke": "#40454B",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "armed_lamp12_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 228,
+          "y": 94,
+          "width": 86,
+          "height": 46,
+          "radius": 3,
+          "fill": "#3BE36E"
+        },
+        {
+          "type": "text",
+          "text": "GND SPLRS ARMED",
+          "x": 271,
+          "y": 123,
+          "size": 11,
+          "color": "#101010"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "not_armed_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "NOT ARMED",
+          "x": 271,
+          "y": 122,
+          "size": 13,
+          "color": "#5D636B"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "value": "sb",
+      "format": "0%",
+      "x": 271,
+      "y": 186,
+      "size": 26,
+      "color": "#3BE36E",
+      "align": "center"
+    }
+  ],
+  "controls": {
+    "button1": {
+      "event": "SPOILERS_ARM_TOGGLE"
+    }
+  },
+  "buttonLights": {
+    "button1": "armed"
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

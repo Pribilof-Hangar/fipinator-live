@@ -1,0 +1,231 @@
+{
+  "format": 1,
+  "name": "Flaps (Boeing style)",
+  "author": "FIPinator 3000",
+  "description": "Boeing-style (737) flap position: left (L) and right (R) needles, marks 0, 1, 2, 5, 10, 15, 25, 30, 40. Knobs move the flap lever.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#1A1B1D"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "left": {
+      "sim": "TRAILING EDGE FLAPS LEFT ANGLE",
+      "unit": "degrees",
+      "default": 15
+    },
+    "right": {
+      "sim": "TRAILING EDGE FLAPS RIGHT ANGLE",
+      "unit": "degrees",
+      "default": 15
+    }
+  },
+  "scales": {
+    "f": {
+      "points": [
+        [
+          0,
+          -140
+        ],
+        [
+          1,
+          -112
+        ],
+        [
+          2,
+          -88
+        ],
+        [
+          5,
+          -60
+        ],
+        [
+          10,
+          -30
+        ],
+        [
+          15,
+          0
+        ],
+        [
+          25,
+          36
+        ],
+        [
+          30,
+          70
+        ],
+        [
+          40,
+          116
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#60000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#2E2F31",
+      "fillBottom": "#030303",
+      "stroke": "#3A3B3D",
+      "strokeWidth": 1
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#141414",
+      "fillBottom": "#030303",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#80505254",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "f",
+      "at": [
+        0,
+        1,
+        2,
+        5,
+        10,
+        15,
+        25,
+        30,
+        40
+      ],
+      "radius": 92.96,
+      "length": 16,
+      "width": 3,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "labels",
+      "scale": "f",
+      "at": [
+        0,
+        1,
+        2,
+        5,
+        10,
+        15,
+        25,
+        30,
+        40
+      ],
+      "radius": 69.72,
+      "size": 20,
+      "color": "#F4F4F2",
+      "texts": {
+        "0": "0",
+        "1": "1",
+        "2": "2",
+        "5": "5",
+        "10": "10",
+        "15": "15",
+        "25": "25",
+        "30": "30",
+        "40": "40"
+      }
+    },
+    {
+      "type": "text",
+      "text": "FLAPS",
+      "x": 160,
+      "y": 155.75,
+      "size": 16,
+      "color": "#E2E2E0"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "f",
+      "value": "left",
+      "length": 80.44,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#F4F4F2",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "L"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "f",
+      "value": "right",
+      "length": 75.08,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#F4F4F2",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "R"
+    },
+    {
+      "type": "hub",
+      "r": 8,
+      "fill": "#141414",
+      "stroke": "#4A4A4A"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.12
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "FLAPS_INCR"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "FLAPS_DECR"
+    },
+    "leftKnobClockwise": {
+      "event": "FLAPS_INCR"
+    },
+    "leftKnobAnticlockwise": {
+      "event": "FLAPS_DECR"
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

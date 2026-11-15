@@ -1,0 +1,392 @@
+{
+  "format": 1,
+  "name": "Saab 340B Oil",
+  "author": "FIPinator 3000",
+  "description": "Saab 340B engine oil temperature (left) and pressure (right), 2 engine(s). Limits: UK CAA TCDS UK.TC.A.00163, EASA TCDS IM.E.010 (CT7-9B).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "temp1": {
+      "sim": "GENERAL ENG OIL TEMPERATURE:1",
+      "unit": "celsius",
+      "default": 70
+    },
+    "temp2": {
+      "sim": "GENERAL ENG OIL TEMPERATURE:2",
+      "unit": "celsius",
+      "default": 84
+    },
+    "press1": {
+      "sim": "GENERAL ENG OIL PRESSURE:1",
+      "unit": "psi",
+      "default": 65
+    },
+    "press2": {
+      "sim": "GENERAL ENG OIL PRESSURE:2",
+      "unit": "psi",
+      "default": 75.5
+    }
+  },
+  "scales": {
+    "temp": {
+      "min": -50,
+      "max": 150,
+      "startAngle": 215,
+      "endAngle": 325
+    },
+    "press": {
+      "min": 0,
+      "max": 150,
+      "startAngle": 145,
+      "endAngle": 35
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "arc",
+      "scale": "temp",
+      "from": 40,
+      "to": 132,
+      "radius": 78.65,
+      "width": 6,
+      "color": "#3E9E4A",
+      "center": [
+        136.76,
+        123.58
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "temp",
+      "every": 20,
+      "from": -50,
+      "to": 150,
+      "radius": 75.08,
+      "length": 8,
+      "width": 1.6,
+      "color": "#EFE6CF",
+      "center": [
+        136.76,
+        123.58
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "temp",
+      "at": [
+        -50,
+        50,
+        150
+      ],
+      "radius": 75.08,
+      "length": 15,
+      "width": 3,
+      "color": "#EFE6CF",
+      "center": [
+        136.76,
+        123.58
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "temp",
+      "at": [
+        149
+      ],
+      "radius": 82.23,
+      "length": 16,
+      "width": 3.5,
+      "color": "#D3362B",
+      "center": [
+        136.76,
+        123.58
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "temp",
+      "at": [
+        -50,
+        50,
+        150
+      ],
+      "radius": 53.63,
+      "size": 16,
+      "color": "#EFE6CF",
+      "center": [
+        136.76,
+        123.58
+      ]
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "temp",
+      "value": "temp1",
+      "length": 67.93,
+      "width": 2.4,
+      "tail": 0,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "center": [
+        136.76,
+        123.58
+      ],
+      "tag": "1"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "temp",
+      "value": "temp2",
+      "length": 62.57,
+      "width": 2.4,
+      "tail": 0,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "center": [
+        136.76,
+        123.58
+      ],
+      "tag": "2"
+    },
+    {
+      "type": "circle",
+      "r": 6,
+      "fill": "#1A1A1A",
+      "stroke": "#555555",
+      "center": [
+        136.76,
+        123.58
+      ]
+    },
+    {
+      "type": "circle",
+      "r": 1.98,
+      "fill": "#777777",
+      "center": [
+        136.76,
+        123.58
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "press",
+      "from": 30,
+      "to": 100,
+      "radius": 78.65,
+      "width": 6,
+      "color": "#3E9E4A",
+      "center": [
+        183.24,
+        123.58
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "press",
+      "every": 15,
+      "from": 0,
+      "to": 150,
+      "radius": 75.08,
+      "length": 8,
+      "width": 1.6,
+      "color": "#EFE6CF",
+      "center": [
+        183.24,
+        123.58
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "press",
+      "at": [
+        0,
+        75,
+        150
+      ],
+      "radius": 75.08,
+      "length": 15,
+      "width": 3,
+      "color": "#EFE6CF",
+      "center": [
+        183.24,
+        123.58
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "press",
+      "at": [
+        20,
+        100
+      ],
+      "radius": 82.23,
+      "length": 16,
+      "width": 3.5,
+      "color": "#D3362B",
+      "center": [
+        183.24,
+        123.58
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "press",
+      "at": [
+        0,
+        75,
+        150
+      ],
+      "radius": 53.63,
+      "size": 16,
+      "color": "#EFE6CF",
+      "center": [
+        183.24,
+        123.58
+      ]
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "press",
+      "value": "press1",
+      "length": 67.93,
+      "width": 2.4,
+      "tail": 0,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "center": [
+        183.24,
+        123.58
+      ],
+      "tag": "1"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "press",
+      "value": "press2",
+      "length": 62.57,
+      "width": 2.4,
+      "tail": 0,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "center": [
+        183.24,
+        123.58
+      ],
+      "tag": "2"
+    },
+    {
+      "type": "circle",
+      "r": 6,
+      "fill": "#1A1A1A",
+      "stroke": "#555555",
+      "center": [
+        183.24,
+        123.58
+      ]
+    },
+    {
+      "type": "circle",
+      "r": 1.98,
+      "fill": "#777777",
+      "center": [
+        183.24,
+        123.58
+      ]
+    },
+    {
+      "type": "text",
+      "text": "ENG OIL",
+      "x": 160,
+      "y": 61.01,
+      "size": 15,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "TEMP \u00B0C",
+      "x": 124.25,
+      "y": 187.93,
+      "size": 10,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "PRESS PSI",
+      "x": 195.75,
+      "y": 187.93,
+      "size": 10,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

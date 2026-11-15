@@ -1,0 +1,14 @@
+﻿<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Fipinator.Core/Fipinator.Core.csproj" />
+    <Project Path="src/Fipinator.Fip/Fipinator.Fip.csproj" />
+    <Project Path="src/Fipinator.FipTool/Fipinator.FipTool.csproj" />
+    <Project Path="src/Fipinator.Panel/Fipinator.Panel.csproj" />
+    <Project Path="src/Fipinator.App/Fipinator.App.csproj" />
+    <Project Path="src/Fipinator.Preview/Fipinator.Preview.csproj" />
+    <Project Path="src/Fipinator.Sim/Fipinator.Sim.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Fipinator.Core.Tests/Fipinator.Core.Tests.csproj" />
+  </Folder>
+</Solution>

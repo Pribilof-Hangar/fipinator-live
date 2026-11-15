@@ -1,0 +1,387 @@
+{
+  "format": 1,
+  "name": "737-800 RMI",
+  "author": "FIPinator 3000",
+  "description": "737NG radio magnetic indicator: compass card, single needle to VOR 1, double needle to VOR 2, orange flags while a VOR has no signal.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#4B4F53"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "heading": {
+      "sim": "PLANE HEADING DEGREES MAGNETIC",
+      "unit": "degrees",
+      "default": 300
+    },
+    "vor1_radial": {
+      "sim": "NAV RADIAL:1",
+      "unit": "degrees",
+      "default": 120
+    },
+    "vor1_signal": {
+      "sim": "NAV HAS NAV:1",
+      "unit": "bool",
+      "default": 1
+    },
+    "vor2_radial": {
+      "sim": "NAV RADIAL:2",
+      "unit": "degrees",
+      "default": 200
+    },
+    "vor2_signal": {
+      "sim": "NAV HAS NAV:2",
+      "unit": "bool",
+      "default": 0
+    },
+    "vor1_needle": {
+      "expr": "choose(vor1_signal, wrap360(vor1_radial \u002B 180 - heading), 90)"
+    },
+    "vor2_needle": {
+      "expr": "choose(vor2_signal, wrap360(vor2_radial \u002B 180 - heading), 90)"
+    },
+    "vor1_flag": {
+      "expr": "choose(vor1_signal, 400, 0)"
+    },
+    "vor2_flag": {
+      "expr": "choose(vor2_signal, 400, 0)"
+    }
+  },
+  "scales": {
+    "card": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": -360
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    },
+    "px": {
+      "min": 0,
+      "max": 400,
+      "startAngle": 0,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#4B4F53"
+    },
+    {
+      "type": "rect",
+      "x": 20,
+      "y": 1,
+      "width": 280,
+      "height": 238,
+      "fill": "#43474B",
+      "radius": 22,
+      "stroke": "#2C2F32",
+      "strokeWidth": 2
+    },
+    {
+      "type": "screw",
+      "x": 34,
+      "y": 14,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 286,
+      "y": 14,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 34,
+      "y": 226,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 286,
+      "y": 226,
+      "kind": "steel"
+    },
+    {
+      "type": "rect",
+      "x": 58,
+      "y": 6,
+      "width": 204,
+      "height": 206,
+      "fill": "#2E3134",
+      "radius": 34
+    },
+    {
+      "type": "rect",
+      "x": 64,
+      "y": 12,
+      "width": 192,
+      "height": 194,
+      "fill": "#060606",
+      "radius": 30
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "heading",
+        "scale": "card"
+      },
+      "center": [
+        160,
+        112
+      ],
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "every": 5,
+          "from": 0,
+          "to": 355,
+          "radius": 92,
+          "length": 8,
+          "width": 2,
+          "color": "#EDE9DC",
+          "center": [
+            160,
+            112
+          ]
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "every": 10,
+          "from": 0,
+          "to": 350,
+          "radius": 92,
+          "length": 14,
+          "width": 3,
+          "color": "#EDE9DC",
+          "center": [
+            160,
+            112
+          ]
+        },
+        {
+          "type": "labels",
+          "scale": "dial",
+          "every": 30,
+          "from": 0,
+          "to": 330,
+          "divideBy": 10,
+          "radius": 68,
+          "size": 22,
+          "color": "#EDE9DC",
+          "center": [
+            160,
+            112
+          ]
+        }
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "dial",
+      "at": [
+        0
+      ],
+      "radius": 100,
+      "length": 10,
+      "width": 11,
+      "color": "#EDE9DC",
+      "shape": "triangle",
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "dial",
+      "at": [
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "radius": 102,
+      "length": 7,
+      "width": 8,
+      "color": "#EDE9DC",
+      "shape": "triangle",
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "vor1_flag",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "arc",
+          "scale": "dial",
+          "from": 245,
+          "to": 290,
+          "radius": 82,
+          "width": 7,
+          "color": "#E8921E",
+          "center": [
+            160,
+            112
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "vor2_flag",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "arc",
+          "scale": "dial",
+          "from": 70,
+          "to": 115,
+          "radius": 82,
+          "width": 7,
+          "color": "#E8921E",
+          "center": [
+            160,
+            112
+          ]
+        }
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "dial",
+      "value": "vor2_needle",
+      "style": "doubleArrow",
+      "length": 84,
+      "tail": 78,
+      "width": 4.5,
+      "color": "#EDE9DC",
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "dial",
+      "value": "vor1_needle",
+      "style": "arrow",
+      "length": 84,
+      "tail": 78,
+      "width": 6,
+      "color": "#EDE9DC",
+      "center": [
+        160,
+        112
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        112
+      ],
+      "r": 9,
+      "fill": "#111111"
+    },
+    {
+      "type": "text",
+      "text": "VOR",
+      "x": 42,
+      "y": 128,
+      "size": 12,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "VOR",
+      "x": 278,
+      "y": 128,
+      "size": 12,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "ADF \u003C--   ==\u003E ADF",
+      "x": 160,
+      "y": 226,
+      "size": 12,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "circle",
+      "center": [
+        48,
+        206
+      ],
+      "r": 20,
+      "fillTop": "#5C6064",
+      "fillBottom": "#1E2022",
+      "stroke": "#111111"
+    },
+    {
+      "type": "rect",
+      "x": 47,
+      "y": 194,
+      "width": 2,
+      "height": 22,
+      "fill": "#EDE9DC"
+    },
+    {
+      "type": "circle",
+      "center": [
+        272,
+        206
+      ],
+      "r": 20,
+      "fillTop": "#5C6064",
+      "fillBottom": "#1E2022",
+      "stroke": "#111111"
+    },
+    {
+      "type": "rect",
+      "x": 268,
+      "y": 194,
+      "width": 2,
+      "height": 22,
+      "fill": "#EDE9DC"
+    },
+    {
+      "type": "rect",
+      "x": 274,
+      "y": 194,
+      "width": 2,
+      "height": 22,
+      "fill": "#EDE9DC"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

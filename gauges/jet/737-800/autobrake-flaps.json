@@ -1,0 +1,716 @@
+{
+  "format": 1,
+  "name": "737-800 Autobrake and flaps",
+  "author": "FIPinator 3000",
+  "description": "737NG autobrake and flaps (reads the plane's own data, FIPinator Live only): AUTO BRAKE selector RTO-MAX with DISARM light, flap dial UP to 40 following the flaps, LE FLAPS TRANSIT and EXT lights. Needs FIPinator Live, with data sharing switched on in the add-on\u0027s options.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#4B4F53"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "flaps": {
+      "sim": "TRAILING EDGE FLAPS LEFT ANGLE",
+      "unit": "degrees",
+      "default": 25
+    },
+    "ab": {
+      "sim": "PMDG:MAIN_AutobrakeSelector",
+      "unit": "number",
+      "default": 1
+    },
+    "disarm": {
+      "sim": "PMDG:MAIN_annunAUTO_BRAKE_DISARM",
+      "unit": "number",
+      "default": 0
+    },
+    "disarm_hide": {
+      "expr": "choose(disarm - 0.5, 0, 400)"
+    },
+    "le_transit": {
+      "sim": "PMDG:MAIN_annunLE_FLAPS_TRANSIT",
+      "unit": "number",
+      "default": 0
+    },
+    "le_ext": {
+      "sim": "PMDG:MAIN_annunLE_FLAPS_EXT",
+      "unit": "number",
+      "default": 1
+    },
+    "le_transit_hide": {
+      "expr": "choose(le_transit - 0.5, 0, 400)"
+    },
+    "le_ext_hide": {
+      "expr": "choose(le_ext - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "flaps": {
+      "points": [
+        [
+          0,
+          -90
+        ],
+        [
+          8.888,
+          -52
+        ],
+        [
+          18.333,
+          -18
+        ],
+        [
+          25,
+          15
+        ],
+        [
+          31.111,
+          50
+        ],
+        [
+          33.333,
+          90
+        ],
+        [
+          35,
+          125
+        ],
+        [
+          36.666,
+          155
+        ],
+        [
+          40,
+          180
+        ]
+      ]
+    },
+    "px": {
+      "min": 0,
+      "max": 400,
+      "startAngle": 0,
+      "endAngle": 400
+    },
+    "ab": {
+      "points": [
+        [
+          0,
+          -125
+        ],
+        [
+          1,
+          -90
+        ],
+        [
+          2,
+          -42
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          4,
+          42
+        ],
+        [
+          5,
+          90
+        ]
+      ]
+    },
+    "ab_dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#4B4F53"
+    },
+    {
+      "type": "rect",
+      "x": 4,
+      "y": 4,
+      "width": 146,
+      "height": 192,
+      "fill": "#474B4F",
+      "radius": 4,
+      "stroke": "#3A3E42",
+      "strokeWidth": 1
+    },
+    {
+      "type": "text",
+      "text": "AUTO BRAKE",
+      "x": 77,
+      "y": 20,
+      "size": 15,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "rect",
+      "x": 30,
+      "y": 28,
+      "width": 94,
+      "height": 28,
+      "fill": "#1A1B1C",
+      "radius": 3,
+      "stroke": "#0C0C0C",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "text",
+      "text": "AUTOBRAKE",
+      "x": 77,
+      "y": 40,
+      "size": 8,
+      "color": "#3E4042"
+    },
+    {
+      "type": "text",
+      "text": "DISARM",
+      "x": 77,
+      "y": 51,
+      "size": 8,
+      "color": "#3E4042"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "disarm_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 30,
+          "y": 28,
+          "width": 94,
+          "height": 28,
+          "fill": "#3A2208",
+          "radius": 3,
+          "stroke": "#F08A24",
+          "strokeWidth": 1.5
+        },
+        {
+          "type": "text",
+          "text": "AUTOBRAKE",
+          "x": 77,
+          "y": 40,
+          "size": 9,
+          "color": "#FFB24A"
+        },
+        {
+          "type": "text",
+          "text": "DISARM",
+          "x": 77,
+          "y": 52,
+          "size": 9,
+          "color": "#FFB24A"
+        }
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "ab_dial",
+      "at": [
+        235
+      ],
+      "radius": 44,
+      "length": 10,
+      "width": 2.5,
+      "color": "#EDE9DC",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "text",
+      "text": "RTO",
+      "x": 31.13,
+      "y": 161.12,
+      "size": 13,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "ticks",
+      "scale": "ab_dial",
+      "at": [
+        270
+      ],
+      "radius": 44,
+      "length": 10,
+      "width": 2.5,
+      "color": "#EDE9DC",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "text",
+      "text": "OFF",
+      "x": 21,
+      "y": 129,
+      "size": 13,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "ticks",
+      "scale": "ab_dial",
+      "at": [
+        318
+      ],
+      "radius": 44,
+      "length": 10,
+      "width": 2.5,
+      "color": "#EDE9DC",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "text",
+      "text": "1",
+      "x": 39.53,
+      "y": 87.38,
+      "size": 14,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "ticks",
+      "scale": "ab_dial",
+      "at": [
+        0
+      ],
+      "radius": 44,
+      "length": 10,
+      "width": 2.5,
+      "color": "#EDE9DC",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "text",
+      "text": "2",
+      "x": 77,
+      "y": 73,
+      "size": 14,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "ticks",
+      "scale": "ab_dial",
+      "at": [
+        42
+      ],
+      "radius": 44,
+      "length": 10,
+      "width": 2.5,
+      "color": "#EDE9DC",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "text",
+      "text": "3",
+      "x": 114.47,
+      "y": 87.38,
+      "size": 14,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "ticks",
+      "scale": "ab_dial",
+      "at": [
+        90
+      ],
+      "radius": 44,
+      "length": 10,
+      "width": 2.5,
+      "color": "#EDE9DC",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "text",
+      "text": "MAX",
+      "x": 133,
+      "y": 129,
+      "size": 13,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "circle",
+      "center": [
+        77,
+        124
+      ],
+      "r": 30,
+      "fillTop": "#DAD8D0",
+      "fillBottom": "#8C8A84",
+      "stroke": "#55544F"
+    },
+    {
+      "type": "needle",
+      "scale": "ab",
+      "value": "ab",
+      "length": 34,
+      "width": 6,
+      "tail": 0,
+      "color": "#2A2A28",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "ab",
+      "value": "ab",
+      "length": 32,
+      "width": 3,
+      "tail": 0,
+      "color": "#F6F2E4",
+      "center": [
+        77,
+        124
+      ]
+    },
+    {
+      "type": "text",
+      "text": "ANTISKID",
+      "x": 77,
+      "y": 182,
+      "size": 14,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "rect",
+      "x": 10,
+      "y": 204,
+      "width": 120,
+      "height": 30,
+      "fill": "#1A1B1C",
+      "radius": 3,
+      "stroke": "#0C0C0C",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "text",
+      "text": "ANTI-SKID",
+      "x": 70,
+      "y": 217,
+      "size": 9,
+      "color": "#3E4042"
+    },
+    {
+      "type": "text",
+      "text": "INOP",
+      "x": 70,
+      "y": 228,
+      "size": 9,
+      "color": "#3E4042"
+    },
+    {
+      "type": "circle",
+      "center": [
+        236,
+        100
+      ],
+      "r": 80,
+      "fillTop": "#5E6266",
+      "fillBottom": "#232527",
+      "stroke": "#151617"
+    },
+    {
+      "type": "circle",
+      "center": [
+        236,
+        100
+      ],
+      "r": 72,
+      "fill": "#070707"
+    },
+    {
+      "type": "circle",
+      "center": [
+        236,
+        100
+      ],
+      "r": 24,
+      "fill": "#141414"
+    },
+    {
+      "type": "ticks",
+      "scale": "flaps",
+      "at": [
+        0,
+        8.888,
+        18.333,
+        25,
+        31.111,
+        33.333,
+        35,
+        36.666,
+        40
+      ],
+      "radius": 69,
+      "length": 7,
+      "width": 8,
+      "color": "#EDE9DC",
+      "center": [
+        236,
+        100
+      ]
+    },
+    {
+      "type": "text",
+      "text": "UP",
+      "x": 184,
+      "y": 106,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "1",
+      "x": 195.02,
+      "y": 73.99,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "2",
+      "x": 219.93,
+      "y": 56.55,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "5",
+      "x": 249.46,
+      "y": 55.77,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "10",
+      "x": 275.83,
+      "y": 72.58,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "15",
+      "x": 288,
+      "y": 106,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "25",
+      "x": 278.6,
+      "y": 135.83,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "30",
+      "x": 257.98,
+      "y": 153.13,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "40",
+      "x": 236,
+      "y": 158,
+      "size": 16,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "text",
+      "text": "FLAPS",
+      "x": 206,
+      "y": 142,
+      "size": 10,
+      "color": "#EDE9DC"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "flaps",
+      "value": "flaps",
+      "length": 60,
+      "width": 7,
+      "tail": 0,
+      "color": "#EDE9DC",
+      "center": [
+        236,
+        100
+      ]
+    },
+    {
+      "type": "screw",
+      "x": 306,
+      "y": 20,
+      "kind": "steel"
+    },
+    {
+      "type": "rect",
+      "x": 158,
+      "y": 204,
+      "width": 78,
+      "height": 30,
+      "fill": "#1A1B1C",
+      "radius": 3,
+      "stroke": "#0C0C0C",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "text",
+      "text": "LE FLAPS",
+      "x": 197,
+      "y": 217,
+      "size": 9,
+      "color": "#3E4042"
+    },
+    {
+      "type": "text",
+      "text": "TRANSIT",
+      "x": 197,
+      "y": 228,
+      "size": 9,
+      "color": "#3E4042"
+    },
+    {
+      "type": "rect",
+      "x": 238,
+      "y": 204,
+      "width": 78,
+      "height": 30,
+      "fill": "#1A1B1C",
+      "radius": 3,
+      "stroke": "#0C0C0C",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "text",
+      "text": "LE FLAPS",
+      "x": 277,
+      "y": 217,
+      "size": 9,
+      "color": "#3E4042"
+    },
+    {
+      "type": "text",
+      "text": "EXT",
+      "x": 277,
+      "y": 228,
+      "size": 9,
+      "color": "#3E4042"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "le_transit_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 158,
+          "y": 204,
+          "width": 78,
+          "height": 30,
+          "fill": "#3A2208",
+          "radius": 3,
+          "stroke": "#F08A24",
+          "strokeWidth": 1.5
+        },
+        {
+          "type": "text",
+          "text": "LE FLAPS",
+          "x": 197,
+          "y": 217,
+          "size": 10,
+          "color": "#FFB24A"
+        },
+        {
+          "type": "text",
+          "text": "TRANSIT",
+          "x": 197,
+          "y": 229,
+          "size": 10,
+          "color": "#FFB24A"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "le_ext_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 238,
+          "y": 204,
+          "width": 78,
+          "height": 30,
+          "fill": "#0D2A14",
+          "radius": 3,
+          "stroke": "#43E86A",
+          "strokeWidth": 1.5
+        },
+        {
+          "type": "text",
+          "text": "LE FLAPS",
+          "x": 277,
+          "y": 217,
+          "size": 10,
+          "color": "#7CFF94"
+        },
+        {
+          "type": "text",
+          "text": "EXT",
+          "x": 277,
+          "y": 229,
+          "size": 10,
+          "color": "#7CFF94"
+        }
+      ]
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

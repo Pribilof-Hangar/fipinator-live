@@ -1,0 +1,397 @@
+{
+  "format": 1,
+  "name": "727 Mach/airspeed",
+  "author": "FIPinator 3000",
+  "description": "Mach/airspeed 40-400 kt with a Mach window (blank below Mach .40) and a striped maximum-speed needle that follows the sim\u0027s AIRSPEED BARBER POLE.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#66766C"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "ias": {
+      "sim": "AIRSPEED INDICATED",
+      "unit": "knots",
+      "default": 280
+    },
+    "vmo": {
+      "sim": "AIRSPEED BARBER POLE",
+      "unit": "knots",
+      "default": 340
+    },
+    "mach": {
+      "sim": "AIRSPEED MACH",
+      "unit": "mach",
+      "default": 0.78
+    },
+    "mach_hide": {
+      "expr": "choose(mach - 0.4, 0, 400)"
+    }
+  },
+  "scales": {
+    "kt": {
+      "points": [
+        [
+          0,
+          8
+        ],
+        [
+          40,
+          15
+        ],
+        [
+          60,
+          50
+        ],
+        [
+          80,
+          85
+        ],
+        [
+          100,
+          112
+        ],
+        [
+          120,
+          138
+        ],
+        [
+          140,
+          162
+        ],
+        [
+          160,
+          185
+        ],
+        [
+          180,
+          205
+        ],
+        [
+          200,
+          222
+        ],
+        [
+          250,
+          255
+        ],
+        [
+          300,
+          284
+        ],
+        [
+          350,
+          311
+        ],
+        [
+          400,
+          336
+        ]
+      ]
+    },
+    "px": {
+      "min": 0,
+      "max": 400,
+      "startAngle": 0,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#66766C"
+    },
+    {
+      "type": "rect",
+      "x": 42,
+      "y": 2,
+      "width": 236,
+      "height": 236,
+      "radius": 14,
+      "fill": "#17181A",
+      "stroke": "#050505",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "circle",
+      "r": 109,
+      "fillTop": "#050505",
+      "fillBottom": "#2A2B2D",
+      "stroke": "#000000",
+      "strokeWidth": 1
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#141414",
+      "fillBottom": "#030303",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 5,
+      "from": 40,
+      "to": 200,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 10,
+      "from": 200,
+      "to": 400,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 20,
+      "from": 40,
+      "to": 200,
+      "radius": 92.96,
+      "length": 16,
+      "width": 2.8,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "ticks",
+      "scale": "kt",
+      "every": 50,
+      "from": 250,
+      "to": 400,
+      "radius": 92.96,
+      "length": 16,
+      "width": 2.8,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "labels",
+      "scale": "kt",
+      "at": [
+        40,
+        60,
+        80,
+        100,
+        120,
+        140,
+        160,
+        180,
+        200,
+        250,
+        300,
+        350,
+        400
+      ],
+      "radius": 69.72,
+      "size": 20,
+      "color": "#F4F4F2"
+    },
+    {
+      "type": "text",
+      "text": "KNOTS",
+      "x": 160,
+      "y": 96.76,
+      "size": 12,
+      "color": "#E6E6E4"
+    },
+    {
+      "type": "rect",
+      "x": 132,
+      "y": 139.18,
+      "width": 56,
+      "height": 26,
+      "radius": 3,
+      "fill": "#0A0A0A",
+      "stroke": "#6A6A6A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "mach_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "mach",
+          "format": ".00",
+          "x": 160,
+          "y": 160.18,
+          "size": 22,
+          "color": "#F4F4F2"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "MACH",
+      "x": 160,
+      "y": 136.09,
+      "size": 10,
+      "color": "#E6E6E4"
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "vmo",
+        "scale": "kt"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 32.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 39.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 46.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 53.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 60.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 67.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 74.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 81.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 88.41,
+          "width": 6,
+          "height": 7,
+          "fill": "#D3362B"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 95.41,
+          "width": 6,
+          "height": 3.14,
+          "fill": "#F2F2F2"
+        },
+        {
+          "type": "rect",
+          "x": 157,
+          "y": 32.41,
+          "width": 6,
+          "height": 66.14,
+          "stroke": "#000000",
+          "strokeWidth": 0.8
+        }
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "kt",
+      "value": "ias",
+      "length": 85.81,
+      "tail": 12.87,
+      "width": 4.2,
+      "color": "#F4F2EC",
+      "tailColor": "#161616",
+      "shadow": true
+    },
+    {
+      "type": "hub",
+      "r": 8,
+      "fill": "#141414",
+      "stroke": "#4A4A4A"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.14
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

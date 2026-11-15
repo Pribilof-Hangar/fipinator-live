@@ -1,0 +1,465 @@
+{
+  "format": 1,
+  "name": "Titan Fuel quantity",
+  "author": "FIPinator 3000",
+  "description": "Cessna 404 Titan fuel quantity: two edgewise scales, 0-12 hundred lb per side (gallons marked in blue), L and R pointers.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#3D4145"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "fuel_lb_gal": {
+      "sim": "FUEL WEIGHT PER GALLON",
+      "unit": "pounds",
+      "default": 6
+    },
+    "fuel_l_gal": {
+      "sim": "FUEL LEFT QUANTITY",
+      "unit": "gallons",
+      "default": 85
+    },
+    "fuel_r_gal": {
+      "sim": "FUEL RIGHT QUANTITY",
+      "unit": "gallons",
+      "default": 85
+    },
+    "fuel_l": {
+      "expr": "clamp(fuel_l_gal * fuel_lb_gal / 100, 0, 12)"
+    },
+    "fuel_r": {
+      "expr": "clamp(fuel_r_gal * fuel_lb_gal / 100, 0, 12)"
+    }
+  },
+  "scales": {
+    "fuelL": {
+      "min": 0,
+      "max": 12,
+      "startAngle": 138,
+      "endAngle": 42
+    },
+    "fuelR": {
+      "min": 0,
+      "max": 12,
+      "startAngle": -138,
+      "endAngle": -42
+    },
+    "zero": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#3D4145"
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 117,
+      "fillTop": "#26282A",
+      "fillBottom": "#0C0C0D",
+      "stroke": "#08090A",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 108,
+      "fill": "#0D0D0D"
+    },
+    {
+      "type": "screw",
+      "x": 36,
+      "y": 16,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 284,
+      "y": 16,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 36,
+      "y": 224,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 284,
+      "y": 224,
+      "kind": "steel"
+    },
+    {
+      "type": "arc",
+      "scale": "fuelL",
+      "from": 0,
+      "to": 12,
+      "radius": 82,
+      "width": 2.4,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "fuelL",
+      "at": [
+        0,
+        0.5,
+        1,
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5,
+        6,
+        6.5,
+        7,
+        7.5,
+        8,
+        8.5,
+        9,
+        9.5,
+        10,
+        10.5,
+        11,
+        11.5,
+        12
+      ],
+      "radius": 82,
+      "length": 6,
+      "width": 1.6,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "fuelL",
+      "at": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "radius": 82,
+      "length": 11,
+      "width": 2.6,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "fuelL",
+      "at": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "texts": {
+        "0": "0",
+        "2": "2",
+        "4": "4",
+        "6": "6",
+        "8": "8",
+        "10": "10",
+        "12": "12"
+      },
+      "radius": 66,
+      "size": 15,
+      "color": "#EDE9DF",
+      "center": [
+        66,
+        120
+      ]
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "fuel_l",
+        "scale": "fuelL"
+      },
+      "center": [
+        66,
+        120
+      ],
+      "layers": [
+        {
+          "type": "rect",
+          "x": 63.5,
+          "y": 47,
+          "width": 5,
+          "height": 24,
+          "fill": "#ECECE8"
+        },
+        {
+          "type": "ticks",
+          "scale": "zero",
+          "at": [
+            0
+          ],
+          "radius": 81,
+          "length": 10,
+          "width": 9,
+          "color": "#ECECE8",
+          "shape": "triangle",
+          "center": [
+            66,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "type": "arc",
+      "scale": "fuelR",
+      "from": 0,
+      "to": 12,
+      "radius": 82,
+      "width": 2.4,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "fuelR",
+      "at": [
+        0,
+        0.5,
+        1,
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5,
+        4,
+        4.5,
+        5,
+        5.5,
+        6,
+        6.5,
+        7,
+        7.5,
+        8,
+        8.5,
+        9,
+        9.5,
+        10,
+        10.5,
+        11,
+        11.5,
+        12
+      ],
+      "radius": 88,
+      "length": 6,
+      "width": 1.6,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "fuelR",
+      "at": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "radius": 93,
+      "length": 11,
+      "width": 2.6,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "fuelR",
+      "at": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "texts": {
+        "0": "0",
+        "2": "2",
+        "4": "4",
+        "6": "6",
+        "8": "8",
+        "10": "10",
+        "12": "12"
+      },
+      "radius": 66,
+      "size": 15,
+      "color": "#EDE9DF",
+      "center": [
+        254,
+        120
+      ]
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "fuel_r",
+        "scale": "fuelR"
+      },
+      "center": [
+        254,
+        120
+      ],
+      "layers": [
+        {
+          "type": "rect",
+          "x": 251.5,
+          "y": 47,
+          "width": 5,
+          "height": 24,
+          "fill": "#ECECE8"
+        },
+        {
+          "type": "ticks",
+          "scale": "zero",
+          "at": [
+            0
+          ],
+          "radius": 81,
+          "length": 10,
+          "width": 9,
+          "color": "#ECECE8",
+          "shape": "triangle",
+          "center": [
+            254,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "FUEL QTY",
+      "x": 160,
+      "y": 34,
+      "size": 18,
+      "color": "#EDE9DF"
+    },
+    {
+      "type": "text",
+      "text": "LBS\u00D7100",
+      "x": 66,
+      "y": 108,
+      "size": 11,
+      "color": "#EDE9DF"
+    },
+    {
+      "type": "text",
+      "text": "LBS\u00D7100",
+      "x": 254,
+      "y": 108,
+      "size": 11,
+      "color": "#EDE9DF"
+    },
+    {
+      "type": "text",
+      "text": "180",
+      "x": 112,
+      "y": 52,
+      "size": 10,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "180",
+      "x": 208,
+      "y": 52,
+      "size": 10,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "120",
+      "x": 160,
+      "y": 92,
+      "size": 10,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "60",
+      "x": 160,
+      "y": 170,
+      "size": 10,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "GALS",
+      "x": 160,
+      "y": 204,
+      "size": 11,
+      "color": "#6FA6DA"
+    },
+    {
+      "type": "text",
+      "text": "STD DAY",
+      "x": 160,
+      "y": 216,
+      "size": 11,
+      "color": "#6FA6DA"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,488 @@
+{
+  "format": 1,
+  "name": "737-800 Standby attitude",
+  "author": "FIPinator 3000",
+  "description": "Standby attitude (737NG style): small square screen with sky and ground, pitch ladder every 2.5 degrees (to 20), bank scale 10/20/30/45/60 with sky pointer, white airplane symbol.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#151515"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "pitch": {
+      "sim": "ATTITUDE INDICATOR PITCH DEGREES",
+      "unit": "degrees",
+      "default": -5
+    },
+    "bank": {
+      "sim": "ATTITUDE INDICATOR BANK DEGREES",
+      "unit": "degrees",
+      "default": 12
+    }
+  },
+  "scales": {
+    "bank": {
+      "min": -180,
+      "max": 180,
+      "startAngle": -180,
+      "endAngle": 180
+    },
+    "pitch": {
+      "min": -90,
+      "max": 90,
+      "startAngle": 360,
+      "endAngle": -360
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 36,
+      "y": 0,
+      "width": 248,
+      "height": 240,
+      "radius": 10,
+      "fill": "#3B3F43",
+      "stroke": "#1C1E20",
+      "strokeWidth": 2
+    },
+    {
+      "type": "rect",
+      "x": 52,
+      "y": 14,
+      "width": 216,
+      "height": 212,
+      "radius": 6,
+      "fill": "#202224"
+    },
+    {
+      "type": "rect",
+      "x": 60,
+      "y": 22,
+      "width": 200,
+      "height": 196,
+      "fill": "#000000"
+    },
+    {
+      "type": "group",
+      "clipBox": [
+        60,
+        22,
+        200,
+        196
+      ],
+      "layers": [
+        {
+          "type": "group",
+          "rotate": {
+            "value": "bank",
+            "scale": "bank"
+          },
+          "layers": [
+            {
+              "type": "group",
+              "moveY": {
+                "value": "pitch",
+                "scale": "pitch"
+              },
+              "layers": [
+                {
+                  "type": "rect",
+                  "x": -400,
+                  "y": -900,
+                  "width": 1120,
+                  "height": 1020,
+                  "fill": "#3D87D2"
+                },
+                {
+                  "type": "rect",
+                  "x": -400,
+                  "y": 120,
+                  "width": 1120,
+                  "height": 1020,
+                  "fill": "#A9714A"
+                },
+                {
+                  "type": "rect",
+                  "x": -400,
+                  "y": 119,
+                  "width": 1120,
+                  "height": 2.5,
+                  "fill": "#F4F4F4"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "clip": 70,
+              "layers": [
+                {
+                  "type": "group",
+                  "moveY": {
+                    "value": "pitch",
+                    "scale": "pitch"
+                  },
+                  "layers": [
+                    {
+                      "type": "rect",
+                      "x": 128,
+                      "y": 199,
+                      "width": 64,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "text",
+                      "text": "20",
+                      "x": 122,
+                      "y": 206,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "right"
+                    },
+                    {
+                      "type": "text",
+                      "text": "20",
+                      "x": 198,
+                      "y": 206,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "left"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 189,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 145,
+                      "y": 179,
+                      "width": 30,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 169,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 128,
+                      "y": 159,
+                      "width": 64,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "text",
+                      "text": "10",
+                      "x": 122,
+                      "y": 166,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "right"
+                    },
+                    {
+                      "type": "text",
+                      "text": "10",
+                      "x": 198,
+                      "y": 166,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "left"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 149,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 145,
+                      "y": 139,
+                      "width": 30,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 129,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 109,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 145,
+                      "y": 99,
+                      "width": 30,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 89,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 128,
+                      "y": 79,
+                      "width": 64,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "text",
+                      "text": "10",
+                      "x": 122,
+                      "y": 86,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "right"
+                    },
+                    {
+                      "type": "text",
+                      "text": "10",
+                      "x": 198,
+                      "y": 86,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "left"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 69,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 145,
+                      "y": 59,
+                      "width": 30,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 153,
+                      "y": 49,
+                      "width": 14,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "rect",
+                      "x": 128,
+                      "y": 39,
+                      "width": 64,
+                      "height": 2,
+                      "fill": "#F4F4F4"
+                    },
+                    {
+                      "type": "text",
+                      "text": "20",
+                      "x": 122,
+                      "y": 46,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "right"
+                    },
+                    {
+                      "type": "text",
+                      "text": "20",
+                      "x": 198,
+                      "y": 46,
+                      "size": 16,
+                      "color": "#F4F4F4",
+                      "align": "left"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "ticks",
+              "scale": "dial",
+              "at": [
+                0
+              ],
+              "radius": 73.60000000000001,
+              "length": -9.600000000000001,
+              "width": 12,
+              "color": "#F4F4F4",
+              "shape": "triangle"
+            }
+          ]
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            10,
+            20,
+            340,
+            350
+          ],
+          "radius": 83.2,
+          "length": 7.2,
+          "width": 2.5,
+          "color": "#F4F4F4"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            30,
+            60,
+            300,
+            330
+          ],
+          "radius": 84.80000000000001,
+          "length": 12.8,
+          "width": 3,
+          "color": "#F4F4F4"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            45,
+            315
+          ],
+          "radius": 83.2,
+          "length": 7.2,
+          "width": 7.2,
+          "color": "#F4F4F4",
+          "shape": "triangle"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            0
+          ],
+          "radius": 86.4,
+          "length": 12.8,
+          "width": 14.4,
+          "color": "#F4F4F4",
+          "shape": "triangle"
+        }
+      ]
+    },
+    {
+      "type": "rect",
+      "x": 110,
+      "y": 117,
+      "width": 36,
+      "height": 6,
+      "radius": 1.5,
+      "fill": "#F4F4F4",
+      "stroke": "#000000",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 174,
+      "y": 117,
+      "width": 36,
+      "height": 6,
+      "radius": 1.5,
+      "fill": "#F4F4F4",
+      "stroke": "#000000",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 140,
+      "y": 117,
+      "width": 6,
+      "height": 16,
+      "radius": 1.5,
+      "fill": "#F4F4F4",
+      "stroke": "#000000",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 174,
+      "y": 117,
+      "width": 6,
+      "height": 16,
+      "radius": 1.5,
+      "fill": "#F4F4F4",
+      "stroke": "#000000",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "rect",
+      "x": 155,
+      "y": 115,
+      "width": 10,
+      "height": 10,
+      "radius": 1.5,
+      "fill": "#F4F4F4",
+      "stroke": "#000000",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "circle",
+      "center": [
+        250,
+        226
+      ],
+      "r": 11,
+      "fillTop": "#55595D",
+      "fillBottom": "#1A1B1C",
+      "stroke": "#111111"
+    },
+    {
+      "type": "circle",
+      "center": [
+        70,
+        229
+      ],
+      "r": 3.5,
+      "fill": "#2FA84F"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,315 @@
+{
+  "format": 1,
+  "name": "727 IVSI",
+  "author": "FIPinator 3000",
+  "description": "Boeing 727 IVSI (vertical speed) in black and white: 0 at 9 o\u0027clock, up above and down below, .5 / 1 / 2 / 4 / 6 thousand ft/min on the 727\u0027s uneven scale.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#202224"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "vs_raw": {
+      "sim": "VERTICAL SPEED",
+      "unit": "feet per minute",
+      "default": 1200
+    },
+    "vs": {
+      "expr": "clamp(vs_raw, -6000, 6000)"
+    }
+  },
+  "scales": {
+    "vs": {
+      "points": [
+        [
+          -6000,
+          90
+        ],
+        [
+          -4000,
+          146
+        ],
+        [
+          -2000,
+          190
+        ],
+        [
+          -1000,
+          220
+        ],
+        [
+          -500,
+          240
+        ],
+        [
+          0,
+          270
+        ],
+        [
+          500,
+          300
+        ],
+        [
+          1000,
+          320
+        ],
+        [
+          2000,
+          350
+        ],
+        [
+          4000,
+          394
+        ],
+        [
+          6000,
+          450
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#202224"
+    },
+    {
+      "type": "rect",
+      "x": 42,
+      "y": 2,
+      "width": 236,
+      "height": 236,
+      "radius": 16,
+      "fill": "#2F3133",
+      "stroke": "#151617",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 110,
+      "fillTop": "#1C1D1E",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 104,
+      "fill": "#0B0B0B"
+    },
+    {
+      "type": "screw",
+      "x": 54,
+      "y": 14,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 266,
+      "y": 14,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 54,
+      "y": 226,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 266,
+      "y": 226,
+      "kind": "steel"
+    },
+    {
+      "type": "ticks",
+      "scale": "vs",
+      "every": 100,
+      "from": -1000,
+      "to": 1000,
+      "radius": 102,
+      "length": 7,
+      "width": 1.4,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "vs",
+      "every": 500,
+      "from": -6000,
+      "to": 6000,
+      "radius": 102,
+      "length": 9,
+      "width": 1.8,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "vs",
+      "at": [
+        -6000,
+        -4000,
+        -2000,
+        -1000,
+        -500,
+        0,
+        500,
+        1000,
+        2000,
+        4000,
+        6000
+      ],
+      "radius": 102,
+      "length": 17,
+      "width": 3.2,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "vs",
+      "at": [
+        -4000,
+        -2000,
+        -1000,
+        0,
+        1000,
+        2000,
+        4000,
+        6000
+      ],
+      "texts": {
+        "-4000": "4",
+        "-2000": "2",
+        "-1000": "1",
+        "0": "0",
+        "1000": "1",
+        "2000": "2",
+        "4000": "4",
+        "6000": "6"
+      },
+      "radius": 70,
+      "size": 34,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "text",
+      "text": ".5",
+      "x": 78,
+      "y": 82,
+      "size": 15,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "UP",
+      "x": 98,
+      "y": 90,
+      "size": 14,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "DOWN",
+      "x": 98,
+      "y": 160,
+      "size": 14,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": ".5",
+      "x": 78,
+      "y": 170,
+      "size": 15,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "1000 FT PER MIN",
+      "x": 166,
+      "y": 96,
+      "size": 12,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "IVSI",
+      "x": 164,
+      "y": 118,
+      "size": 26,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "VERTICAL",
+      "x": 164,
+      "y": 154,
+      "size": 17,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "SPEED",
+      "x": 164,
+      "y": 172,
+      "size": 17,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "needle",
+      "scale": "vs",
+      "value": "vs",
+      "length": 96,
+      "width": 5,
+      "tail": 74,
+      "color": "#F6F6F4",
+      "tailColor": "#F6F6F4",
+      "shadow": false,
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 10,
+      "fill": "#141414"
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

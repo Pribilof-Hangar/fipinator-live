@@ -1,0 +1,475 @@
+{
+  "format": 1,
+  "name": "727 Radio altimeter",
+  "author": "FIPinator 3000",
+  "description": "Boeing 727 (FSS) radio altimeter in black and white: 0-500 ft round to the bottom, up to 2,500 ft up the left, yellow DH bug, green DH light. The right knob sets the DH (10 ft a click), like the cockpit\u0027s knob (FIPinator Live).",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#202224"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "needle": {
+      "sim": "L:FSS_B727_CP_RADIO_ALT_NEEDLE",
+      "unit": "number",
+      "default": 0.12
+    },
+    "dh": {
+      "sim": "L:FSS_B727_CP_RADIO_ALT_DH_MARKER",
+      "unit": "number",
+      "default": 0.2
+    },
+    "light": {
+      "sim": "L:FSS_B727_CP_RADIO_ALT_WARNING_LIGHT",
+      "unit": "number",
+      "default": 0
+    },
+    "flag": {
+      "sim": "L:FSS_B727_CP_RADIO_ALT_FLAG_VISIBLE",
+      "unit": "number",
+      "default": 0
+    },
+    "light_hide": {
+      "expr": "choose(light - 0.5, 0, 400)"
+    },
+    "flag_hide": {
+      "expr": "choose(flag - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "ft": {
+      "points": [
+        [
+          0,
+          0
+        ],
+        [
+          500,
+          180
+        ],
+        [
+          1000,
+          228
+        ],
+        [
+          1500,
+          275
+        ],
+        [
+          2000,
+          299
+        ],
+        [
+          2500,
+          324
+        ],
+        [
+          2700,
+          360
+        ]
+      ]
+    },
+    "turn": {
+      "min": 0,
+      "max": 1,
+      "startAngle": 0,
+      "endAngle": 360
+    },
+    "px": {
+      "min": 0,
+      "max": 400,
+      "startAngle": 0,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#202224"
+    },
+    {
+      "type": "rect",
+      "x": 42,
+      "y": 2,
+      "width": 236,
+      "height": 236,
+      "radius": 16,
+      "fill": "#2F3133",
+      "stroke": "#151617",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 110,
+      "fillTop": "#1C1D1E",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 104,
+      "fill": "#0B0B0B"
+    },
+    {
+      "type": "screw",
+      "x": 54,
+      "y": 14,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 266,
+      "y": 14,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 54,
+      "y": 226,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 266,
+      "y": 226,
+      "kind": "steel"
+    },
+    {
+      "type": "arc",
+      "scale": "ft",
+      "from": 2500,
+      "to": 2700,
+      "radius": 52,
+      "width": 104,
+      "color": "#2A2A2A",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "ft",
+      "every": 20,
+      "from": 0,
+      "to": 500,
+      "radius": 102,
+      "length": 7,
+      "width": 1.4,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "ft",
+      "every": 100,
+      "from": 0,
+      "to": 500,
+      "radius": 102,
+      "length": 15,
+      "width": 3,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "ft",
+      "every": 100,
+      "from": 600,
+      "to": 2500,
+      "radius": 102,
+      "length": 7,
+      "width": 1.4,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "ft",
+      "at": [
+        1000,
+        1500,
+        2000,
+        2500
+      ],
+      "radius": 102,
+      "length": 15,
+      "width": 3,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "ft",
+      "at": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        1000,
+        1500,
+        2000,
+        2500
+      ],
+      "texts": {
+        "0": "0",
+        "100": "1",
+        "200": "2",
+        "300": "3",
+        "400": "4",
+        "500": "5",
+        "1000": "10",
+        "1500": "15",
+        "2000": "20",
+        "2500": "25"
+      },
+      "radius": 72,
+      "size": 24,
+      "color": "#F0F0EE",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "text",
+      "text": "X",
+      "x": 120,
+      "y": 122,
+      "size": 15,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "100 FEET",
+      "x": 190,
+      "y": 122,
+      "size": 14,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "RADIO",
+      "x": 164,
+      "y": 154,
+      "size": 26,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "text",
+      "text": "ALT",
+      "x": 164,
+      "y": 180,
+      "size": 26,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "dh",
+        "scale": "turn"
+      },
+      "center": [
+        160,
+        120
+      ],
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "turn",
+          "at": [
+            0
+          ],
+          "radius": 108,
+          "length": 14,
+          "width": 16,
+          "color": "#F2C21A",
+          "shape": "triangle",
+          "center": [
+            160,
+            120
+          ]
+        },
+        {
+          "type": "ticks",
+          "scale": "turn",
+          "at": [
+            0
+          ],
+          "radius": 105,
+          "length": 8,
+          "width": 8,
+          "color": "#0B0B0B",
+          "shape": "triangle",
+          "center": [
+            160,
+            120
+          ]
+        }
+      ]
+    },
+    {
+      "type": "needle",
+      "scale": "turn",
+      "value": "needle",
+      "length": 94,
+      "width": 7,
+      "tail": 0,
+      "color": "#F6F6F4",
+      "shadow": false,
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        160,
+        120
+      ],
+      "r": 8,
+      "fill": "#141414"
+    },
+    {
+      "type": "circle",
+      "center": [
+        62,
+        30
+      ],
+      "r": 9,
+      "fill": "#103A16",
+      "stroke": "#0A0A0A"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "light_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "circle",
+          "center": [
+            62,
+            30
+          ],
+          "r": 9,
+          "fill": "#43E05A",
+          "stroke": "#0A0A0A"
+        }
+      ]
+    },
+    {
+      "type": "circle",
+      "center": [
+        62,
+        204
+      ],
+      "r": 6,
+      "fill": "#141414",
+      "stroke": "#3A3A3A"
+    },
+    {
+      "type": "text",
+      "text": "TEST",
+      "x": 80,
+      "y": 228,
+      "size": 10,
+      "color": "#F0F0EE"
+    },
+    {
+      "type": "circle",
+      "center": [
+        258,
+        206
+      ],
+      "r": 15,
+      "fillTop": "#2A2A2A",
+      "fillBottom": "#080808",
+      "stroke": "#4A4A4A"
+    },
+    {
+      "type": "ticks",
+      "scale": "turn",
+      "at": [
+        0.5
+      ],
+      "radius": 9,
+      "length": 15,
+      "width": 14,
+      "color": "#F0F0EE",
+      "shape": "triangle",
+      "center": [
+        258,
+        200
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "flag_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 194,
+          "y": 78,
+          "width": 34,
+          "height": 18,
+          "fill": "#D0302A"
+        },
+        {
+          "type": "text",
+          "text": "OFF",
+          "x": 211,
+          "y": 92,
+          "size": 13,
+          "color": "#F0F0EE"
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "set": "L:FSS_B727_CP_RADIO_ALT_DH_KNOB",
+      "add": 1
+    },
+    "rightKnobAnticlockwise": {
+      "set": "L:FSS_B727_CP_RADIO_ALT_DH_KNOB",
+      "add": -1
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

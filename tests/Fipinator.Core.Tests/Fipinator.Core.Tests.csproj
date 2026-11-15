@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="xunit.v3" Version="4.0.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Fipinator.Core\Fipinator.Core.csproj" />
+  </ItemGroup>
+
+  <!-- The PMDG data block reader is plain code (no Windows calls): test it directly. -->
+  <ItemGroup>
+    <Compile Include="..\..\src\Fipinator.Sim\PmdgNg3.cs" Link="Sim\PmdgNg3.cs" />
+  </ItemGroup>
+
+  <!-- Copy the real gauges and fonts so tests check the files people actually use. -->
+  <ItemGroup>
+    <None Include="..\..\gauges\**\*" LinkBase="repo\gauges" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\assets\**\*" LinkBase="repo\assets" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\..\docs\guides\*.md" LinkBase="repo\docs\guides" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

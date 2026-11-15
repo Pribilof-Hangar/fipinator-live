@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- FIPinator Live, the everyday app: a small window that runs the panel. Published as one
+       self-contained FIPinatorLive.exe, so users don't install .NET or anything else. -->
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AssemblyName>FIPinatorLive</AssemblyName>
+    <ApplicationIcon>..\..\assets\icon\fipinator.ico</ApplicationIcon>
+    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+    <Product>FIPinator Live</Product>
+    <Version>0.9.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fipinator.Panel\Fipinator.Panel.csproj" />
+  </ItemGroup>
+
+  <!-- Font and its open licence sit next to FIPinator.exe (the licence must travel with the font). -->
+  <ItemGroup>
+    <None Include="..\..\assets\fonts\BarlowCondensed-Medium.ttf" Link="BarlowCondensed-Medium.ttf" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <None Include="..\..\assets\fonts\OFL.txt" Link="OFL.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup>
+
+  <!-- FIPinator Live carries its gauges (Gauges\classic, Gauges\dc6) so a new PC needs nothing else.
+       gauges\dc6\parts are building blocks for the 1-4 engine gauges and are never shown. -->
+  <ItemGroup>
+    <None Include="..\..\gauges\classic\**\*.json" LinkBase="Gauges\classic" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <None Include="..\..\gauges\turboprop\**\*.json" LinkBase="Gauges\turboprop" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <None Include="..\..\gauges\jet\**\*.json" LinkBase="Gauges\jet" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <None Include="..\..\gauges\templates\**\*.json" LinkBase="Gauges\templates" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+    <None Include="..\..\gauges\dc6\**\*.json" Exclude="..\..\gauges\dc6\parts\**" LinkBase="Gauges\dc6" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" ExcludeFromSingleFile="true" />
+  </ItemGroup>
+
+  <!-- Don't ship debug symbols from packages (SkiaSharp's is ~90 MB). -->
+  <Target Name="DropPackagePdbs" AfterTargets="Publish">
+    <Delete Files="$(PublishDir)libSkiaSharp.pdb" />
+  </Target>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\assets\icon\fipinator.ico" Link="fipinator.ico" LogicalName="fipinator.ico" />
+    <!-- The picture in "Few FIPs? Flip gauges with the left knob" (made from our own gauges). -->
+    <EmbeddedResource Include="..\..\docs\images\few-fips-left-knob.png" Link="few-fips-left-knob.png" LogicalName="few-fips-left-knob.png" />
+  </ItemGroup>
+
+</Project>

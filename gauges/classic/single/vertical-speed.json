@@ -1,0 +1,230 @@
+{
+  "format": 1,
+  "name": "Classic single Vertical speed",
+  "author": "FIPinator 3000",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "Vertical speed indicator in DC-6 style, in thousands of feet per minute. Level flight points to 9 o\u0027clock; climb turns clockwise, descent anticlockwise, to 2000 ft/min each way. Scale angles read from the sim\u0027s cockpit by eye; check against the PMDG DC-6.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "vs": {
+      "sim": "VERTICAL SPEED",
+      "unit": "feet per minute",
+      "default": 0
+    }
+  },
+  "scales": {
+    "vs": {
+      "points": [
+        [
+          -2000,
+          97
+        ],
+        [
+          -1500,
+          127
+        ],
+        [
+          -1000,
+          165
+        ],
+        [
+          -500,
+          210
+        ],
+        [
+          0,
+          270
+        ],
+        [
+          500,
+          330
+        ],
+        [
+          1000,
+          375
+        ],
+        [
+          1500,
+          413
+        ],
+        [
+          2000,
+          443
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "group",
+      "offset": [
+        8.98,
+        6.73
+      ],
+      "zoom": 0.9439,
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "vs",
+          "every": 100,
+          "from": -2000,
+          "to": 2000,
+          "radius": 103,
+          "length": 10,
+          "width": 2,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "ticks",
+          "scale": "vs",
+          "every": 500,
+          "from": -2000,
+          "to": 2000,
+          "radius": 103,
+          "length": 18,
+          "width": 3.4,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "labels",
+          "scale": "vs",
+          "at": [
+            -2000,
+            -1500,
+            -1000,
+            -500,
+            500,
+            1000,
+            1500,
+            2000
+          ],
+          "radius": 74,
+          "size": 24,
+          "color": "#EFE6CF",
+          "texts": {
+            "-2000": "2",
+            "-1500": "1.5",
+            "-1000": "1",
+            "-500": ".5",
+            "500": ".5",
+            "1000": "1",
+            "1500": "1.5",
+            "2000": "2"
+          }
+        },
+        {
+          "type": "text",
+          "text": "CLIMB",
+          "x": 168,
+          "y": 100,
+          "size": 15,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "text",
+          "text": "THOUSAND FT. PER MINUTE",
+          "x": 168,
+          "y": 113,
+          "size": 9,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "text",
+          "text": "UP",
+          "x": 98,
+          "y": 82,
+          "size": 11,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "text",
+          "text": "DOWN",
+          "x": 100,
+          "y": 166,
+          "size": 11,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "needle",
+          "scale": "vs",
+          "value": "vs",
+          "length": 96,
+          "tail": 14,
+          "width": 3.5,
+          "color": "#EFE6CF",
+          "tailColor": "#161616",
+          "shadow": true
+        },
+        {
+          "type": "hub",
+          "r": 9,
+          "fill": "#1A1A1A",
+          "stroke": "#5A5A5A"
+        }
+      ]
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ]
+}

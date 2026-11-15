@@ -1,0 +1,280 @@
+{
+  "format": 1,
+  "name": "Radios (COM1 / NAV1)",
+  "author": "FIPinator 3000",
+  "description": "COM1 and NAV1 active and standby frequencies. S1/S2 pick the radio the knobs tune (left knob MHz, right knob kHz); S3/S4 swap active and standby.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0B0C0E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "com": {
+      "sim": "COM ACTIVE FREQUENCY:1",
+      "unit": "MHz",
+      "default": 118.7
+    },
+    "comsb": {
+      "sim": "COM STANDBY FREQUENCY:1",
+      "unit": "MHz",
+      "default": 121.5
+    },
+    "nav": {
+      "sim": "NAV ACTIVE FREQUENCY:1",
+      "unit": "MHz",
+      "default": 110.5
+    },
+    "navsb": {
+      "sim": "NAV STANDBY FREQUENCY:1",
+      "unit": "MHz",
+      "default": 113.9
+    },
+    "knobMode": {
+      "default": 1
+    },
+    "sel1_5_hide": {
+      "expr": "choose(choose(abs(knobMode - 1) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "sel2_11_hide": {
+      "expr": "choose(choose(abs(knobMode - 2) - 0.5, 0, 1) - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0B0C0E"
+    },
+    {
+      "type": "text",
+      "text": "COM1",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "NAV1",
+      "x": 4,
+      "y": 65,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "SW COM",
+      "x": 4,
+      "y": 105,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "SW NAV",
+      "x": 4,
+      "y": 145,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel1_5_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 50,
+          "y": 6,
+          "width": 264,
+          "height": 104,
+          "radius": 4,
+          "stroke": "#7FD6F0",
+          "strokeWidth": 2.5
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "COM 1",
+      "x": 64,
+      "y": 28,
+      "size": 16,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "ACTIVE",
+      "x": 134,
+      "y": 28,
+      "size": 11,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "value": "com",
+      "format": "0.000",
+      "x": 306,
+      "y": 66,
+      "size": 38,
+      "color": "#3BE07A",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "text": "STANDBY",
+      "x": 134,
+      "y": 94,
+      "size": 11,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "value": "comsb",
+      "format": "0.000",
+      "x": 306,
+      "y": 102,
+      "size": 24,
+      "color": "#E8E8E6",
+      "align": "right"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel2_11_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 50,
+          "y": 120,
+          "width": 264,
+          "height": 104,
+          "radius": 4,
+          "stroke": "#7FD6F0",
+          "strokeWidth": 2.5
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "NAV 1",
+      "x": 64,
+      "y": 142,
+      "size": 16,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "ACTIVE",
+      "x": 134,
+      "y": 142,
+      "size": 11,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "value": "nav",
+      "format": "0.00",
+      "x": 306,
+      "y": 180,
+      "size": 38,
+      "color": "#3BE07A",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "text": "STANDBY",
+      "x": 134,
+      "y": 208,
+      "size": 11,
+      "color": "#9AA0A6",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "value": "navsb",
+      "format": "0.00",
+      "x": 306,
+      "y": 216,
+      "size": 24,
+      "color": "#E8E8E6",
+      "align": "right"
+    }
+  ],
+  "controls": {
+    "button3": {
+      "event": "COM_STBY_RADIO_SWAP"
+    },
+    "button4": {
+      "event": "NAV1_RADIO_SWAP"
+    }
+  },
+  "modes": [
+    {
+      "name": "COM1",
+      "button": "button1",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "COM_RADIO_FRACT_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "COM_RADIO_FRACT_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "COM_RADIO_WHOLE_INC"
+        },
+        "leftKnobAnticlockwise": {
+          "event": "COM_RADIO_WHOLE_DEC"
+        }
+      }
+    },
+    {
+      "name": "NAV1",
+      "button": "button2",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "NAV1_RADIO_FRACT_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "NAV1_RADIO_FRACT_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "NAV1_RADIO_WHOLE_INC"
+        },
+        "leftKnobAnticlockwise": {
+          "event": "NAV1_RADIO_WHOLE_DEC"
+        }
+      }
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

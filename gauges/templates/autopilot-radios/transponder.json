@@ -1,0 +1,349 @@
+{
+  "format": 1,
+  "name": "Transponder",
+  "author": "FIPinator 3000",
+  "description": "Transponder code and mode. S1 picks the first two digits, S2 the last two: the left knob sets the left digit of the pair, the right knob the right one.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0B0C0E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "code": {
+      "sim": "TRANSPONDER CODE:1",
+      "unit": "Bco16",
+      "default": 4608
+    },
+    "state": {
+      "sim": "TRANSPONDER STATE:1",
+      "unit": "number",
+      "default": 4
+    },
+    "d1": {
+      "expr": "(code - code % 4096) / 4096 % 16"
+    },
+    "d2": {
+      "expr": "(code % 4096 - code % 256) / 256"
+    },
+    "d3": {
+      "expr": "(code % 256 - code % 16) / 16"
+    },
+    "d4": {
+      "expr": "code % 16"
+    },
+    "knobMode": {
+      "default": 1
+    },
+    "sel1_9_hide": {
+      "expr": "choose(choose(abs(knobMode - 1) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "sel2_10_hide": {
+      "expr": "choose(choose(abs(knobMode - 2) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "state_0_hide": {
+      "expr": "choose(choose(abs(state - 0) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "state_1_hide": {
+      "expr": "choose(choose(abs(state - 1) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "state_2_hide": {
+      "expr": "choose(choose(abs(state - 2) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "state_3_hide": {
+      "expr": "choose(choose(abs(state - 3) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "state_4_hide": {
+      "expr": "choose(choose(abs(state - 4) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "state_5_hide": {
+      "expr": "choose(choose(abs(state - 5) - 0.5, 0, 1) - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0B0C0E"
+    },
+    {
+      "type": "text",
+      "text": "12\u00B7\u00B7",
+      "x": 4,
+      "y": 25,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "\u00B7\u00B734",
+      "x": 4,
+      "y": 65,
+      "size": 12,
+      "color": "#7FD6F0",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "TRANSPONDER",
+      "x": 182,
+      "y": 30,
+      "size": 15,
+      "color": "#9AA0A6",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 90,
+      "y": 52,
+      "width": 186,
+      "height": 86,
+      "radius": 3,
+      "fill": "#000000",
+      "stroke": "#33373C",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "text",
+      "value": "d1",
+      "format": "0",
+      "x": 120,
+      "y": 122,
+      "size": 64,
+      "color": "#3BE07A",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "d2",
+      "format": "0",
+      "x": 162,
+      "y": 122,
+      "size": 64,
+      "color": "#3BE07A",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "d3",
+      "format": "0",
+      "x": 204,
+      "y": 122,
+      "size": 64,
+      "color": "#3BE07A",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "value": "d4",
+      "format": "0",
+      "x": 246,
+      "y": 122,
+      "size": 64,
+      "color": "#3BE07A",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel1_9_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 96,
+          "y": 140,
+          "width": 84,
+          "height": 8,
+          "radius": 2,
+          "fill": "#7FD6F0"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "sel2_10_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "rect",
+          "x": 180,
+          "y": 140,
+          "width": 84,
+          "height": 8,
+          "radius": 2,
+          "fill": "#7FD6F0"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "state_0_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "OFF",
+          "x": 182,
+          "y": 196,
+          "size": 30,
+          "color": "#F5A623"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "state_1_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "STBY",
+          "x": 182,
+          "y": 196,
+          "size": 30,
+          "color": "#F5A623"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "state_2_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "TEST",
+          "x": 182,
+          "y": 196,
+          "size": 30,
+          "color": "#F5A623"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "state_3_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "ON",
+          "x": 182,
+          "y": 196,
+          "size": 30,
+          "color": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "state_4_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "ALT",
+          "x": 182,
+          "y": 196,
+          "size": 30,
+          "color": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "state_5_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "GND",
+          "x": 182,
+          "y": 196,
+          "size": 30,
+          "color": "#3BE07A"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "MODE",
+      "x": 182,
+      "y": 222,
+      "size": 12,
+      "color": "#9AA0A6",
+      "align": "center"
+    }
+  ],
+  "modes": [
+    {
+      "name": "first two digits",
+      "button": "button1",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "XPNDR_100_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "XPNDR_100_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "XPNDR_1000_INC"
+        },
+        "leftKnobAnticlockwise": {
+          "event": "XPNDR_1000_DEC"
+        }
+      }
+    },
+    {
+      "name": "last two digits",
+      "button": "button2",
+      "controls": {
+        "rightKnobClockwise": {
+          "event": "XPNDR_1_INC"
+        },
+        "rightKnobAnticlockwise": {
+          "event": "XPNDR_1_DEC"
+        },
+        "leftKnobClockwise": {
+          "event": "XPNDR_10_INC"
+        },
+        "leftKnobAnticlockwise": {
+          "event": "XPNDR_10_DEC"
+        }
+      }
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

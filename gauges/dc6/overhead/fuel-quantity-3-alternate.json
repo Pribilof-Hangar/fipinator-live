@@ -1,0 +1,324 @@
+{
+  "format": 1,
+  "name": "DC-6 Fuel quantity 3 alternate",
+  "author": "FIPinator 3000 (from the owner's DC-6 Gauges designs)",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "PMDG DC-6 fuel quantity 3 alternate, overhead middle panel. Scale and marks as in DC-6 Gauges (read off the PMDG cockpit); needles follow PMDG's own cockpit needle values.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8d908e"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "n1": {
+      "sim": "L:dc6_113_obj",
+      "unit": "number",
+      "default": 225
+    }
+  },
+  "scales": {
+    "s0": {
+      "points": [
+        [
+          0,
+          -151.89,
+          99.76
+        ],
+        [
+          50,
+          -112.75,
+          100.85
+        ],
+        [
+          100,
+          -84.29,
+          100.5
+        ],
+        [
+          150,
+          -58.36,
+          101.02
+        ],
+        [
+          200,
+          -35.41,
+          101.83
+        ],
+        [
+          250,
+          -13.08,
+          101.64
+        ],
+        [
+          300,
+          17.19,
+          101.53
+        ],
+        [
+          350,
+          51.07,
+          100.26
+        ],
+        [
+          400,
+          81.95,
+          99.98
+        ],
+        [
+          450,
+          117.84,
+          100.65
+        ],
+        [
+          500,
+          148.65,
+          101.87
+        ]
+      ]
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3b3c3d",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1e1e1e",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994a4b4c",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        10,
+        20,
+        30,
+        40,
+        60,
+        70,
+        80,
+        90,
+        110,
+        120,
+        130,
+        140,
+        160,
+        170,
+        180,
+        190,
+        210,
+        220,
+        230,
+        240,
+        260,
+        270,
+        280,
+        290,
+        310,
+        320,
+        330,
+        340,
+        360,
+        370,
+        380,
+        390,
+        410,
+        420,
+        430,
+        440,
+        460,
+        470,
+        480,
+        490
+      ],
+      "radius": 0,
+      "length": 8,
+      "width": 1.2,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "s0",
+      "at": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500
+      ],
+      "radius": 0,
+      "length": 16,
+      "width": 2.6,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ]
+    },
+    {
+      "type": "labels",
+      "scale": "s0",
+      "at": [
+        0,
+        50,
+        100,
+        150,
+        200,
+        250,
+        300,
+        350,
+        400,
+        450,
+        500
+      ],
+      "radius": -28,
+      "size": 20,
+      "color": "#efe6cf",
+      "center": [
+        160,
+        120
+      ],
+      "texts": {
+        "0": "0",
+        "50": "5",
+        "100": "10",
+        "150": "15",
+        "200": "20",
+        "250": "25",
+        "300": "30",
+        "350": "35",
+        "400": "40",
+        "450": "45",
+        "500": "50"
+      }
+    },
+    {
+      "type": "text",
+      "text": "FUEL",
+      "x": 160,
+      "y": 88.68,
+      "size": 13,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "QUANTITY",
+      "x": 160,
+      "y": 103.68,
+      "size": 13,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "LBS. X 100",
+      "x": 160,
+      "y": 162.88,
+      "size": 8,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "text",
+      "text": "No. 3 ALT.",
+      "x": 160,
+      "y": 216.88,
+      "size": 8,
+      "color": "#efe6cf"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "s0",
+      "value": "n1",
+      "center": [
+        160,
+        120
+      ],
+      "length": -4,
+      "width": 3.2,
+      "tail": 24,
+      "color": "#efe9d6",
+      "tailColor": "#2a2b2c",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#1a1a1a",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.6,
+      "center": [
+        160,
+        120
+      ],
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 101,
+      "opacity": 0.16
+    }
+  ]
+}

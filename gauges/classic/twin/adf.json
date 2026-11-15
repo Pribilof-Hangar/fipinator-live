@@ -1,0 +1,241 @@
+{
+  "format": 1,
+  "name": "Classic twin ADF",
+  "author": "FIPinator 3000",
+  "description": "Fixed-card ADF: needle to the beacon, card turned with the knobs.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "brg": {
+      "sim": "ADF RADIAL:1",
+      "unit": "degrees",
+      "default": 35
+    },
+    "sig": {
+      "sim": "ADF SIGNAL:1",
+      "unit": "number",
+      "default": 1
+    },
+    "card": {
+      "sim": "ADF CARD",
+      "unit": "degrees",
+      "default": 0
+    },
+    "needle": {
+      "expr": "choose(sig, brg, 90)"
+    }
+  },
+  "scales": {
+    "card": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": -360,
+      "wrap": true
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "card",
+        "scale": "card"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "every": 5,
+          "from": 0,
+          "to": 355,
+          "radius": 92.96,
+          "length": 7,
+          "width": 1.4,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "every": 10,
+          "from": 0,
+          "to": 350,
+          "radius": 92.96,
+          "length": 13,
+          "width": 2.4,
+          "color": "#EFE6CF"
+        },
+        {
+          "type": "labels",
+          "scale": "dial",
+          "every": 30,
+          "from": 0,
+          "to": 330,
+          "radius": 73.29,
+          "size": 19,
+          "color": "#EFE6CF",
+          "orient": "radial",
+          "texts": {
+            "0": "N",
+            "30": "3",
+            "60": "6",
+            "90": "E",
+            "120": "12",
+            "150": "15",
+            "180": "S",
+            "210": "21",
+            "240": "24",
+            "270": "W",
+            "300": "30",
+            "330": "33"
+          }
+        }
+      ]
+    },
+    {
+      "type": "ticks",
+      "scale": "dial",
+      "at": [
+        0
+      ],
+      "radius": 100.11,
+      "length": 14,
+      "width": 12,
+      "shape": "triangle",
+      "color": "#E8862A"
+    },
+    {
+      "type": "ticks",
+      "scale": "dial",
+      "at": [
+        45,
+        90,
+        135,
+        180,
+        225,
+        270,
+        315
+      ],
+      "radius": 100.11,
+      "length": 8,
+      "width": 8,
+      "shape": "triangle",
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "ADF",
+      "x": 160,
+      "y": 155.75,
+      "size": 12,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "needle",
+      "scale": "dial",
+      "value": "needle",
+      "style": "arrow",
+      "length": 80.44,
+      "tail": 73.29,
+      "width": 2.6,
+      "color": "#E8D23A",
+      "shadow": true
+    },
+    {
+      "type": "circle",
+      "r": 7,
+      "fill": "#1A1A1A",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.31,
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "ADF_CARD_INC"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "ADF_CARD_DEC"
+    },
+    "leftKnobClockwise": {
+      "event": "ADF_CARD_INC",
+      "repeat": 10
+    },
+    "leftKnobAnticlockwise": {
+      "event": "ADF_CARD_DEC",
+      "repeat": 10
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

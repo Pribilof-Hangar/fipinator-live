@@ -1,0 +1,160 @@
+{
+  "format": 1,
+  "name": "Cessna 208B Caravan Fuel flow",
+  "author": "FIPinator 3000",
+  "description": "Cessna 208B Caravan Fuel flow: one engine. Limits: EASA TCDS IM.A.226; oil limits from POH summaries.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "e1": {
+      "sim": "ENG FUEL FLOW PPH:1",
+      "unit": "pounds per hour",
+      "default": 225
+    }
+  },
+  "scales": {
+    "ff": {
+      "min": 0,
+      "max": 500,
+      "startAngle": -135,
+      "endAngle": 135
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "ff",
+      "every": 10,
+      "from": 0,
+      "to": 500,
+      "radius": 92.96,
+      "length": 8,
+      "width": 1.5,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "ff",
+      "every": 50,
+      "from": 0,
+      "to": 500,
+      "radius": 92.96,
+      "length": 16,
+      "width": 2.8,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "labels",
+      "scale": "ff",
+      "every": 100,
+      "from": 0,
+      "to": 500,
+      "divideBy": 100,
+      "radius": 71.5,
+      "size": 21,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "FUEL FLOW",
+      "x": 160,
+      "y": 159.33,
+      "size": 13,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "LB/H X 100",
+      "x": 160,
+      "y": 173.63,
+      "size": 9,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "ff",
+      "value": "e1",
+      "length": 82.23,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "fill": "#1A1A1A",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.64,
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

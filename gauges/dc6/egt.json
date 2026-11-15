@@ -1,0 +1,222 @@
+{
+  "format": 1,
+  "name": "DC-6 EGT",
+  "author": "FIPinator 3000",
+  "description": "PMDG DC-6 EGT: 4 engines, numbered needles; red line 1650.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#5A6064"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "e1": {
+      "sim": "ENG EXHAUST GAS TEMPERATURE:1",
+      "unit": "fahrenheit",
+      "default": 1350
+    },
+    "e2": {
+      "sim": "ENG EXHAUST GAS TEMPERATURE:2",
+      "unit": "fahrenheit",
+      "default": 1395
+    },
+    "e3": {
+      "sim": "ENG EXHAUST GAS TEMPERATURE:3",
+      "unit": "fahrenheit",
+      "default": 1440
+    },
+    "e4": {
+      "sim": "ENG EXHAUST GAS TEMPERATURE:4",
+      "unit": "fahrenheit",
+      "default": 1485
+    }
+  },
+  "scales": {
+    "egt": {
+      "min": 800,
+      "max": 1700,
+      "startAngle": -135,
+      "endAngle": 135
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 40,
+      "y": 0,
+      "width": 240,
+      "height": 240,
+      "radius": 18,
+      "fill": "#6C7378",
+      "stroke": "#41474A",
+      "strokeWidth": 1.5
+    },
+    {
+      "type": "screw",
+      "x": 60,
+      "y": 20,
+      "kind": "boss"
+    },
+    {
+      "type": "screw",
+      "x": 260,
+      "y": 20,
+      "kind": "boss"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "slot"
+    },
+    {
+      "type": "circle",
+      "r": 115,
+      "fillTop": "#303030",
+      "fillBottom": "#0A0A0A",
+      "stroke": "#2A2A2A",
+      "strokeWidth": 1.2
+    },
+    {
+      "type": "circle",
+      "r": 107,
+      "fill": "#0B0B0B",
+      "stroke": "#202020",
+      "strokeWidth": 3
+    },
+    {
+      "type": "ticks",
+      "scale": "egt",
+      "every": 25,
+      "from": 800,
+      "to": 1700,
+      "radius": 98.48,
+      "length": 8,
+      "width": 1.5,
+      "color": "#EDEAE2"
+    },
+    {
+      "type": "ticks",
+      "scale": "egt",
+      "every": 100,
+      "from": 800,
+      "to": 1700,
+      "radius": 98.48,
+      "length": 16,
+      "width": 2.8,
+      "color": "#EDEAE2"
+    },
+    {
+      "type": "ticks",
+      "scale": "egt",
+      "at": [
+        1650
+      ],
+      "radius": 104.16,
+      "length": 20,
+      "width": 4,
+      "color": "#D3362B"
+    },
+    {
+      "type": "labels",
+      "scale": "egt",
+      "every": 100,
+      "from": 800,
+      "to": 1700,
+      "divideBy": 100,
+      "radius": 75.75,
+      "size": 21,
+      "color": "#EDEAE2"
+    },
+    {
+      "type": "text",
+      "text": "EGT",
+      "x": 160,
+      "y": 163.56,
+      "size": 15,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "text",
+      "text": "\u00B0F X 100",
+      "x": 160,
+      "y": 176.81,
+      "size": 9,
+      "color": "#D8D4CA"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "egt",
+      "value": "e1",
+      "length": 87.12,
+      "width": 3.2,
+      "tail": 22.73,
+      "color": "#F4F4F2",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "1"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "egt",
+      "value": "e2",
+      "length": 80.49,
+      "width": 3.2,
+      "tail": 22.73,
+      "color": "#F4F4F2",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "2"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "egt",
+      "value": "e3",
+      "length": 73.86,
+      "width": 3.2,
+      "tail": 22.73,
+      "color": "#F4F4F2",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "3"
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "egt",
+      "value": "e4",
+      "length": 67.23,
+      "width": 3.2,
+      "tail": 22.73,
+      "color": "#F4F4F2",
+      "tailColor": "#2A2B2C",
+      "shadow": false,
+      "tag": "4"
+    },
+    {
+      "type": "hub",
+      "r": 8,
+      "fill": "#141414",
+      "stroke": "#4A4A4A"
+    },
+    {
+      "type": "glare",
+      "r": 106,
+      "opacity": 0.18
+    }
+  ],
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

@@ -1,0 +1,450 @@
+{
+  "format": 1,
+  "name": "Classic DME \u002B GPS",
+  "author": "FIPinator 3000",
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork.",
+  "description": "Digital readout: DME 2 distance (nautical miles), NAV 2 frequency, magnetic bearing to the NAV 2 station, and time to the station at the current groundspeed, GPS distance and time to the next waypoint, and GPS groundspeed. Shows dashes when there\u0027s no DME signal, no VOR signal (bearing only: with no VOR the sim reports radial 0), groundspeed under 30 kt (time only), or no active GPS waypoint. DME 1 belongs with the ILS on NAV 1.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "dme": {
+      "sim": "NAV DME:2",
+      "unit": "nautical miles",
+      "default": 12.4
+    },
+    "nav2_radial": {
+      "sim": "NAV RADIAL:2",
+      "unit": "degrees",
+      "default": 327
+    },
+    "has_dme": {
+      "sim": "NAV HAS DME:2",
+      "unit": "bool",
+      "default": 1
+    },
+    "has_vor": {
+      "sim": "NAV HAS NAV:2",
+      "unit": "bool",
+      "default": 1
+    },
+    "nav2_freq": {
+      "sim": "NAV ACTIVE FREQUENCY:2",
+      "unit": "MHz",
+      "default": 114.9
+    },
+    "gps_dist": {
+      "sim": "GPS WP DISTANCE",
+      "unit": "nautical miles",
+      "default": 37.8
+    },
+    "gps_ete": {
+      "sim": "GPS WP ETE",
+      "unit": "seconds",
+      "default": 642
+    },
+    "gps_active": {
+      "sim": "GPS IS ACTIVE WAY POINT",
+      "unit": "bool",
+      "default": 1
+    },
+    "gps_gs": {
+      "sim": "GPS GROUND SPEED",
+      "unit": "knots",
+      "default": 214
+    },
+    "gps_minutes": {
+      "expr": "gps_ete / 60"
+    },
+    "brg_to": {
+      "expr": "wrap360(nav2_radial \u002B 180.5 - (nav2_radial \u002B 180.5) % 1)"
+    },
+    "dme_on_shift": {
+      "expr": "choose(has_dme, 0, 600)"
+    },
+    "dme_off_shift": {
+      "expr": "choose(has_dme, 600, 0)"
+    },
+    "brg_on_shift": {
+      "expr": "choose(has_vor, 0, 600)"
+    },
+    "brg_off_shift": {
+      "expr": "choose(has_vor, 600, 0)"
+    },
+    "tts_minutes": {
+      "expr": "dme / max(gps_gs, 1) * 60"
+    },
+    "tts_on_shift": {
+      "expr": "choose(has_dme, choose(gps_gs - 30, 0, 600), 600)"
+    },
+    "tts_off_shift": {
+      "expr": "choose(has_dme, choose(gps_gs - 30, 600, 0), 0)"
+    },
+    "gps_on_shift": {
+      "expr": "choose(gps_active, 0, 600)"
+    },
+    "gps_off_shift": {
+      "expr": "choose(gps_active, 600, 0)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -1000,
+      "max": 1000,
+      "startAngle": -1000,
+      "endAngle": 1000
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 6,
+      "y": 6,
+      "width": 308,
+      "height": 228,
+      "radius": 14,
+      "fill": "#1B1C1D",
+      "stroke": "#050505",
+      "strokeWidth": 2
+    },
+    {
+      "type": "screw",
+      "x": 22,
+      "y": 22,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 298,
+      "y": 22,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 22,
+      "y": 218,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 298,
+      "y": 218,
+      "kind": "steel"
+    },
+    {
+      "type": "rect",
+      "x": 38,
+      "y": 14,
+      "width": 244,
+      "height": 104,
+      "radius": 6,
+      "fill": "#0B0B0B",
+      "stroke": "#151515",
+      "strokeWidth": 2
+    },
+    {
+      "type": "rect",
+      "x": 38,
+      "y": 124,
+      "width": 244,
+      "height": 104,
+      "radius": 6,
+      "fill": "#0B0B0B",
+      "stroke": "#151515",
+      "strokeWidth": 2
+    },
+    {
+      "type": "text",
+      "text": "DME 2",
+      "x": 50,
+      "y": 34,
+      "size": 16,
+      "color": "#EFE6CF",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "NM",
+      "x": 270,
+      "y": 34,
+      "size": 14,
+      "color": "#EFE6CF",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "value": "nav2_freq",
+      "format": "0.00",
+      "x": 98,
+      "y": 34,
+      "size": 15,
+      "color": "#8E8A80",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "BRG",
+      "x": 50,
+      "y": 108,
+      "size": 13,
+      "color": "#8E8A80",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "\u00B0",
+      "x": 128,
+      "y": 108,
+      "size": 16,
+      "color": "#8E8A80",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "TIME",
+      "x": 186,
+      "y": 108,
+      "size": 13,
+      "color": "#8E8A80",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "MIN",
+      "x": 270,
+      "y": 108,
+      "size": 13,
+      "color": "#8E8A80",
+      "align": "right"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "dme_on_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "dme",
+          "format": "0.0",
+          "x": 270,
+          "y": 88,
+          "size": 52,
+          "color": "#FFB23E",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "dme_off_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "- - -",
+          "x": 270,
+          "y": 88,
+          "size": 52,
+          "color": "#6A5020",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "brg_on_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "brg_to",
+          "format": "000",
+          "x": 126,
+          "y": 108,
+          "size": 18,
+          "color": "#E0A040",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "brg_off_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "- - -",
+          "x": 126,
+          "y": 108,
+          "size": 18,
+          "color": "#6A5020",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "tts_on_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "tts_minutes",
+          "format": "0",
+          "x": 240,
+          "y": 108,
+          "size": 18,
+          "color": "#E0A040",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "tts_off_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "- - -",
+          "x": 240,
+          "y": 108,
+          "size": 18,
+          "color": "#6A5020",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "GPS  NEXT WPT",
+      "x": 50,
+      "y": 144,
+      "size": 16,
+      "color": "#EFE6CF",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "NM",
+      "x": 270,
+      "y": 144,
+      "size": 14,
+      "color": "#EFE6CF",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "text": "ETE",
+      "x": 50,
+      "y": 218,
+      "size": 13,
+      "color": "#8E8A80",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "MIN",
+      "x": 132,
+      "y": 218,
+      "size": 13,
+      "color": "#8E8A80",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "GS",
+      "x": 190,
+      "y": 218,
+      "size": 13,
+      "color": "#8E8A80",
+      "align": "left"
+    },
+    {
+      "type": "text",
+      "text": "KT",
+      "x": 270,
+      "y": 218,
+      "size": 13,
+      "color": "#8E8A80",
+      "align": "right"
+    },
+    {
+      "type": "text",
+      "value": "gps_gs",
+      "format": "0",
+      "x": 248,
+      "y": 218,
+      "size": 16,
+      "color": "#6CC0E8",
+      "align": "right"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "gps_on_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "value": "gps_dist",
+          "format": "0.0",
+          "x": 270,
+          "y": 198,
+          "size": 52,
+          "color": "#7FD7FF",
+          "align": "right"
+        },
+        {
+          "type": "text",
+          "value": "gps_minutes",
+          "format": "0",
+          "x": 126,
+          "y": 218,
+          "size": 16,
+          "color": "#6CC0E8",
+          "align": "right"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "gps_off_shift",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "- - -",
+          "x": 270,
+          "y": 198,
+          "size": 52,
+          "color": "#2E5568",
+          "align": "right"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "format": 1,
+  "name": "Flaps (Airbus style)",
+  "author": "FIPinator 3000",
+  "description": "Airbus ECAM-style slats (S) and flaps (F) with moving markers and the lever position: 0, 1, 1\u002BF, 2, 3, FULL. Knobs move the flap lever.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#0A0D12"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "idx": {
+      "sim": "FLAPS HANDLE INDEX",
+      "unit": "number",
+      "default": 1
+    },
+    "slat": {
+      "sim": "LEADING EDGE FLAPS LEFT PERCENT",
+      "unit": "percent over 100",
+      "default": 0.7
+    },
+    "flap": {
+      "sim": "TRAILING EDGE FLAPS LEFT PERCENT",
+      "unit": "percent over 100",
+      "default": 0.25
+    },
+    "s_x": {
+      "expr": "-110 * clamp(slat, 0, 1)"
+    },
+    "s_y": {
+      "expr": "70 * clamp(slat, 0, 1)"
+    },
+    "f_x": {
+      "expr": "110 * clamp(flap, 0, 1)"
+    },
+    "f_y": {
+      "expr": "70 * clamp(flap, 0, 1)"
+    },
+    "conf0_hide": {
+      "expr": "choose(choose(abs(idx) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "conf1_hide": {
+      "expr": "choose(choose(abs(idx - 1) - 0.5, 0, choose(flap - 0.02, 0, 1)) - 0.5, 0, 400)"
+    },
+    "conf2_hide": {
+      "expr": "choose(choose(abs(idx - 1) - 0.5, 0, choose(flap - 0.02, 1, 0)) - 0.5, 0, 400)"
+    },
+    "conf3_hide": {
+      "expr": "choose(choose(abs(idx - 2) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "conf4_hide": {
+      "expr": "choose(choose(abs(idx - 3) - 0.5, 0, 1) - 0.5, 0, 400)"
+    },
+    "conf5_hide": {
+      "expr": "choose(choose(idx - 3.5, 1, 0) - 0.5, 0, 400)"
+    }
+  },
+  "scales": {
+    "px": {
+      "min": -400,
+      "max": 400,
+      "startAngle": -400,
+      "endAngle": 400
+    }
+  },
+  "layers": [
+    {
+      "type": "rect",
+      "x": 0,
+      "y": 0,
+      "width": 320,
+      "height": 240,
+      "fill": "#0A0D12"
+    },
+    {
+      "type": "text",
+      "text": "FLAPS",
+      "x": 160,
+      "y": 26,
+      "size": 14,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "rect",
+      "x": 142,
+      "y": 50,
+      "width": 36,
+      "height": 10,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 102.5,
+      "y": 81.5,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 213.5,
+      "y": 81.5,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 75,
+      "y": 99,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 241,
+      "y": 99,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 47.5,
+      "y": 116.5,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 268.5,
+      "y": 116.5,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 20,
+      "y": 134,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "rect",
+      "x": 296,
+      "y": 134,
+      "width": 5,
+      "height": 5,
+      "radius": 3,
+      "fill": "#EDEDED"
+    },
+    {
+      "type": "text",
+      "text": "S",
+      "x": 40,
+      "y": 70,
+      "size": 22,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "text",
+      "text": "F",
+      "x": 280,
+      "y": 70,
+      "size": 22,
+      "color": "#EDEDED",
+      "align": "center"
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "s_x",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "group",
+          "moveY": {
+            "value": "s_y",
+            "scale": "px"
+          },
+          "layers": [
+            {
+              "type": "rect",
+              "x": 124,
+              "y": 58,
+              "width": 16,
+              "height": 16,
+              "radius": 2,
+              "fill": "#3BE36E"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "f_x",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "group",
+          "moveY": {
+            "value": "f_y",
+            "scale": "px"
+          },
+          "layers": [
+            {
+              "type": "rect",
+              "x": 180,
+              "y": 58,
+              "width": 16,
+              "height": 16,
+              "radius": 2,
+              "fill": "#3BE36E"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "conf0_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "0",
+          "x": 160,
+          "y": 196,
+          "size": 44,
+          "color": "#3BE36E"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "conf1_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "1",
+          "x": 160,
+          "y": 196,
+          "size": 44,
+          "color": "#3BE36E"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "conf2_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "1\u002BF",
+          "x": 160,
+          "y": 196,
+          "size": 44,
+          "color": "#3BE36E"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "conf3_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "2",
+          "x": 160,
+          "y": 196,
+          "size": 44,
+          "color": "#3BE36E"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "conf4_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "3",
+          "x": 160,
+          "y": 196,
+          "size": 44,
+          "color": "#3BE36E"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "conf5_hide",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "text",
+          "text": "FULL",
+          "x": 160,
+          "y": 196,
+          "size": 44,
+          "color": "#3BE36E"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "text": "knobs: flap lever",
+      "x": 160,
+      "y": 228,
+      "size": 11,
+      "color": "#5D636B",
+      "align": "center"
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "FLAPS_INCR"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "FLAPS_DECR"
+    },
+    "leftKnobClockwise": {
+      "event": "FLAPS_INCR"
+    },
+    "leftKnobAnticlockwise": {
+      "event": "FLAPS_DECR"
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}

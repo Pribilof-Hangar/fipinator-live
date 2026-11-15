@@ -1,0 +1,321 @@
+{
+  "format": 1,
+  "name": "Classic single Radar altimeter",
+  "author": "FIPinator 3000",
+  "description": "Radar altimeter 0-2,500 ft with decision-height bug and DH light. Knobs set the decision height.",
+  "canvas": {
+    "width": 320,
+    "height": 240,
+    "background": "#8D908E"
+  },
+  "center": [
+    160,
+    120
+  ],
+  "font": "../../../assets/fonts/BarlowCondensed-Medium.ttf",
+  "values": {
+    "ra": {
+      "sim": "RADIO HEIGHT",
+      "unit": "feet",
+      "default": 180
+    },
+    "dh": {
+      "sim": "DECISION HEIGHT",
+      "unit": "feet",
+      "default": 200
+    },
+    "dh_light": {
+      "expr": "choose(dh - ra, 0, 400)"
+    }
+  },
+  "scales": {
+    "ra": {
+      "points": [
+        [
+          0,
+          10
+        ],
+        [
+          100,
+          40
+        ],
+        [
+          200,
+          70
+        ],
+        [
+          300,
+          95
+        ],
+        [
+          400,
+          120
+        ],
+        [
+          500,
+          145
+        ],
+        [
+          1000,
+          195
+        ],
+        [
+          1500,
+          225
+        ],
+        [
+          2000,
+          250
+        ],
+        [
+          2500,
+          275
+        ]
+      ]
+    },
+    "dial": {
+      "min": 0,
+      "max": 360,
+      "startAngle": 0,
+      "endAngle": 360,
+      "wrap": true
+    },
+    "px": {
+      "min": -1000,
+      "max": 1000,
+      "startAngle": -1000,
+      "endAngle": 1000
+    }
+  },
+  "layers": [
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 18,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 58,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "screw",
+      "x": 262,
+      "y": 222,
+      "kind": "steel"
+    },
+    {
+      "type": "circle",
+      "r": 114,
+      "fill": "#40000000"
+    },
+    {
+      "type": "circle",
+      "r": 112,
+      "fillTop": "#3B3C3D",
+      "fillBottom": "#050505"
+    },
+    {
+      "type": "circle",
+      "r": 101,
+      "fillTop": "#1E1E1E",
+      "fillBottom": "#060606",
+      "stroke": "#000000",
+      "strokeWidth": 2
+    },
+    {
+      "type": "circle",
+      "r": 103,
+      "stroke": "#994A4B4C",
+      "strokeWidth": 1
+    },
+    {
+      "type": "ticks",
+      "scale": "ra",
+      "every": 20,
+      "from": 0,
+      "to": 500,
+      "radius": 92.96,
+      "length": 7,
+      "width": 1.4,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "ra",
+      "every": 100,
+      "from": 500,
+      "to": 2500,
+      "radius": 92.96,
+      "length": 7,
+      "width": 1.4,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "ticks",
+      "scale": "ra",
+      "at": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        1000,
+        1500,
+        2000,
+        2500
+      ],
+      "radius": 92.96,
+      "length": 15,
+      "width": 2.8,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "labels",
+      "scale": "ra",
+      "at": [
+        0,
+        100,
+        200,
+        300,
+        400,
+        500,
+        1000,
+        1500,
+        2000,
+        2500
+      ],
+      "divideBy": 100,
+      "radius": 71.5,
+      "size": 20,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "RADAR",
+      "x": 129.61,
+      "y": 112.85,
+      "size": 12,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "ALTITUDE",
+      "x": 129.61,
+      "y": 125.36,
+      "size": 12,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "text",
+      "text": "X 100 FEET",
+      "x": 179.66,
+      "y": 173.63,
+      "size": 10,
+      "color": "#EFE6CF"
+    },
+    {
+      "type": "group",
+      "rotate": {
+        "value": "dh",
+        "scale": "ra"
+      },
+      "layers": [
+        {
+          "type": "ticks",
+          "scale": "dial",
+          "at": [
+            0
+          ],
+          "radius": 100.11,
+          "length": 14,
+          "width": 13,
+          "shape": "triangle",
+          "color": "#E8862A"
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "moveX": {
+        "value": "dh_light",
+        "scale": "px"
+      },
+      "layers": [
+        {
+          "type": "circle",
+          "r": 11,
+          "center": [
+            129.61,
+            150.39
+          ],
+          "fillTop": "#FFE9A0",
+          "fillBottom": "#E0901A",
+          "stroke": "#000000"
+        },
+        {
+          "type": "text",
+          "text": "DH",
+          "x": 129.61,
+          "y": 154.39,
+          "size": 11,
+          "color": "#1A1A1A"
+        }
+      ]
+    },
+    {
+      "type": "needle",
+      "style": "pointer",
+      "scale": "ra",
+      "value": "ra",
+      "length": 84.02,
+      "width": 3.2,
+      "tail": 21.45,
+      "color": "#EFE9D6",
+      "tailColor": "#2A2B2C",
+      "shadow": false
+    },
+    {
+      "type": "circle",
+      "r": 8,
+      "fill": "#1A1A1A",
+      "stroke": "#555555"
+    },
+    {
+      "type": "circle",
+      "r": 2.64,
+      "fill": "#777777"
+    },
+    {
+      "type": "glare",
+      "r": 100,
+      "opacity": 0.16
+    }
+  ],
+  "controls": {
+    "rightKnobClockwise": {
+      "event": "INCREASE_DECISION_HEIGHT"
+    },
+    "rightKnobAnticlockwise": {
+      "event": "DECREASE_DECISION_HEIGHT"
+    },
+    "leftKnobClockwise": {
+      "event": "INCREASE_DECISION_HEIGHT",
+      "repeat": 10
+    },
+    "leftKnobAnticlockwise": {
+      "event": "DECREASE_DECISION_HEIGHT",
+      "repeat": 10
+    }
+  },
+  "license": "FREE and open source (AGPL-3.0): free to use, change, share and fork."
+}
