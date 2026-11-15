@@ -246,7 +246,9 @@ public static class JetPack
     /// Jet fuel page, glass style (like a 737 MAX's fuel display): tank 1 and tank 2 dials with the
     /// pounds in each, the centre tank on top, and the total below. Each dial's sweep shows how full
     /// that tank is. Stock sim values: FUEL TANK LEFT MAIN / CENTER / RIGHT MAIN QUANTITY and CAPACITY
-    /// (gallons) times FUEL WEIGHT PER GALLON.
+    /// (gallons) times FUEL WEIGHT PER GALLON. Pounds are cut down to the ten below, like the 737 MAX's
+    /// display (checked in the sim: 8529 lb shows 8520), and the total is cut from the real total, not
+    /// added from the shown tanks (8520 + 5610 + 8520 showed TOTAL 22670).
     /// </summary>
     public static string Fuel(string name, string font = "BarlowCondensed-Medium.ttf")
     {
@@ -256,11 +258,12 @@ public static class JetPack
             ["wpg"] = new JsonObject { ["sim"] = "FUEL WEIGHT PER GALLON", ["unit"] = "pounds", ["default"] = 6.7 },
         };
         JsonArray At(double x, double y) => new(x, y);
+        static string TenBelow(string pounds) => $"{pounds} - ({pounds}) % 10"; // fuel is never below 0
         void Tank(string key, string sim, string label, double x, double y, double r, double sampleGal, double capGal)
         {
             values[$"{key}_gal"] = new JsonObject { ["sim"] = $"FUEL TANK {sim} QUANTITY", ["unit"] = "gallons", ["default"] = sampleGal };
             values[$"{key}_cap"] = new JsonObject { ["sim"] = $"FUEL TANK {sim} CAPACITY", ["unit"] = "gallons", ["default"] = capGal };
-            values[$"{key}_lb"] = new JsonObject { ["expr"] = $"{key}_gal * wpg" };
+            values[$"{key}_lb"] = new JsonObject { ["expr"] = TenBelow($"{key}_gal * wpg") };
             values[$"{key}_full"] = new JsonObject { ["expr"] = $"clamp({key}_gal / max({key}_cap, 1), 0, 1)" };
             layers.Add(new JsonObject { ["type"] = "arc", ["scale"] = "f", ["from"] = 0, ["to"] = 1, ["radius"] = r, ["width"] = 2.5, ["color"] = White, ["center"] = At(x, y) });
             layers.Add(new JsonObject { ["type"] = "arc", ["scale"] = "f", ["from"] = 0, ["toValue"] = $"{key}_full", ["radius"] = r - 6, ["width"] = 8, ["color"] = "#9A9A9A", ["center"] = At(x, y) });
@@ -271,7 +274,7 @@ public static class JetPack
         Tank("l", "LEFT MAIN", "1", 72, 140, 56, 1270, 1288);
         Tank("r", "RIGHT MAIN", "2", 248, 140, 56, 1265, 1288);
         Tank("c", "CENTER", "CTR", 160, 62, 40, 800, 4290);
-        values["total"] = new JsonObject { ["expr"] = "(l_gal + c_gal + r_gal) * wpg" };
+        values["total"] = new JsonObject { ["expr"] = TenBelow("(l_gal + c_gal + r_gal) * wpg") };
         layers.Add(new JsonObject { ["type"] = "text", ["text"] = "FUEL", ["x"] = 160, ["y"] = 136, ["size"] = 15, ["color"] = Cyan });
         layers.Add(new JsonObject { ["type"] = "text", ["text"] = "LB", ["x"] = 160, ["y"] = 152, ["size"] = 13, ["color"] = Cyan });
         layers.Add(new JsonObject { ["type"] = "text", ["text"] = "TOTAL", ["x"] = 112, ["y"] = 224, ["size"] = 14, ["color"] = Cyan, ["align"] = "right" });
