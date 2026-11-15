@@ -70,6 +70,7 @@ public class SpadExportTests
     [InlineData("dc6/mini/engines-mini.json", 0.5, 5.0)]  // worked-out numbers: 16 numbers with evenly spaced digits in SPAD
     [InlineData("jet/727/engines-mini.json", 0.6, 5.0)]   // growing arcs + worked-out numbers
     [InlineData("jet/737-max/altimeter.json", 0.45, 5.0)] // thousands comma ("12,000")
+    [InlineData("jet/737-max/fuel.json", 0.37, 5.0)]      // pounds cut to the ten below (% in SPAD's RPN)
     [InlineData("classic/single/heading.json", 0.3)]       // turning compass card + heading bug on the card
     [InlineData("classic/single/heading.json", 0.77)]
     [InlineData("classic/nav/rmi-vor-adf.json", 0.4)]      // card + bug, needles on top

@@ -30,7 +30,7 @@
       "default": 1288
     },
     "l_lb": {
-      "expr": "l_gal * wpg"
+      "expr": "l_gal * wpg - (l_gal * wpg) % 10"
     },
     "l_full": {
       "expr": "clamp(l_gal / max(l_cap, 1), 0, 1)"
@@ -46,7 +46,7 @@
       "default": 1288
     },
     "r_lb": {
-      "expr": "r_gal * wpg"
+      "expr": "r_gal * wpg - (r_gal * wpg) % 10"
     },
     "r_full": {
       "expr": "clamp(r_gal / max(r_cap, 1), 0, 1)"
@@ -62,13 +62,13 @@
       "default": 4290
     },
     "c_lb": {
-      "expr": "c_gal * wpg"
+      "expr": "c_gal * wpg - (c_gal * wpg) % 10"
     },
     "c_full": {
       "expr": "clamp(c_gal / max(c_cap, 1), 0, 1)"
     },
     "total": {
-      "expr": "(l_gal \u002B c_gal \u002B r_gal) * wpg"
+      "expr": "(l_gal \u002B c_gal \u002B r_gal) * wpg - ((l_gal \u002B c_gal \u002B r_gal) * wpg) % 10"
     }
   },
   "scales": {

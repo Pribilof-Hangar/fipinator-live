@@ -146,6 +146,20 @@ public class JetPackTests
     }
 
     [Fact]
+    public void Jet_fuel_cuts_pounds_to_the_ten_below_like_the_737_MAX_display()
+    {
+        // Read in the sim at one moment: the FIP showed 8529 / 5614 / 8529, total 22672;
+        // the 737 MAX's display showed 8520 / 5610 / 8520, TOTAL 22670.
+        var gauge = GaugeDefinition.Parse(JetPack.Fuel("Fuel"));
+        using var renderer = new GaugeRenderer(gauge, AppContext.BaseDirectory);
+        var live = new Dictionary<string, double> { ["wpg"] = 1, ["l_gal"] = 8529.4, ["c_gal"] = 5614.2, ["r_gal"] = 8528.6 };
+        Assert.Equal(8520, renderer.ValueOf("l_lb", live), 6);
+        Assert.Equal(5610, renderer.ValueOf("c_lb", live), 6);
+        Assert.Equal(8520, renderer.ValueOf("r_lb", live), 6);
+        Assert.Equal(22670, renderer.ValueOf("total", live), 6); // from the real total, not 8520 + 5610 + 8520
+    }
+
+    [Fact]
     public void Mini_engine_panels_are_valid_and_read_the_same_values_as_the_big_gauges()
     {
         var max = GaugeDefinition.Parse(MiniPanels.JetEngines(JetPack.Boeing737Max));
